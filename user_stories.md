@@ -1,14 +1,5 @@
 ## User Stories
 
-### General
-
-1. As a user of  cell annotation standard files, I want to be able to merge annotations into 
-my favoured single cell file format
-
-2. As a builder of resources for querying cell types, I want uniform annotation of
-cell types with some artefact that supports search on synonyms and by grouping class/category.
-
-
 ### CxG portal user (could be made more general)
 
 1. As a CxG portal user, I want to be able to view UMAPs and select terms using 
@@ -21,10 +12,9 @@ the paper content with the data/visualizations/analysis I see in the browser.
 
 1. As a participant in integration efforts, I want the full names of cell types to be used
 for clarity and to enable building consensus on cell type names.
-   * Possible solutions: Mandate full names. But see CXG1
+   * Possible solutions: Mandate full names. But see CXG1; Include field for specifying full names, specifying that this must be filled in if an abbrevation is used for the primary annotation label.
 
-2. As a participant in integration efforts, I want to link official names and synonyms to reference data (cell sets)
-and/or reference marker lists.
+2. As a participant in integration efforts producing reference standards for cell type defintions, I want to link official names and synonyms to reference data (cell sets) and/or reference marker lists.
 
 3.  As a participant in integration efforts I want mechanisms to standardise names and what they refer to (reference data, defining markers), external descriptions:
     * Solution: Ontology annotation + abiltiy to refine ontologies to take into account the results of integration efforts.
