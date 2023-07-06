@@ -1,8 +1,17 @@
 ## User Stories
 
+### General
+
+1. As a user/editor of data annotated using the cell annotation standard, I want to be able to view annotations
+ of of cell sets in tabular form, either as a single table, or as a set of linked tables.
+Links between tables should be easy to understand (e.g. relying on obvious common keys)
+   * Solutions: If robust representation of annotations requires nested data structures, we need SOPs and tooling
+  for flattening & some UX testing of the resulting tables
+
+
 ### CxG portal user (could be made more general)
 
-1. As a CxG portal user, I want to be able to view UMAPs and select terms using 
+1. As a CxG portal user, I want to be able to view embeddings (UMAP, tSNE) and select terms using 
 the abbreviations in the accompanying paper so that I can easily cross-reference
 the paper content with the data/visualizations/analysis I see in the browser.
 
@@ -12,11 +21,14 @@ the paper content with the data/visualizations/analysis I see in the browser.
 
 1. As a participant in integration efforts, I want the full names of cell types to be used
 for clarity and to enable building consensus on cell type names.
-   * Possible solutions: Mandate full names. But see CXG1; Include field for specifying full names, specifying that this must be filled in if an abbrevation is used for the primary annotation label.
+   * Possible solutions: Mandate full names. But see CXG1; Include field for specifying full names,
+specifying that this must be filled in if an abbrevation is used for the primary annotation label.
 
-2. As a participant in integration efforts producing reference standards for cell type defintions, I want to link official names and synonyms to reference data (cell sets) and/or reference marker lists.
+2. As a participant in integration efforts producing reference standards for cell type defintions,
+I want to link official names and synonyms to reference data (cell sets) and/or reference marker lists.
 
-3.  As a participant in integration efforts I want mechanisms to standardise names and what they refer to (reference data, defining markers), external descriptions:
+4.  As a participant in integration efforts I want mechanisms to standardise names and what they refer to
+ reference data, defining markers), external descriptions.
     * Solution: Ontology annotation + abiltiy to refine ontologies to take into account the results of integration efforts.
 
 
