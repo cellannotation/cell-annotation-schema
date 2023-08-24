@@ -19,18 +19,14 @@ This versioning MUST follow the format `'[MAJOR].[MINOR].[PATCH]'` as defined by
   
 ## Definitions
 
-- <a id="definitions/automated_annotation"></a>**`automated_annotation`** *(object)*: A set of fields for recording the details of the automated annotation algorithm used.\n(Common 'automated annotation methods' would include PopV, Azimuth, CellTypist, scArches, etc.)
+- <a id="definitions/automated_annotation"></a>**`automated_annotation`** *(object)*: A set of fields for recording the details of the automated annotation algorithm.
+(Common 'annotation transfer methods' would include PopV, Azimuth, CellTypist, scArches, etc.).
   - **`algorithm_name`** *(string, required)*: The name of the algorithm used. It MUST be a string of the algorithm's name.
   - **`algorithm_version`** *(string, required)*: The version of the algorithm used (if applicable). It MUST be a string of the algorithm's version, which is typically in the format '[MAJOR].[MINOR]', but other versioning systems are permitted (based on the algorithm's versioning).
   - **`algorithm_repo_url`** *(string, required)*: This field denotes the URL of the version control repository associated with the algorithm used (if applicable). It MUST be a string of a valid URL.
   - **`reference_location`** *(string)*: This field denotes a valid URL of the reference dataset used to do annotation transfer (if applicable). This should be the URL of data portal location or other repository. 
 This MUST be a string of a valid URL. The concept of a 'reference' specifically refers to 'annotation transfer' algorithms, whereby a 'reference' dataset is used to transfer cell annotations to the 'query' dataset.
 - <a id="definitions/Annotation"></a>**`Annotation`** *(object)*: A collection of fields recording a cell type/class/state annotation on some set os cells, supporting evidence and provenance. As this is intended as a general schema, compulsory fields are kept to a minimum. However, tools using this schema are encouarged to specify a larger set of compulsory fields for publication. 
-<<<<<<< HEAD
-  
-=======
-	
->>>>>>> 3ea53462fa5fdf0bf7ec5b0b5801f4b03c738438
   Note: This schema deliberately allows for additional fields in order to support ad hoc user fields, new formal schema extensions and project/tool specific metadata.
   - **`cellannotation_set`** *(string, required)*: The unique name of the set of cell annotations. 
 Each cell within the AnnData/Seurat file MUST be associated with a 'cell_label' value in order for this to be a valid 'cellannotation_set'.
