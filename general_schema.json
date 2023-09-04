@@ -52,6 +52,15 @@
           "description": "This MUST be the full-length name for the biological entity listed in `cell_label` by the author. (If the value in `cell_label` is the full-length term, this field will contain the same value.) \nNOTE: any reserved word used in the field 'cell_label' MUST match the value of this field. \n\nEXAMPLE 1: Given the matching terms 'LC' and 'luminal cell' used to annotate the same cell(s), then users could use either terms as values in the field 'cell_label'. However, the abbreviation 'LC' CANNOT be provided in the field 'cell_fullname'. \n\nEXAMPLE 2: Either the abbreviation 'AC' or the full-length term intended by the author 'GABAergic amacrine cell' MAY be placed in the field 'cell_label', but as full-length term naming this biological entity, 'GABAergic amacrine cell' MUST be placed in the field 'cell_fullname'.",
           "type": "string"
         },
+        "cell_set_accession": {
+          "type": "string",
+          "description": "An identifier that can be used to consistently refer to the set of cells being annotated, even if the cell_label changes."
+        },
+        "parent_cell_set_accessions": {
+          "type": "array",
+          "value": "string",
+          "description": "A list of accessions of cell sets that subsume this cell set. This can be used to compose hierarchies of annotated cell sets, built from a fixed set of clusters."
+        },
         "cell_ontology_term_id": {
           "description": "This MUST be a term from either the Cell Ontology (https://www.ebi.ac.uk/ols/ontologies/cl) or from some ontology that extends it by classifying cell types under terms from the Cell Ontology\ne.g. the Provisional Cell Ontology (https://www.ebi.ac.uk/ols/ontologies/pcl) or the Drosophila Anatomy Ontology (DAO) (https://www.ebi.ac.uk/ols4/ontologies/fbbt).\n\nNOTE: The closest available ontology term matching the value within the field 'cell_label' (at the time of publication) MUST be used.\nFor example, if the value of 'cell_label' is 'relay interneuron', but this entity does not yet exist in the ontology, users must choose the closest available term in the CL ontology. In this case, it's the broader term 'interneuron' i.e.  https://www.ebi.ac.uk/ols/ontologies/cl/terms?obo_id=CL:0000099.",
           "type": "string"
