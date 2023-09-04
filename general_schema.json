@@ -4,6 +4,22 @@
   "description": "A general, open-standard schema for cell annotations which records connections, types, provenance and evidence.\nThis is designed not to tie-in to a single project (i.e. no tool-specific fields in core schema),and allows for extensions to support ad hoc user fields, new formal schema extensions, and project/tool specific metadata.",
   "type": "object",
   "definitions": {
+    "cell_annotation_keys": {
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "name of annotation key"
+        },
+        "description": {
+          "type": "string",
+          "description": "Some text describing what types of cell annotation this annotation key is used to record"
+        },
+        "rank": {
+          "type": "integer",
+          "description": "A number indicating relative granularity with 0 being the most specific.  Use this where a single dataset has multiple keys that are used consistently to record annotations and different levels of granularity."
+        }
+      }
+    },
     "automated_annotation": {
       "type": "object",
       "description": "A set of fields for recording the details of the automated annotation algorithm used.\n(Common 'automated annotation methods' would include PopV, Azimuth, CellTypist, scArches, etc.)",
@@ -34,13 +50,13 @@
         },
     "Annotation": {
       "type": "object",
-      "description": "A collection of fields recording a cell type/class/state annotation on some set os cells, supporting evidence and provenance. As this is intended as a general schema, compulsory fields are kept to a minimum. However, tools using this schema are encouarged to specify a larger set of compulsory fields for publication. \n\nNote: This schema deliberately allows for additional fields in order to support ad hoc user fields, new formal schema extensions and project/tool specific metadata.",
+      "description": "A collection of fields recording a cell type/class/state annotation on some set os cells, supporting evidence and provenance. As this is intended as a general schema, compulsory fields are kept to a minimum. However, tools using this schema are encouraged to specify a larger set of compulsory fields for publication. \n\nNote: This schema deliberately allows for additional fields in order to support ad hoc user fields, new formal schema extensions and project/tool specific metadata.",
       "required": [
         "cellannotation_set",
         "cell_label"
       ],
       "properties": {
-       "cellannotation_set": {
+       "cell_annotation_key": {
           "description": "The unique name of the set of cell annotations. \nEach cell within the AnnData/Seurat file MUST be associated with a 'cell_label' value in order for this to be a valid 'cellannotation_set'.",
           "type": "string"
         },
@@ -155,7 +171,14 @@
       "items": {
         "$ref": "#/definitions/Annotation"
       }
+    },
+    "annotation_keys": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Annotation"
+      }
     }
   }
 }
+
 
