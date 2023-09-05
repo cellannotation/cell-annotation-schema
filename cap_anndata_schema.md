@@ -331,7 +331,7 @@ Key-value pair in the `uns` dictionary
 
 * **key:** `cap_dataset_timestamp`
 * **type:** string
-* **value:** The timestamp of the dataset published on CAP. This MUST be a string in the format `%yyyy-%mm-%dd %hh:%mm:%ss`.
+* **value:** The timestamp of the dataset published on CAP. This MUST be a string in the format `%yyyy-%MM-%dd'T'%hh:%mm:%ss`.
 
 ## cap_dataset_version
 
