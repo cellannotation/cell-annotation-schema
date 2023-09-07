@@ -70,7 +70,7 @@ Users MUST provide the raw count matrix either in `.X` or `.raw.X` fields. If th
 
 Users MAY provide the normalized matrix in the `.X` field. We STRONGLY RECOMMEND users to provide both a raw count matrix and a normalized one. We STRONGLY RECOMMEND users to normalize the matrix with the following algorithm:
 
-1. Normalize counts per cell up to 10 000 reads per cell (NOTE: this is done simply so that counts become comparable among cells, cf example [here](https://scanpy-tutorials.readthedocs.io/en/latest/pbmc3k.html))
+1. Normalize counts per cell up to 10 000 reads per cell (NOTE: this is done simply so that counts become comparable among cells. See the default values used in the ScanPy tutorial [here](https://scanpy-tutorials.readthedocs.io/en/latest/pbmc3k.html) or the Seurat function `NormalizeData()` [here](https://satijalab.org/seurat/reference/normalizedata))
 2. Use `log(1+x)` transformation
 
 If the normalized matrix provided by the user differs from the expected one based on the algorithm above, then the user provided matrix will be moved to the additional AnnData layer named `AnnData.layers['user-provided']`. In this case, the `.X` field will be filled by a re-normalized raw count matrix using the algorithm above. NOTE: The re-normalization is needed for reliable work of the CAP calculations.
@@ -204,7 +204,7 @@ The string specified by the user for `[cellannotation_set]` will be used as the 
 * **value:** ndarray of `cell_label` strings, i.e. any free-text term which the author uses to annotate cells, i.e. the preferred cell label name used by the author.
 
 
-## [cellannotation_set]--cell_fullname
+### [cellannotation_set]--cell_fullname
 
 **Format:** The column name is the value `[cellannotation_set]` concatenated with the string `'cell_fullname'` and two hyphens, i.e. `[cellannotation_set] + '--' + 'cell_fullname'`
 
