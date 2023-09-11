@@ -28,8 +28,8 @@ This versioning MUST follow the format `'[MAJOR].[MINOR].[PATCH]'` as defined by
 This MUST be a string of a valid URL. The concept of a 'reference' specifically refers to 'annotation transfer' algorithms, whereby a 'reference' dataset is used to transfer cell annotations to the 'query' dataset.
 - <a id="definitions/Annotation"></a>**`Annotation`** *(object)*: A collection of fields recording a cell type/class/state annotation on some set os cells, supporting evidence and provenance. As this is intended as a general schema, compulsory fields are kept to a minimum. However, tools using this schema are encouarged to specify a larger set of compulsory fields for publication. 
   Note: This schema deliberately allows for additional fields in order to support ad hoc user fields, new formal schema extensions and project/tool specific metadata.
-  - **`cellannotation_set`** *(string, required)*: The unique name of the set of cell annotations. 
-Each cell within the AnnData/Seurat file MUST be associated with a 'cell_label' value in order for this to be a valid 'cellannotation_set'.
+  - **`cellannotation_setname`** *(string, required)*: The unique name of the set of cell annotations. 
+Each cell within the AnnData/Seurat file MUST be associated with a 'cell_label' value in order for this to be a valid 'cellannotation_setname'.
   - **`cell_label`** *(string, required)*: This denotes any free-text term which the author uses to annotate cells, i.e. the preferred cell label name used by the author. Abbreviations are exceptable in this field; refer to 'cell_fullname' for related details. 
 Certain key words have been reserved:
     - `'doublets'` is reserved for encoding cells defined as doublets based on some computational analysis

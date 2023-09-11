@@ -20,86 +20,86 @@ The only fields of the AnnData file which are relevant for this are `obs` (which
 These are columns and values within a pandas DataFrame: https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html
 
 
-## [cellannotation_set]
+## [cellannotation_setname]
 
-The string specified by the user for `[cellannotation_set]` will be used as the pandas DataFrame column name (key) to encode all columns in `*.obs`.
+The string specified by the user for `[cellannotation_setname]` will be used as the pandas DataFrame column name (key) to encode all columns in `*.obs`.
 
-**Format:** The column name is the string `[cellannotation_set]` and the values are the strings of `cell_label`. Refer to the fields `cellannotation_set` and `cell_label` in the JSON Schema.
+**Format:** The column name is the string `[cellannotation_setname]` and the values are the strings of `cell_label`. Refer to the fields `cellannotation_setname` and `cell_label` in the JSON Schema.
 
-* **column** `[cellannotation_set]`
+* **column** `[cellannotation_setname]`
 * **index** Cell barcode names
 * **dtype:** string
 * **value:** ndarray of `cell_label` strings, i.e. any free-text term which the author uses to annotate cells, i.e. the preferred cell label name used by the author.
 
 
-## [cellannotation_set]--cell_fullname
+## [cellannotation_setname]--cell_fullname
 
-**Format:** The column name is the value `[cellannotation_set]` concatenated with the string `'cell_fullname'` and two hyphens, i.e. `[cellannotation_set] + '--' + 'cell_fullname'`
+**Format:** The column name is the value `[cellannotation_setname]` concatenated with the string `'cell_fullname'` and two hyphens, i.e. `[cellannotation_setname] + '--' + 'cell_fullname'`
 
 For example, if the user specified the cell annotation as `broad_cells1`, then the name of the column in the pandas DataFrame will be `broad_cells1--cell_fullname`. 
 
-* **column** `[cellannotation_set]--cell_fullname`
+* **column** `[cellannotation_setname]--cell_fullname`
 * **index** Cell barcode names
 * **dtype:** string
 * **value:** ndarray of `cell_fullname` strings, i.e. the full-length name for the biological entity listed in `cell_label` by the author. 
 
 
-## [cellannotation_set]--cell_ontology_term_id
+## [cellannotation_setname]--cell_ontology_term_id
 
-**Format:** The column name is the value `[cellannotation_set]` concatenated with the string `'cell_ontology_term_id'` and two hyphens, i.e. `[cellannotation_set] + '--' + 'cell_ontology_term_id'`
+**Format:** The column name is the value `[cellannotation_setname]` concatenated with the string `'cell_ontology_term_id'` and two hyphens, i.e. `[cellannotation_setname] + '--' + 'cell_ontology_term_id'`
 
-* **column** `[cellannotation_set]--cell_ontology_term_id`
+* **column** `[cellannotation_setname]--cell_ontology_term_id`
 * **index** Cell barcode names
 * **dtype:** string
 * **value:** ndarray of `cell_ontology_term_id` strings, i.e. the ID from either the Cell Ontology (https://www.ebi.ac.uk/ols/ontologies/cl) or from some ontology that extends it by classifying cell types under terms from the Cell Ontology 
 
 
 
-## [cellannotation_set]--cell_ontology_term
+## [cellannotation_setname]--cell_ontology_term
 
-**Format:** The column name is the value `[cellannotation_set]` concatenated with the string `'cell_ontology_term'` and two hyphens, i.e. `[cellannotation_set] + '--' + 'cell_ontology_term'`
+**Format:** The column name is the value `[cellannotation_setname]` concatenated with the string `'cell_ontology_term'` and two hyphens, i.e. `[cellannotation_setname] + '--' + 'cell_ontology_term'`
 
-* **column** `[cellannotation_set]--cell_ontology_term`
+* **column** `[cellannotation_setname]--cell_ontology_term`
 * **index** Cell barcode names
 * **dtype:** string
 * **value:** ndarray of `cell_ontology_term` strings, i.e. the human-readable name assigned to the value of `'cell_ontology_term_id'`
 
-## [cellannotation_set]--rationale
+## [cellannotation_setname]--rationale
 
-**Format:** The column name is the value `[cellannotation_set]` concatenated with the string `'rationale'` and two hyphens, i.e. `[cellannotation_set] + '--' + 'rationale'`
+**Format:** The column name is the value `[cellannotation_setname]` concatenated with the string `'rationale'` and two hyphens, i.e. `[cellannotation_setname] + '--' + 'rationale'`
 
-* **column** `[cellannotation_set]--rationale`
+* **column** `[cellannotation_setname]--rationale`
 * **index** Cell barcode names
 * **dtype:** string
 * **value:** ndarray of strings maximum length 2000, i.e. each ndarray value must be a single encoding the free-text rationale which users provide as justification/evidence for their cell annotations. 
 
-## [cellannotation_set]--rationale_dois
+## [cellannotation_setname]--rationale_dois
 
-**Format:** The column name is the value `[cellannotation_set]` concatenated with the string `'rationale_dois'` and two hyphens, i.e. `[cellannotation_set] + '--' + 'rationale_dois'`
+**Format:** The column name is the value `[cellannotation_setname]` concatenated with the string `'rationale_dois'` and two hyphens, i.e. `[cellannotation_setname] + '--' + 'rationale_dois'`
 
-* **column** `[cellannotation_set]--rationale_dois`
+* **column** `[cellannotation_setname]--rationale_dois`
 * **index** Cell barcode names
 * **dtype:** string
 * **value:** ndarray of strings, i.e. each ndarray value must be a single comma-separated string of valid publication DOIs cited by the author to support or provide justification/evidence/context for 'cell_label'.
 
 * **example:** `'10.1038/s41587-022-01468-y, 10.1038/s41556-021-00787-7, 10.1038/s41586-021-03465-8'`
 
-## [cellannotation_set]--marker_gene_evidence
+## [cellannotation_setname]--marker_gene_evidence
 
-**Format:** The column name is the value `[cellannotation_set]` concatenated with the string `'marker_gene_evidence'` and two hyphens, i.e. `[cellannotation_set] + '--' + 'marker_gene_evidence'`
+**Format:** The column name is the value `[cellannotation_setname]` concatenated with the string `'marker_gene_evidence'` and two hyphens, i.e. `[cellannotation_setname] + '--' + 'marker_gene_evidence'`
 
-* **column** `[cellannotation_set]--marker_gene_evidence`
+* **column** `[cellannotation_setname]--marker_gene_evidence`
 * **index** Cell barcode names
 * **dtype:** string
 * **value:** ndarray of strings, i.e. each ndarray value must be a single comma-separated string of gene names explicitly used as evidence for this cell annotation. Each gene MUST be included in the matrix of the AnnData/Seurat file.
 
 * **example:** `'TP53, KRAS, BRCA1'`
 
-## [cellannotation_set]--synonyms
+## [cellannotation_setname]--synonyms
 
-**Format:** The column name is the value `[cellannotation_set]` concatenated with the string `'synonyms'` and two hyphens, i.e. `[cellannotation_set] + '--' + 'synonyms'`
+**Format:** The column name is the value `[cellannotation_setname]` concatenated with the string `'synonyms'` and two hyphens, i.e. `[cellannotation_setname] + '--' + 'synonyms'`
 
-* **column** `[cellannotation_set]--synonyms`
+* **column** `[cellannotation_setname]--synonyms`
 * **index** Cell barcode names
 * **dtype:** string
 * **value:** ndarray of strings, i.e. each ndarray value must be a single comma-separated string of synonyms for `cell_label`
@@ -110,7 +110,7 @@ For example, if the user specified the cell annotation as `broad_cells1`, then t
 
 # uns (Dataset metadata)
 
-**NOTE:** Each time a cell annotation `cellannotation_set` is modified, these values potentially change. 
+**NOTE:** Each time a cell annotation `cellannotation_setname` is modified, these values potentially change. 
 
 ## cellannotation_schema_version
 
@@ -178,9 +178,9 @@ Key-value pair in the `uns` dictionary
 Python dictionary within the `uns` dictionary
 
 
-#### [cellannotation_set]--source
+#### [cellannotation_setname]--source
 
-* **key:** `[cellannotation_set]--source`
+* **key:** `[cellannotation_setname]--source`
 * **type:** python dictionary
 * **value:** the rest of the dictionary as defined below
 
