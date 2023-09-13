@@ -146,7 +146,7 @@ In any layer, if a matrix has 50% or more values that are zeros, it is STRONGLY 
 
 * **column** `assay`
 * **dtype:** string
-* **value:** This MUST be the human-readable term which corresponds to the value of <code>disease_ontology_term_id</code>. The ontology term and ontology term ID MUST match.
+* **value:** This MUST be the human-readable term which corresponds to the value of <code>assay_ontology_term_id</code>. The ontology term and ontology term ID MUST match.
 
 
 
