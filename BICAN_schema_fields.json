@@ -1,0 +1,13 @@
+{
+  "definitions": {
+    "Annotation": {
+      "properties": {
+        "parent_cell_set_accessions": {
+          "type": "array",
+          "value": "string",
+          "description": "A list of accessions of cell sets that subsume this cell set. This can be used to compose hierarchies of annotated cell sets, built from a fixed set of clusters."
+        }
+      }
+    }
+  }
+}

@@ -56,11 +56,6 @@
           "type": "string",
           "description": "An identifier that can be used to consistently refer to the set of cells being annotated, even if the cell_label changes."
         },
-        "parent_cell_set_accessions": {
-          "type": "array",
-          "value": "string",
-          "description": "A list of accessions of cell sets that subsume this cell set. This can be used to compose hierarchies of annotated cell sets, built from a fixed set of clusters."
-        },
         "cell_ontology_term_id": {
           "description": "This MUST be a term from either the Cell Ontology (https://www.ebi.ac.uk/ols/ontologies/cl) or from some ontology that extends it by classifying cell types under terms from the Cell Ontology\ne.g. the Provisional Cell Ontology (https://www.ebi.ac.uk/ols/ontologies/pcl) or the Drosophila Anatomy Ontology (DAO) (https://www.ebi.ac.uk/ols4/ontologies/fbbt).\n\nNOTE: The closest available ontology term matching the value within the field 'cell_label' (at the time of publication) MUST be used.\nFor example, if the value of 'cell_label' is 'relay interneuron', but this entity does not yet exist in the ontology, users must choose the closest available term in the CL ontology. In this case, it's the broader term 'interneuron' i.e.  https://www.ebi.ac.uk/ols/ontologies/cl/terms?obo_id=CL:0000099.",
           "type": "string"
