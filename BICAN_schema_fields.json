@@ -1,0 +1,12 @@
+{
+  "definitions": {
+    "cell_annotation_keys": {
+      "properties": {
+        "rank": {
+          "type": "integer",
+          "description": "A number indicating relative granularity with 0 being the most specific.  Use this where a single dataset has multiple keys that are used consistently to record annotations and different levels of granularity."
+        }
+      }
+    }
+  }
+}
