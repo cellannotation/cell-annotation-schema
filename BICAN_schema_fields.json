@@ -2,6 +2,10 @@
   "definitions": {
     "Annotation": {
       "properties": {
+        "cell_set_accession": {
+          "type": "string",
+          "description": "An identifier that can be used to consistently refer to the set of cells being annotated, even if the cell_label changes."
+        },
         "parent_cell_set_accessions": {
           "type": "array",
           "value": "string",
