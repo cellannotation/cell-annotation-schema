@@ -2,7 +2,7 @@
   "definitions": {
   "Annotation_transfer": {
     "properties": {
-         "cell_label": {
+         "transferred_cell_label": {
            "type": "string",
            "description": "Transferred cell label"
          },
@@ -17,7 +17,11 @@
          "algorithm_name": {
            "type": "string",
            "description": ""
-         }
+         },
+        "comment": {
+          "type": "string",
+          "description": "Free text comment on annotation transfer"
+        }
       }
     }
   }
