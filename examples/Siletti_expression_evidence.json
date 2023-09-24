@@ -1,0 +1,22 @@
+{
+  "author": "Kimberley Siletti",
+  "labelset": [
+    {
+      "cellannotation_setname": "neurotransmitter",
+      "cell_label": "NT-GLY",
+      "cell_fullname": "Glycinergic",
+      "marker_gene_evidence": ["SLC32A1","SLC6A5"],
+      "synonyms": ["Glycinergic neurotransmission"],
+      "rationale": "\n* Express Slc32a1, the vesicular GABA transporter, which also transports glycine\n* Express Slc6a5 (GLYT2), the glycine transporter, which makes them glycinergic,",
+      "rationale_dois": ["https://doi.org/10.1038/nrd3893", "https://doi.org/10.1523/JNEUROSCI.0509-08.2008"],
+      "cell_type": "glycinergic neuron",
+    },
+    {  "cellannotation_setname": "Subtype",
+       "cell_label": "INT-SST-CHODL",
+       "cell_fullname": "Long-range projecting, sleep-active interneuron",
+       "marker_gene_evidence": ["DLX1","SST","CHODL","TACR1","NPY","NOS1","CORT"],
+       "rationale": "CORT is more specifically enriched in the neuronal cluster with the high NOS1 and NPY expression.\nWithout CORT, also labels some AVP+ neurons with low NOS1 and NPY expression.",
+       "rationale_dois": ["https://doi.org/10.1038/nn.4216"] }
+    }
+    ]
+}
