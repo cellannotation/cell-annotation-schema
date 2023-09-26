@@ -4,6 +4,18 @@
   "description": "A general, open-standard schema for cell annotations which records connections, types, provenance and evidence.\nThis is designed not to tie-in to a single project (i.e. no tool-specific fields in core schema),and allows for extensions to support ad hoc user fields, new formal schema extensions, and project/tool specific metadata.",
   "type": "object",
   "definitions": {
+    "cellannotation_setname_metadata": {
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "name of annotation key"
+        },
+        "description": {
+          "type": "string",
+          "description": "Some text describing what types of cell annotation this annotation key is used to record"
+        }
+      }
+    },
     "automated_annotation": {
       "type": "object",
       "description": "A set of fields for recording the details of the automated annotation algorithm used.\n(Common 'automated annotation methods' would include PopV, Azimuth, CellTypist, scArches, etc.)",
