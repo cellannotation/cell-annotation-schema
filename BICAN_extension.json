@@ -1,0 +1,28 @@
+{
+  "definitions": {
+  "Annotation_transfer": {
+    "properties": {
+         "transferred_cell_label": {
+           "type": "string",
+           "description": "Transferred cell label"
+         },
+           "source taxonomy": {
+             "type": "string",
+             "description": "PURL of source taxonomy"
+           },
+         "source_node_accession": {
+           "type": "string",
+           "description": "accession of node that label was transferred from"
+         },
+         "algorithm_name": {
+           "type": "string",
+           "description": ""
+         },
+        "comment": {
+          "type": "string",
+          "description": "Free text comment on annotation transfer"
+        }
+      }
+    }
+  }
+}
