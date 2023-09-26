@@ -1,0 +1,17 @@
+{
+  "author": "Kimberly Siletti",
+  "labelsets": [
+    {
+      "cellannotation_setname": "Subtype",
+      "cell_label": "INT-VIP",
+      "transferred_annotations": [
+        {
+          "transferred_cell_label": "Vip",
+          "source taxonomy": "http://bican.org/taxonomy/CS1908210",
+          "source_node_accession": "CS1908210085",
+          "comment": "We performed PCA (50 components) on our full dataset, trained a random forest classifier (scikit-learn, class_weight='balanced', max_depth=50) on the MTG labels, and then predicted labels for all cells. We labeled each cluster with the mode of its constituent cells if two conditions were met: more than 0.8 of predicted labels matched the mode, and the mean probability of these predictions was greater than 0.8."
+        }
+      ]
+    }
+  ]
+}
