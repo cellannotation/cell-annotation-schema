@@ -45,7 +45,7 @@ jobs:
       - name: Post comment validator comment
         if: always()
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
         uses: NejcZdovc/comment-pr@v1.1.1
         with:
           file: "../../comment.md"
