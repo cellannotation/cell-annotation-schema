@@ -7,6 +7,9 @@ on:
       - 'general_schema.json'
       - 'examples/**'
 
+permissions:
+    pull-requests: write
+
 jobs:
   json-schema-validation:
     runs-on: ubuntu-latest
