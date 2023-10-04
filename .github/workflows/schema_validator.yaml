@@ -7,7 +7,7 @@ on:
       - 'examples/**'
 
 jobs:
-  yaml-schema-validation:
+  json-schema-validation:
     runs-on: ubuntu-latest
     strategy:
       matrix:
