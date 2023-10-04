@@ -36,8 +36,6 @@ jobs:
         run: |
           echo "Validation Fails   " > comment.md
           cat ${{ steps.schema.outputs.validation_report }} >> comment.md
-          pwd
-          ls -l
           exit 1
 
       - name: Prepare success comment
@@ -46,8 +44,8 @@ jobs:
 
       - name: Post comment validator comment
         if: always()
-        uses: thollander/actions-comment-pull-request@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: NejcZdovc/comment-pr@v1.1.1
         with:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-            pr_number: ${{ github.event.number }}
-            filePath: comment.md
+          file: "../../comment.md"
