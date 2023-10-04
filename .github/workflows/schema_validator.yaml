@@ -50,4 +50,4 @@ jobs:
         with:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             pr_number: ${{ github.event.number }}
-            filePath: ../../comment.md
+            filePath: comment.md
