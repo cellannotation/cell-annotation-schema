@@ -52,7 +52,7 @@ jobs:
       - name: Post comment validator comment
         if: always()
         env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         uses: NejcZdovc/comment-pr@v2.0.0
         with:
           file: "comment.md"
