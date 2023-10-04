@@ -27,6 +27,8 @@ jobs:
       if: failure()
       run: |
         echo "Validation Fails   " > comment.md; cat validation.report >> comment.md
+        pwd
+        ls -l
         exit 1
     - name: Prepare success comment
       run: |
