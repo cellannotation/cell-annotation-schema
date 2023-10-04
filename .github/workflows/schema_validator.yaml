@@ -37,6 +37,7 @@ jobs:
           echo "Validation Fails   " > comment.md
           cat ${{ steps.schema.outputs.validation_report }} >> comment.md
           mv comment.md .github/workflows/
+          ls -l .github/workflows/
           exit 1
 
       - name: Prepare success comment
