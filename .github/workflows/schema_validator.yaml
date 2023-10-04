@@ -48,6 +48,6 @@ jobs:
         if: always()
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        uses: NejcZdovc/comment-pr@v2.0.0
+        uses: NejcZdovc/comment-pr@v1.1.1
         with:
           file: "../../comment.md"
