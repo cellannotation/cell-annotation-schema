@@ -55,4 +55,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         uses: NejcZdovc/comment-pr@v2.0.0
         with:
+          single_comment: false
           file: "comment.md"
