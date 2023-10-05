@@ -33,6 +33,7 @@ jobs:
         id: schema
         run: |
           python src/schema_validator.py > validation.report
+          cat validation.report
           echo "::set-output name=validation_report::validation.report"
 
       - name: Prepare schema validator comment
@@ -40,6 +41,7 @@ jobs:
         run: |
           echo "Validation Fails   " > comment.md
           cat ${{ steps.schema.outputs.validation_report }} >> comment.md
+          cat comment.md
           mv comment.md .github/workflows/
           ls -l .github/workflows/
           exit 1
