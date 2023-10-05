@@ -1,10 +1,15 @@
+import glob
 import json
 import sys
-from jsonschema import Draft4Validator, RefResolver, SchemaError
 import os
-import glob
-import warnings
 from pathlib import Path
+from typing import List
+import warnings
+
+from jsonschema import Draft4Validator, RefResolver, SchemaError
+
+
+warnings.filterwarnings("always")
 
 
 def get_json_from_file(filename):
@@ -53,7 +58,8 @@ def validate(validator, instance):
     else:
         es = validator.iter_errors(instance)
         recurse_through_errors(es)
-        sys.exit("Validation Fails")
+        print("Validation Fails")
+        return False
 
 
 def recurse_through_errors(es, level=0):
@@ -93,11 +99,14 @@ def run_validator(path_to_schema_dir, schema_file, path_to_test_dir):
         sv = get_validator(os.path.join(script_folder, schema_dir, schema_file))
         test_dir_files = "".join(["/*.", file_ext])
         test_files = glob.glob(pathname=os.path.join(script_folder, test_dir) + test_dir_files)
-        # print("Found test files: %s in %s" % (str(test_files), path_to_test_dir))
+        validation_status: List[bool] = []
+        print("Found test files: %s in %s" % (str(test_files), path_to_test_dir))
         for instance_file in test_files:
             i = get_json_from_file(instance_file)
             print("Testing: %s" % instance_file)
-            validate(sv, i)
+            validation_status.append(validate(sv, i))
+        if False in validation_status:
+            sys.exit("Validation Fails")
 
 
 if __name__ == "__main__":
