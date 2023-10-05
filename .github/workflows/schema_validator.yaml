@@ -35,6 +35,11 @@ jobs:
           python src/schema_validator.py > validation.report
           cat validation.report
           echo "::set-output name=validation_report::validation.report"
+          # Check if the validation.report file contains warnings.warn
+          if grep -q 'warnings.warn' validation.report; then
+            echo "Validation failed due to warnings."
+            exit 1  # Exit with a non-zero status to indicate failure
+          fi
 
       - name: Prepare schema validator comment
         if: failure()
@@ -57,5 +62,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         uses: NejcZdovc/comment-pr@v2.0.0
         with:
-          single_comment: false
+#          single_comment: false
           file: "comment.md"
