@@ -53,9 +53,7 @@ def validate(validator, instance):
     else:
         es = validator.iter_errors(instance)
         recurse_through_errors(es)
-        print("Validation Fails")
-        return False
-        # sys.exit("Validation Fails")
+        sys.exit("Validation Fails")
 
 
 def recurse_through_errors(es, level=0):
