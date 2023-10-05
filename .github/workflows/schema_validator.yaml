@@ -32,23 +32,18 @@ jobs:
       - name: Schema validation
         id: schema
         run: |
-          python src/schema_validator.py > validation.report
-          cat validation.report
-          echo "::set-output name=validation_report::validation.report"
+          python src/schema_validator.py
 
       - name: Prepare schema validator comment
         if: failure()
         run: |
-          echo "Validation Fails   " > comment.md
-          cat ${{ steps.schema.outputs.validation_report }} >> comment.md
-          cat comment.md
+          echo "Validation Fails. Check action report for details.  " > comment.md
           mv comment.md .github/workflows/
-          ls -l .github/workflows/
           exit 1
 
       - name: Prepare success comment
         run: |
-          echo "Validation Passes   " > comment.md
+          echo "Validation Passes.  " > comment.md
           mv comment.md .github/workflows/
 
       - name: Post comment validator comment
