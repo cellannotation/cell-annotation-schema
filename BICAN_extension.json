@@ -1,0 +1,25 @@
+{
+  "definitions": {
+    "cellannotation_setname_metadata": {
+      "properties": {
+        "rank": {
+          "type": "integer",
+          "description": "A number indicating relative granularity with 0 being the most specific.  Use this where a single dataset has multiple keys that are used consistently to record annotations and different levels of granularity."
+        }
+      }
+    },
+    "Annotation": {
+      "properties": {
+        "cell_set_accession": {
+          "type": "string",
+          "description": "An identifier that can be used to consistently refer to the set of cells being annotated, even if the cell_label changes."
+        },
+        "parent_cell_set_accessions": {
+          "type": "array",
+          "value": "string",
+          "description": "A list of accessions of cell sets that subsume this cell set. This can be used to compose hierarchies of annotated cell sets, built from a fixed set of clusters."
+        }
+      }
+    }
+  }
+}
