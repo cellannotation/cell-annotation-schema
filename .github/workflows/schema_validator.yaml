@@ -1,0 +1,56 @@
+name: JSON schema validator
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'general_schema.json'
+      - 'examples/**'
+
+permissions:
+    pull-requests: write
+    contents: read
+
+jobs:
+  json-schema-validation:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ['3.9']
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install dependencies
+        run: pip install -r src/requirements.txt
+
+      - name: Schema validation
+        id: schema
+        run: |
+          python src/schema_validator.py
+
+      - name: Prepare schema validator comment
+        if: failure()
+        run: |
+          echo "Validation Fails. Check action report for details.  " > comment.md
+          mv comment.md .github/workflows/
+          exit 1
+
+      - name: Prepare success comment
+        run: |
+          echo "Validation Passes.  " > comment.md
+          mv comment.md .github/workflows/
+
+      - name: Post comment validator comment
+        if: always()
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: NejcZdovc/comment-pr@v2.0.0
+        with:
+          single_comment: false
+          file: "comment.md"

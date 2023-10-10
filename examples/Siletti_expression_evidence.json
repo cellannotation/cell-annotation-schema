@@ -1,5 +1,5 @@
 {
-  "author": "Kimberley Siletti",
+  "author_name": "Kimberley Siletti",
   "labelset": [
     {
       "cellannotation_setname": "neurotransmitter",
@@ -10,6 +10,7 @@
       "rationale": "\n* Express Slc32a1, the vesicular GABA transporter, which also transports glycine\n* Express Slc6a5 (GLYT2), the glycine transporter, which makes them glycinergic,",
       "rationale_dois": ["https://doi.org/10.1038/nrd3893", "https://doi.org/10.1523/JNEUROSCI.0509-08.2008"],
       "cell_type": "glycinergic neuron",
+      "cell_type_ontology_id": "CL:1001509"
     },
     {  "cellannotation_setname": "Subtype",
        "cell_label": "INT-SST-CHODL",
