@@ -1,7 +1,7 @@
 {
     "allOf": [
       {
-        "$ref": "https://raw.githubusercontent.com/cellannotation/cell-annotation-schema/main/general_schema.json"
+        "$ref": "./general_schema.json"
       }
     ],
 

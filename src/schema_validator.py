@@ -1,29 +1,15 @@
 import glob
-import json
 import sys
 import os
 from pathlib import Path
 from typing import List
+from json_utils import get_json_from_file
 import warnings
 
 from jsonschema import Draft4Validator, RefResolver, SchemaError
 
 
 warnings.filterwarnings("always")
-
-
-def get_json_from_file(filename):
-    """Loads JSON from a file."""
-    try:
-        with open(filename, "r") as f:
-            fc = f.read()
-        return json.loads(fc)
-    except FileNotFoundError:
-        warnings.warn("File not found: " + filename)
-    except IOError as exc:
-        warnings.warn("I/O error while opening " + filename + ": " + str(exc))
-    except json.JSONDecodeError as exc:
-        warnings.warn("Failed to parse JSON in " + filename + ": " + str(exc))
 
 
 def get_validator(filename, base_uri=""):
