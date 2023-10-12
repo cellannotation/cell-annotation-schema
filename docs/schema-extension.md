@@ -60,6 +60,6 @@ An example catalog file is located at [src/catalog.yaml](src/catalog.yaml)
 https://raw.githubusercontent.com/cellannotation/cell-annotation-schema/main/general_schema.json: ../general_schema.json
 ```
 
-Pointed local file paths are relative to the location of the `catalog.yaml` file itself. Hence, in this example, it is relative to `{root_folder}/src/catalog.yaml` which resolves to `{root_folder}/catalog.yaml`.
+Pointed local file paths are relative to the location of the `catalog.yaml` file itself. Hence, in this example, it is relative to `{root_folder}/src/catalog.yaml` which resolves to `{root_folder}/general_schema.json`.
 
 A basic caching mechanism added for catalog files to prevent repetitive file read operations and accordingly increase performance.
