@@ -43,7 +43,7 @@ if extension declares `age` with different settings, a conflict occurs.
 ```
 By default, both of these should be satisfied to have a valid json data, which is impossible.
 
-To overcome conflicts, we provide two conflict resolution strategies. These strategies ensure that extension schemas work seamlessly with the base schema, with the default strategy being the "ExtensionStrategy."
+To overcome conflicts, we provide two conflict resolution strategies. These strategies ensure that extension schemas work seamlessly with the base schema, with the default strategy being the `ExtensionStrategy`.
 
 - **ExtensionStrategy**: In this mode, extension schema can introduce new properties without overriding the base schema. In the event of a conflict, the declarations from the base schema take precedence, and `required` property declarations are merged.
 - **OverrideStrategy**: In this strategy, extension schemas have the flexibility to both add new properties and override existing properties in the base schema. When conflicts arise, the declarations from the extension schema will override those in the base schema, while `required` property declarations will be sourced from the extending schema.
@@ -60,6 +60,6 @@ An example catalog file is located at [src/catalog.yaml](src/catalog.yaml)
 https://raw.githubusercontent.com/cellannotation/cell-annotation-schema/main/general_schema.json: ../general_schema.json
 ```
 
-Pointed local file paths are relative to the location of the `catalog.yaml` file itself. Hence, in this example, it is relative to `{root_folder}/src/catalog.yaml` which resolves to `{root_folder}/src/catalog.yaml`.
+Pointed local file paths are relative to the location of the `catalog.yaml` file itself. Hence, in this example, it is relative to `{root_folder}/src/catalog.yaml` which resolves to `{root_folder}/catalog.yaml`.
 
 A basic caching mechanism added for catalog files to prevent repetitive file read operations and accordingly increase performance.
