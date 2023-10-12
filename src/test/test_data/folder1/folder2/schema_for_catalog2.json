@@ -1,0 +1,42 @@
+{
+  "allOf": [
+      {
+        "$ref": "http://www.some.not/existing/location/schema_for_catalog.json"
+      }
+    ],
+  "definitions": {
+    "Address": {
+      "type": "object",
+      "description": "Postal address.",
+      "required": [
+        "post_code",
+        "country"
+      ],
+      "properties": {
+        "door_number": {
+          "type": "integer",
+          "description": "Address door number."
+        },
+        "country": {
+          "type": "string",
+          "description": "Country"
+        }
+      }
+    }
+  },
+  "properties": {
+    "age": {
+      "type": "double",
+      "description": "Age of the person.",
+      "minimum": 0
+    },
+    "idNumber": {
+      "type": "string",
+      "description": "Person ID."
+    }
+  },
+  "required": [
+    "firstName",
+    "idNumber"
+  ]
+}

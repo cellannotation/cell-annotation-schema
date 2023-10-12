@@ -4,6 +4,7 @@ import os
 from pathlib import Path
 from typing import List
 from json_utils import get_json_from_file
+from schema_manager import load
 import warnings
 
 from jsonschema import Draft4Validator, RefResolver, SchemaError
@@ -21,7 +22,7 @@ def get_validator(filename, base_uri=""):
     for local resolution via base_uri of form file://{some_path}/)
     """
 
-    schema = get_json_from_file(filename)
+    schema = load(filename, catalog_file="./catalog.yaml")
     try:
         # Check schema via class method call. Works, despite IDE complaining
         # However, it appears that this doesn't catch every schema issue.
@@ -98,4 +99,7 @@ def run_validator(path_to_schema_dir, schema_file, path_to_test_dir):
 if __name__ == "__main__":
     run_validator(
         path_to_schema_dir="../", schema_file="general_schema.json", path_to_test_dir="../examples/"
+    )
+    run_validator(
+        path_to_schema_dir="../", schema_file="BICAN_extension.json", path_to_test_dir="../examples/BICAN_schema_specific_examples/"
     )

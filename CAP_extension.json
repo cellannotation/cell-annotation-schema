@@ -1,4 +1,10 @@
 {
+  "allOf": [
+      {
+        "$ref": "https://raw.githubusercontent.com/cellannotation/cell-annotation-schema/main/general_schema.json"
+      }
+    ],
+
   "required": [
     "cellannotation_schema_version",
     "cellannotation_timestamp",
