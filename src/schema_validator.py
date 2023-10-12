@@ -21,8 +21,8 @@ def get_validator(filename, base_uri=""):
     resolution of JSON pointers (This is especially useful
     for local resolution via base_uri of form file://{some_path}/)
     """
-
-    schema = load(filename, catalog_file="./catalog.yaml")
+    catalog_file_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "./catalog.yaml")
+    schema = load(filename, catalog_file=catalog_file_path)
     try:
         # Check schema via class method call. Works, despite IDE complaining
         # However, it appears that this doesn't catch every schema issue.
