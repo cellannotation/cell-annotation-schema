@@ -1,29 +1,16 @@
 import glob
-import json
 import sys
 import os
 from pathlib import Path
 from typing import List
+from json_utils import get_json_from_file
+from schema_manager import load
 import warnings
 
 from jsonschema import Draft4Validator, RefResolver, SchemaError
 
 
 warnings.filterwarnings("always")
-
-
-def get_json_from_file(filename):
-    """Loads JSON from a file."""
-    try:
-        with open(filename, "r") as f:
-            fc = f.read()
-        return json.loads(fc)
-    except FileNotFoundError:
-        warnings.warn("File not found: " + filename)
-    except IOError as exc:
-        warnings.warn("I/O error while opening " + filename + ": " + str(exc))
-    except json.JSONDecodeError as exc:
-        warnings.warn("Failed to parse JSON in " + filename + ": " + str(exc))
 
 
 def get_validator(filename, base_uri=""):
@@ -34,8 +21,8 @@ def get_validator(filename, base_uri=""):
     resolution of JSON pointers (This is especially useful
     for local resolution via base_uri of form file://{some_path}/)
     """
-
-    schema = get_json_from_file(filename)
+    catalog_file_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "./catalog.yaml")
+    schema = load(filename, catalog_file=catalog_file_path)
     try:
         # Check schema via class method call. Works, despite IDE complaining
         # However, it appears that this doesn't catch every schema issue.
@@ -112,4 +99,7 @@ def run_validator(path_to_schema_dir, schema_file, path_to_test_dir):
 if __name__ == "__main__":
     run_validator(
         path_to_schema_dir="../", schema_file="general_schema.json", path_to_test_dir="../examples/"
+    )
+    run_validator(
+        path_to_schema_dir="../", schema_file="BICAN_extension.json", path_to_test_dir="../examples/BICAN_schema_specific_examples/"
     )

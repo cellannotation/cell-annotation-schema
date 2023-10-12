@@ -1,0 +1,2 @@
+http://www.some.not/existing/location/base_schema.json: ./base_schema.json
+http://www.some.not/existing/location/schema_for_catalog.json: ./folder1/schema_for_catalog.json

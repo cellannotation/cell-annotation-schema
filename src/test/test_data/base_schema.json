@@ -1,0 +1,49 @@
+{
+  "$id": "https://example.com/person.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Person",
+  "type": "object",
+  "definitions": {
+    "Address": {
+      "type": "object",
+      "description": "Postal address.",
+      "required": [
+        "post_code",
+        "door_number"
+      ],
+      "properties": {
+        "post_code": {
+          "type": "string",
+          "description": "Postal code."
+        },
+        "door_number": {
+          "type": "string",
+          "description": "Address door number."
+        }
+      }
+    }
+  },
+  "properties": {
+    "firstName": {
+      "type": "string",
+      "description": "The person's first name."
+    },
+    "lastName": {
+      "type": "string",
+      "description": "The person's last name."
+    },
+    "age": {
+      "description": "Age in years which must be equal to or greater than zero.",
+      "type": "integer",
+      "minimum": 0
+    },
+    "address": {
+      "type": "object",
+      "$ref":  "#/definitions/Address"
+    }
+  },
+  "required": [
+    "firstName",
+    "lastName"
+  ]
+}

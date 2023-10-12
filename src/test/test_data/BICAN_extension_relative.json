@@ -51,13 +51,5 @@
         }
       }
     }
-  },
-  "properties":{
-    "transferred_annotations": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/Annotation_transfer"
-      }
-    }
   }
 }

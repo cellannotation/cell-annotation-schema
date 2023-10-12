@@ -1,6 +1,6 @@
 {
-  "author": "Kimberly Siletti",
-  "labelsets": [
+  "author_name": "Kimberley Siletti",
+  "labelset": [
     {
       "cellannotation_setname": "Subtype",
       "cell_label": "INT-VIP",
