@@ -1,3 +1,4 @@
+# This action is used when a release is manually created from the GitHub UI
 name: Generate Release Assets
 
 on:
