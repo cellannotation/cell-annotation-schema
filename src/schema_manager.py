@@ -1,6 +1,15 @@
+import os
+import json
+
 from schema_merger import OverrideStrategy, ExtensionStrategy
 from json_utils import get_json, resolve_path
 
+
+BICAN_SCHEMA = os.path.join(os.path.dirname(os.path.realpath(__file__)), "../BICAN_extension.json")
+CAP_SCHEMA = os.path.join(os.path.dirname(os.path.realpath(__file__)), "../CAP_extension.json")
+
+BICAN_ASSET = os.path.join(os.path.dirname(os.path.realpath(__file__)), "../BICAN_schema.json")
+CAP_ASSET = os.path.join(os.path.dirname(os.path.realpath(__file__)), "../CAP_schema.json")
 
 merge_strategy = ExtensionStrategy()
 
@@ -34,3 +43,21 @@ def load(path: str, strategy=merge_strategy, referrer_path=None, catalog_file=No
         del schema['allOf']
 
     return schema
+
+
+def generate_release_assets():
+    """
+    Generates BICAN and CAP release assets in the project root folder.
+    These assets are uploaded to the related release by GitHub actions.
+    """
+    bican_schema = load(BICAN_SCHEMA)
+    with open(BICAN_ASSET, "w") as outfile:
+        outfile.write(json.dumps(bican_schema, indent=2))
+
+    cap_schema = load(CAP_SCHEMA)
+    with open(CAP_ASSET, "w") as outfile:
+        outfile.write(json.dumps(cap_schema, indent=2))
+
+
+if __name__ == "__main__":
+    generate_release_assets()
