@@ -5,6 +5,9 @@ on:
   - cron: "59 23 * * *"
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   tag:
     name: Make snapshot release
