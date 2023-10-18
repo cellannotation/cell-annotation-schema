@@ -1,0 +1,32 @@
+{
+  "allOf": [
+      {
+        "$ref": "http://www.some.not/existing/location/base_schema.json"
+      }
+    ],
+  "definitions": {
+    "Occupation": {
+      "properties": {
+        "employer": {
+          "type": "string",
+          "description": "Name of the employer"
+        }
+      }
+    }
+  },
+  "properties": {
+    "age": {
+      "type": "string",
+      "description": "Age of the person."
+    },
+    "occupation": {
+      "type": "object",
+      "$ref":  "#/definitions/Occupation"
+    }
+  },
+  "required": [
+    "firstName",
+    "lastName",
+    "age"
+  ]
+}

@@ -1,0 +1,48 @@
+name: Nightly Snapshot
+
+on:
+  schedule:
+  - cron: "59 23 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  tag:
+    name: Make snapshot release
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [ '3.9' ]
+    steps:
+      - name: Get current date
+        id: date
+        run: echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
+
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Release assets generation
+        run: |
+          python src/schema_manager.py
+
+      - name: Make Snapshot
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: "general_schema.json,BICAN_schema.json,CAP_schema.json"
+          body: "Nightly snapshot release. Draft only, please use a stable release instead."
+          allowUpdates: true
+          draft: true
+          makeLatest: false
+          name: "${{ steps.date.outputs.date }} SNAPSHOT"
+          removeArtifacts: true
+          tag: "snapshot"

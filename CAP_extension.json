@@ -1,4 +1,10 @@
 {
+  "allOf": [
+      {
+        "$ref": "./general_schema.json"
+      }
+    ],
+
   "required": [
     "cellannotation_schema_version",
     "cellannotation_timestamp",
