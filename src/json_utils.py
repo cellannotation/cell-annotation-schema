@@ -45,7 +45,7 @@ def resolve_path(path_to_resolve, referrer_abs_path, catalog_file):
         warnings.warn("Schema read from the web ({}) cannot import from relative path ({})."
                       .format(referrer_abs_path, path_to_resolve))
 
-    if os.path.isfile(path_to_resolve):
+    if os.path.isabs(path_to_resolve):
         return path_to_resolve
     else:
         # process relative path
