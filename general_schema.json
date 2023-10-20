@@ -127,7 +127,7 @@
   },
   "required": [
     "author_name",
-    "labelset"
+    "annotations"
   ],
   "properties": {
     "cellannotation_schema_version": {
