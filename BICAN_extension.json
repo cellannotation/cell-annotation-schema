@@ -30,7 +30,7 @@
         }
       }
     },
-    "labelsets": {
+    "Labelset": {
       "properties": {
         "rank": {
           "type": "integer",
