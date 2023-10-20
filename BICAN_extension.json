@@ -30,7 +30,7 @@
         }
       }
     },
-    "cellannotation_setname_metadata": {
+    "labelsets": {
       "properties": {
         "rank": {
           "type": "integer",
