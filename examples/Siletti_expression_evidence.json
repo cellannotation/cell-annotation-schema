@@ -1,8 +1,8 @@
 {
   "author_name": "Kimberley Siletti",
-  "labelset": [
+  "annotations": [
     {
-      "cellannotation_setname": "neurotransmitter",
+      "labelset": "neurotransmitter",
       "cell_label": "NT-GLY",
       "cell_fullname": "Glycinergic",
       "marker_gene_evidence": ["SLC32A1","SLC6A5"],
@@ -12,7 +12,7 @@
       "cell_type": "glycinergic neuron",
       "cell_type_ontology_id": "CL:1001509"
     },
-    {  "cellannotation_setname": "Subtype",
+    {  "labelset": "Subtype",
        "cell_label": "INT-SST-CHODL",
        "cell_fullname": "Long-range projecting, sleep-active interneuron",
        "marker_gene_evidence": ["DLX1","SST","CHODL","TACR1","NPY","NOS1","CORT"],
