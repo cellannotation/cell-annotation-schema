@@ -7,7 +7,7 @@ from json_utils import get_json_from_file
 from schema_manager import load
 import warnings
 
-from jsonschema import Draft4Validator, RefResolver, SchemaError
+from jsonschema import Draft202012Validator, RefResolver, SchemaError
 
 
 warnings.filterwarnings("always")
@@ -26,7 +26,7 @@ def get_validator(filename, base_uri=""):
     try:
         # Check schema via class method call. Works, despite IDE complaining
         # However, it appears that this doesn't catch every schema issue.
-        Draft4Validator.check_schema(schema)
+        Draft202012Validator.check_schema(schema)
         print("%s is a valid JSON schema" % filename)
     except SchemaError:
         raise
@@ -34,7 +34,7 @@ def get_validator(filename, base_uri=""):
         resolver = RefResolver(base_uri=base_uri, referrer=filename)
     else:
         resolver = None
-    return Draft4Validator(schema=schema, resolver=resolver)
+    return Draft202012Validator(schema=schema, resolver=resolver)
 
 
 def validate(validator, instance):

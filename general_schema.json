@@ -13,37 +13,51 @@
         "description": {
           "type": "string",
           "description": "Some text describing what types of cell annotation this annotation key is used to record"
+        },
+        "annotation_method": {
+          "description": "The method used for creating the cell annotations. This MUST be one of the following strings: `'algorithmic'`, `'manual'`, or `'both'` ",
+          "type": "string",
+          "enum": [
+            "algorithmic",
+            "manual",
+            "both"
+          ]
+        },
+        "automated_annotation": {
+          "type": "object",
+          "$ref": "#/definitions/automated_annotation"
         }
-      }
+      },
+      "required": ["name"]
     },
     "automated_annotation": {
       "type": "object",
       "description": "A set of fields for recording the details of the automated annotation algorithm used.\n(Common 'automated annotation methods' would include PopV, Azimuth, CellTypist, scArches, etc.)",
       "properties": {
         "algorithm_name": {
-              "type": "string",
-              "description": "The name of the algorithm used. It MUST be a string of the algorithm's name."
-            },
+          "type": "string",
+          "description": "The name of the algorithm used. It MUST be a string of the algorithm's name."
+        },
         "algorithm_version": {
           "type": "string",
           "description": "The version of the algorithm used (if applicable). It MUST be a string of the algorithm's version, which is typically in the format '[MAJOR].[MINOR]', but other versioning systems are permitted (based on the algorithm's versioning)."
-            },
+        },
         "algorithm_repo_url": {
           "type": "string",
-          "description" : "This field denotes the URL of the version control repository associated with the algorithm used (if applicable). It MUST be a string of a valid URL."},
+          "description": "This field denotes the URL of the version control repository associated with the algorithm used (if applicable). It MUST be a string of a valid URL."
+        },
         "reference_location": {
           "type": "string",
-          "description": "This field denotes a valid URL of the reference dataset used to do annotation transfer (if applicable). This should be the URL of data portal location or other repository. \nThis MUST be a string of a valid URL. The concept of a 'reference' specifically refers to 'annotation transfer' algorithms, whereby a 'reference' dataset is used to transfer cell annotations to the 'query' dataset.",
-          "$comment": "Maybe make optional as not clear whether this always make sense"
-            }
-          },
-        "reference_cell_set_accession": "Accession/ID of cell set with transferred annotation in reference data (if applicable). This SHOULD be provided for annotation methods where this makes sense and a cell set accession exists.",
-          "required": [
-            "algorithm_name",
-            "algorithm_version",
-            "algorithm_repo_url"
-          ]
-        },
+          "description": "This field denotes a valid URL of the annotated dataset that was the source of annotated reference data. \nThis MUST be a string of a valid URL. The concept of a 'reference' specifically refers to 'annotation transfer' algorithms, whereby a 'reference' dataset is used to transfer cell annotations to the 'query' dataset.",
+          "$comment": "This must be optional as it does not apply in all cases - e.g. in the case ML based annotation with no single reference dataset."
+        }
+      },
+      "required": [
+        "algorithm_name",
+        "algorithm_version",
+        "algorithm_repo_url"
+      ]
+    },
     "Annotation": {
       "type": "object",
       "description": "A collection of fields recording a cell type/class/state annotation on some set os cells, supporting evidence and provenance. As this is intended as a general schema, compulsory fields are kept to a minimum. However, tools using this schema are encouarged to specify a larger set of compulsory fields for publication. \n\nNote: This schema deliberately allows for additional fields in order to support ad hoc user fields, new formal schema extensions and project/tool specific metadata.",
@@ -52,7 +66,7 @@
         "cell_label"
       ],
       "properties": {
-       "cellannotation_setname": {
+        "cellannotation_setname": {
           "description": "The unique name of the set of cell annotations. \nEach cell within the AnnData/Seurat file MUST be associated with a 'cell_label' value in order for this to be a valid 'cellannotation_setname'.",
           "type": "string"
         },
@@ -81,48 +95,36 @@
           }
         },
         "rationale": {
-          "description" : "The free-text rationale which users provide as justification/evidence for their cell annotations. \nResearchers are encouraged to use this field to cite relevant publications in-line using standard academic citations of the form `(Zheng et al., 2020)` This human-readable free-text MUST be encoded as a single string.\nAll references cited SHOULD be listed using DOIs under rationale_dois. There MUST be a 2000-character limit.",
+          "description": "The free-text rationale which users provide as justification/evidence for their cell annotations. \nResearchers are encouraged to use this field to cite relevant publications in-line using standard academic citations of the form `(Zheng et al., 2020)` This human-readable free-text MUST be encoded as a single string.\nAll references cited SHOULD be listed using DOIs under rationale_dois. There MUST be a 2000-character limit.",
           "type": "string",
           "maxLength": 2000
         },
         "rationale_dois": {
-          "description" : "A list of valid publication DOIs cited by the author to support or provide justification/evidence/context for 'cell_label'.",
+          "description": "A list of valid publication DOIs cited by the author to support or provide justification/evidence/context for 'cell_label'.",
           "type": "array",
           "items": {
             "type": "string"
           }
         },
         "marker_gene_evidence": {
-          "description" : "List of gene names explicitly used as evidence for this cell annotation. Each gene MUST be included in the matrix of the AnnData/Seurat file.",
+          "description": "List of gene names explicitly used as evidence for this cell annotation. Each gene MUST be included in the matrix of the AnnData/Seurat file.",
           "type": "array",
           "items": {
-            "type": "string", 
-            "description" : "Gene names explicitly used as evidence, which MUST be in the matrix of the AnnData/Seurat file"
+            "type": "string",
+            "description": "Gene names explicitly used as evidence, which MUST be in the matrix of the AnnData/Seurat file"
           }
         },
         "synonyms": {
-          "description" : "This field denotes any free-text term of a biological entity which the author associates as synonymous with the biological entity listed in the field 'cell_label'.\nIn the case whereby no synonyms exist, the authors MAY leave this as blank, which is encoded as 'NA'. However, this field is NOT OPTIONAL.",
+          "description": "This field denotes any free-text term of a biological entity which the author associates as synonymous with the biological entity listed in the field 'cell_label'.\nIn the case whereby no synonyms exist, the authors MAY leave this as blank, which is encoded as 'NA'. However, this field is NOT OPTIONAL.",
           "type": "array",
           "items": {
             "type": "string",
             "description": "List of synonyms"
           }
-        },
-        "provenance": {
-          "type": "object",
-          "properties": {
-            "method": {
-              "description": "This field denotes the method used for creating the cell annotations. This MUST be one of the following strings: `'algorithmic'`, `'manual'`, or `'both'` ",
-              "type": "string"
-            },
-           "automated_annotation": {
-             "type": "object",
-             "$ref":  "#/definitions/automated_annotation"}
-            }
-          }
         }
       }
-    },
+    }
+  },
   "required": [
     "author_name",
     "labelset"
@@ -157,6 +159,10 @@
     "orcid": {
       "description": "This MUST be a valid ORCID for the author",
       "type": "string"
+    },
+    "cellannotation_setname_metadata": {
+      "type": "array",
+      "$ref": "#/definitions/cellannotation_setname_metadata"
     },
     "labelset": {
       "type": "array",
