@@ -4,7 +4,7 @@
   "description": "A general, open-standard schema for cell annotations which records connections, types, provenance and evidence.\nThis is designed not to tie-in to a single project (i.e. no tool-specific fields in core schema),and allows for extensions to support ad hoc user fields, new formal schema extensions, and project/tool specific metadata.",
   "type": "object",
   "definitions": {
-    "labelsets": {
+    "Labelset": {
       "properties": {
         "name": {
           "type": "string",
@@ -66,7 +66,7 @@
         "cell_label"
       ],
       "properties": {
-        "cellannotation_setname": {
+        "labelset": {
           "description": "The unique name of the set of cell annotations. \nEach cell within the AnnData/Seurat file MUST be associated with a 'cell_label' value in order for this to be a valid 'cellannotation_setname'.",
           "type": "string"
         },
@@ -162,7 +162,7 @@
     },
     "labelsets": {
       "type": "array",
-      "$ref": "#/definitions/cellannotation_setname_metadata"
+      "$ref": "#/definitions/Labelset"
     },
     "annotations": {
       "type": "array",
