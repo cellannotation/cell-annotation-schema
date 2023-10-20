@@ -28,7 +28,7 @@
           "$ref": "#/definitions/automated_annotation"
         }
       },
-      "required": []
+      "required": ["name"]
     },
     "automated_annotation": {
       "type": "object",
