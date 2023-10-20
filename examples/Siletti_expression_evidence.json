@@ -1,5 +1,16 @@
 {
   "author_name": "Kimberley Siletti",
+  "labelsets": [
+    {
+      "name": "neurotransmitter",
+      "description": "Neurotransmitter assessed by markers including neurotransmitter transporters. "
+    },
+    {
+      "name": "Subtype",
+      "description": "Semi-automated annotation based on expression of curated sets of markers for particular neuron types. These annotations are more granular than those grouped under 'Class.",
+
+    }
+  ],
   "annotations": [
     {
       "labelset": "neurotransmitter",
