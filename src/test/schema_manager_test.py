@@ -51,9 +51,8 @@ class SchemaManagerTests(unittest.TestCase):
         self.assertNotIn("allOf", schema)
 
     def test_loading_CAP_schema_via_expand(self):
-        print(CAP_SCHEMA)
         schema = load(CAP_SCHEMA, ExtensionStrategy())
-        # print(json.dumps(schema, indent=2))
+        print(json.dumps(schema, indent=2))
 
         self.assertEqual(6, len(schema["required"]))
         self.assertIn("author_name", schema["required"])
