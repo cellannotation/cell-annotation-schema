@@ -62,7 +62,7 @@
       "type": "object",
       "description": "A collection of fields recording a cell type/class/state annotation on some set os cells, supporting evidence and provenance. As this is intended as a general schema, compulsory fields are kept to a minimum. However, tools using this schema are encouarged to specify a larger set of compulsory fields for publication. \n\nNote: This schema deliberately allows for additional fields in order to support ad hoc user fields, new formal schema extensions and project/tool specific metadata.",
       "required": [
-        "cellannotation_setname",
+        "labelset",
         "cell_label"
       ],
       "properties": {
