@@ -4,7 +4,7 @@
   "description": "A general, open-standard schema for cell annotations which records connections, types, provenance and evidence.\nThis is designed not to tie-in to a single project (i.e. no tool-specific fields in core schema),and allows for extensions to support ad hoc user fields, new formal schema extensions, and project/tool specific metadata.",
   "type": "object",
   "definitions": {
-    "cellannotation_setname_metadata": {
+    "labelsets": {
       "properties": {
         "name": {
           "type": "string",
@@ -160,11 +160,11 @@
       "description": "This MUST be a valid ORCID for the author",
       "type": "string"
     },
-    "cellannotation_setname_metadata": {
+    "labelsets": {
       "type": "array",
       "$ref": "#/definitions/cellannotation_setname_metadata"
     },
-    "labelset": {
+    "annotations": {
       "type": "array",
       "items": {
         "$ref": "#/definitions/Annotation"
