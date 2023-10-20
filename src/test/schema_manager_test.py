@@ -5,9 +5,9 @@ import json
 from schema_manager import load
 from schema_merger import OverrideStrategy, ExtensionStrategy
 
-GENERAL_SCHEMA = os.path.join(os.path.dirname(os.path.realpath(__file__)), "../../general_schema.json")
-BICAN_SCHEMA = os.path.join(os.path.dirname(os.path.realpath(__file__)), "../../BICAN_extension.json")
-CAP_SCHEMA = os.path.join(os.path.dirname(os.path.realpath(__file__)), "../../CAP_extension.json")
+GENERAL_SCHEMA = os.path.join(os.path.dirname(os.path.realpath(__file__)), "./test_data/general_schema.json")
+BICAN_SCHEMA = os.path.join(os.path.dirname(os.path.realpath(__file__)), "./test_data/BICAN_extension.json")
+CAP_SCHEMA = os.path.join(os.path.dirname(os.path.realpath(__file__)), "./test_data/CAP_extension.json")
 
 
 class SchemaManagerTests(unittest.TestCase):
