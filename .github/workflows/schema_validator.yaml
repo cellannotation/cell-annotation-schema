@@ -1,6 +1,8 @@
 name: JSON schema validator
 
 on:
+  push:
+    branches: [ main ]
   pull_request:
     branches: [main]
     paths:

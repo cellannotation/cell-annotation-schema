@@ -1,4 +1,4 @@
-![Schema Validation](https://github.com/cellannotation/cell-annotation-schema/actions/workflows/schema_validator.yaml/badge.svg)
+![Schema Validation](https://github.com/cellannotation/cell-annotation-schema/actions/workflows/schema_validator.yaml/badge.svg?branch=main)
 # cell-annotation-schema
 
 General, open-standard schema for cell annotations
