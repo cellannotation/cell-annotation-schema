@@ -37,19 +37,20 @@ jobs:
           python src/schema_validator.py
 
       - name: Prepare schema validator comment
-        if: failure()
+        if: ${{ github.event_name == 'pull_request' && failure() }}
         run: |
           echo "Validation Fails. Check action report for details.  " > comment.md
           mv comment.md .github/workflows/
           exit 1
 
       - name: Prepare success comment
+        if: ${{ github.event_name == 'pull_request' && success() }}
         run: |
           echo "Validation Passes.  " > comment.md
           mv comment.md .github/workflows/
 
-      - name: Post comment validator comment
-        if: always()
+      - name: Post validator comment
+        if: ${{ github.event_name == 'pull_request' }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         uses: NejcZdovc/comment-pr@v2.0.0
