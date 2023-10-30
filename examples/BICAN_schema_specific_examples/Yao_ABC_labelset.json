@@ -4,7 +4,7 @@
   "labelsets": [
     {
       "name": "Cluster",
-      "description": "The coarse level of cell type definition in the mouse whole brain taxonomy. All cells within a supertype belong to the same subclass. Subclass groups together related supertypes."
+      "description": "The coarse level of cell type definition in the mouse whole brain taxonomy. All cells within a supertype belong to the same subclass. Subclass groups together related supertypes.",
       "rank": 0
     },
     {
