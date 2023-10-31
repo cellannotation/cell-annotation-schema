@@ -14,20 +14,20 @@ class SchemaManagerTests(unittest.TestCase):
 
     def test_loading_general_schema(self):
         schema = load(GENERAL_SCHEMA)
-        print(json.dumps(schema, indent=2))
+        # print(json.dumps(schema, indent=2))
 
         self.assertIn("title", schema)
         self.assertEqual("General Cell Annotation Open Standard", schema["title"])
 
         self.assertIn("Annotation", schema["definitions"])
-    #    self.assertIn("cellannotation_setname", schema["definitions"]["Annotation"]["properties"])
+        self.assertIn("cellannotation_setname", schema["definitions"]["Annotation"]["properties"])
 
         self.assertNotIn("cell_set_accession", schema["definitions"]["Annotation"]["properties"])
         self.assertNotIn("parent_cell_set_accessions", schema["definitions"]["Annotation"]["properties"])
 
     def test_loading_BICAN_schema(self):
         schema = load(BICAN_SCHEMA)
-        print(json.dumps(schema, indent=2))
+        # print(json.dumps(schema, indent=2))
 
         self.assertIn("title", schema)
         self.assertEqual("General Cell Annotation Open Standard", schema["title"])
@@ -39,24 +39,24 @@ class SchemaManagerTests(unittest.TestCase):
 
         # merged Annotation
         self.assertIn("Annotation", schema["definitions"])
-        # self.assertIn("cellannotation_setname", schema["definitions"]["Annotation"]["properties"])
+        self.assertIn("cellannotation_setname", schema["definitions"]["Annotation"]["properties"])
         self.assertIn("cell_set_accession", schema["definitions"]["Annotation"]["properties"])
         self.assertIn("parent_cell_set_accessions", schema["definitions"]["Annotation"]["properties"])
 
         # merged cellannotation_setname_metadata
-        # self.assertIn("cellannotation_setname_metadata", schema["definitions"])
-        # self.assertIn("rank", schema["definitions"]["cellannotation_setname_metadata"]["properties"])
-        # self.assertIn("name", schema["definitions"]["cellannotation_setname_metadata"]["properties"])
+        self.assertIn("cellannotation_setname_metadata", schema["definitions"])
+        self.assertIn("rank", schema["definitions"]["cellannotation_setname_metadata"]["properties"])
+        self.assertIn("name", schema["definitions"]["cellannotation_setname_metadata"]["properties"])
 
         self.assertNotIn("allOf", schema)
 
     def test_loading_CAP_schema_via_expand(self):
         schema = load(CAP_SCHEMA, ExtensionStrategy())
-        print(json.dumps(schema, indent=2))
+        # print(json.dumps(schema, indent=2))
 
         self.assertEqual(6, len(schema["required"]))
         self.assertIn("author_name", schema["required"])
-   #     self.assertIn("labelset", schema["required"])
+        self.assertIn("labelset", schema["required"])
         self.assertIn("cellannotation_schema_version", schema["required"])
         self.assertIn("cellannotation_timestamp", schema["required"])
         self.assertIn("cellannotation_version", schema["required"])
@@ -64,7 +64,7 @@ class SchemaManagerTests(unittest.TestCase):
 
     def test_loading_CAP_schema_via_override(self):
         schema = load(CAP_SCHEMA, OverrideStrategy())
-        print(json.dumps(schema, indent=2))
+        # print(json.dumps(schema, indent=2))
 
         self.assertEqual(4, len(schema["required"]))
         self.assertIn("cellannotation_schema_version", schema["required"])
@@ -75,7 +75,7 @@ class SchemaManagerTests(unittest.TestCase):
     def test_import_relative_path(self):
         test_file = os.path.join(os.path.dirname(os.path.realpath(__file__)), "./test_data/BICAN_extension_relative.json")
         schema = load(test_file)
-        print(json.dumps(schema, indent=2))
+        # print(json.dumps(schema, indent=2))
 
         self.assertIn("title", schema)
         self.assertEqual("General Cell Annotation Open Standard", schema["title"])
@@ -86,15 +86,15 @@ class SchemaManagerTests(unittest.TestCase):
         self.assertIn("Annotation_transfer", schema["definitions"])
 
         # merged Annotation
- #       self.assertIn("Annotation", schema["definitions"])
- #       self.assertIn("labelset", schema["definitions"]["Annotation"]["properties"])
- #       self.assertIn("cell_set_accession", schema["definitions"]["Annotation"]["properties"])
- #       self.assertIn("parent_cell_set_accessions", schema["definitions"]["Annotation"]["properties"])
+        self.assertIn("Annotation", schema["definitions"])
+        self.assertIn("cellannotation_setname", schema["definitions"]["Annotation"]["properties"])
+        self.assertIn("cell_set_accession", schema["definitions"]["Annotation"]["properties"])
+        self.assertIn("parent_cell_set_accessions", schema["definitions"]["Annotation"]["properties"])
 
     def test_import_relative_path2(self):
         test_file = os.path.join(os.path.dirname(os.path.realpath(__file__)), "./test_data/folder1/folder2/extension_in_folder2.json")
         schema = load(test_file)
-        print(json.dumps(schema, indent=2))
+        # print(json.dumps(schema, indent=2))
 
         self.assertIn("title", schema)
         self.assertEqual("Person", schema["title"])
@@ -147,7 +147,7 @@ class SchemaManagerTests(unittest.TestCase):
     def test_overriding_on_required(self):
         test_file = os.path.join(os.path.dirname(os.path.realpath(__file__)), "./test_data/extension_2.json")
         schema = load(test_file, OverrideStrategy())
-        print(json.dumps(schema, indent=2))
+        # print(json.dumps(schema, indent=2))
 
         self.assertEqual(2, len(schema["required"]))
         self.assertIn("firstName", schema["required"])
@@ -178,7 +178,7 @@ class SchemaManagerTests(unittest.TestCase):
     def test_extension_on_required(self):
         test_file = os.path.join(os.path.dirname(os.path.realpath(__file__)), "./test_data/extension_2.json")
         schema = load(test_file, ExtensionStrategy())
-        print(json.dumps(schema, indent=2))
+        # print(json.dumps(schema, indent=2))
 
         self.assertEqual(4, len(schema["required"]))
         self.assertIn("firstName", schema["required"])
