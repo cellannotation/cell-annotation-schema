@@ -4,7 +4,7 @@
   "description": "A general, open-standard schema for cell annotations which records connections, types, provenance and evidence.\nThis is designed not to tie-in to a single project (i.e. no tool-specific fields in core schema),and allows for extensions to support ad hoc user fields, new formal schema extensions, and project/tool specific metadata.",
   "type": "object",
   "definitions": {
-    "cellannotation_setname_metadata": {
+    "Labelset": {
       "properties": {
         "name": {
           "type": "string",
@@ -62,11 +62,11 @@
       "type": "object",
       "description": "A collection of fields recording a cell type/class/state annotation on some set os cells, supporting evidence and provenance. As this is intended as a general schema, compulsory fields are kept to a minimum. However, tools using this schema are encouarged to specify a larger set of compulsory fields for publication. \n\nNote: This schema deliberately allows for additional fields in order to support ad hoc user fields, new formal schema extensions and project/tool specific metadata.",
       "required": [
-        "cellannotation_setname",
+        "labelset",
         "cell_label"
       ],
       "properties": {
-        "cellannotation_setname": {
+        "labelset": {
           "description": "The unique name of the set of cell annotations. \nEach cell within the AnnData/Seurat file MUST be associated with a 'cell_label' value in order for this to be a valid 'cellannotation_setname'.",
           "type": "string"
         },
@@ -127,7 +127,7 @@
   },
   "required": [
     "author_name",
-    "labelset"
+    "annotations"
   ],
   "properties": {
     "cellannotation_schema_version": {
@@ -160,11 +160,11 @@
       "description": "This MUST be a valid ORCID for the author",
       "type": "string"
     },
-    "cellannotation_setname_metadata": {
+    "labelsets": {
       "type": "array",
-      "$ref": "#/definitions/cellannotation_setname_metadata"
+      "$ref": "#/definitions/Labelset"
     },
-    "labelset": {
+    "annotations": {
       "type": "array",
       "items": {
         "$ref": "#/definitions/Annotation"

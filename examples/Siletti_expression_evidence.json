@@ -1,18 +1,28 @@
 {
   "author_name": "Kimberley Siletti",
-  "labelset": [
+  "labelsets": [
     {
-      "cellannotation_setname": "neurotransmitter",
+      "name": "neurotransmitter",
+      "description": "Neurotransmitter assessed by markers including neurotransmitter transporters. "
+    },
+    {
+      "name": "Subtype",
+      "description": "Semi-automated annotation based on expression of curated sets of markers for particular neuron types. These annotations are more granular than those grouped under 'Class.'"
+    }
+  ],
+  "annotations": [
+    {
+      "labelset": "neurotransmitter",
       "cell_label": "NT-GLY",
       "cell_fullname": "Glycinergic",
       "marker_gene_evidence": ["SLC32A1","SLC6A5"],
       "synonyms": ["Glycinergic neurotransmission"],
-      "rationale": "\n* Express Slc32a1, the vesicular GABA transporter, which also transports glycine\n* Express Slc6a5 (GLYT2), the glycine transporter, which makes them glycinergic,",
+      "rationale": "* Express Slc32a1, the vesicular GABA transporter, which also transports glycine\n* Express Slc6a5 (GLYT2), the glycine transporter, which makes them glycinergic,",
       "rationale_dois": ["https://doi.org/10.1038/nrd3893", "https://doi.org/10.1523/JNEUROSCI.0509-08.2008"],
       "cell_type": "glycinergic neuron",
       "cell_type_ontology_id": "CL:1001509"
     },
-    {  "cellannotation_setname": "Subtype",
+    {  "labelset": "Subtype",
        "cell_label": "INT-SST-CHODL",
        "cell_fullname": "Long-range projecting, sleep-active interneuron",
        "marker_gene_evidence": ["DLX1","SST","CHODL","TACR1","NPY","NOS1","CORT"],
