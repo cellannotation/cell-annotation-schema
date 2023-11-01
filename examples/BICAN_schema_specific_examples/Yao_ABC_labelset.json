@@ -1,0 +1,46 @@
+{
+  "author_name": "Zizhen Yao",
+  "orcid": "0000-0002-9361-5607",
+  "labelsets": [
+    {
+      "name": "Cluster",
+      "description": "The coarse level of cell type definition in the mouse whole brain taxonomy. All cells within a supertype belong to the same subclass. Subclass groups together related supertypes.",
+      "rank": 0
+    },
+    {
+      "name": "SubClass",
+      "rank": 1,
+      "description": "The coarse level of cell type definition in the mouse whole brain taxonomy. All cells within a supertype belong to the same subclass. Subclass groups together related supertypes."
+    },
+    {
+      "name": "NT",
+      "description": "neurotransmitter, inferred from gene expression. Value must be one of 'Glu, GABA, Gly, Ser, Dop'"
+    }
+  ],
+  "annotations": [
+    {
+      "labelset": "Cluster",
+      "cell_label": "1_MSN",
+      "accession": "CCN20230822_1",
+      "parent_cell_set_accessions": [
+        "CCN20230822_204",
+        "CCN20230822_304"
+      ]
+    },
+    {
+      "labelset": "Subclass",
+      "cell_label": "D1 matrix",
+      "accession": "CCN20230822_204",
+      "cell_ontology_term": "matrix D1 medium spiny neuron",
+      "cell_ontology_term_id": "CL:4030043"
+    },
+    {
+      "labelset": "NT",
+      "cell_label": "GABA",
+      "accession": "CCN20230822_304",
+      "marker_evidence": [
+        "SLC6-A2"
+      ]
+    }
+  ]
+}
