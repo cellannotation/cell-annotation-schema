@@ -39,8 +39,8 @@ Release assets include a core schema file and extensions (currently for BICAN an
 
 ## Contents
 - General standard for annotating cell sets (JSON Schema)
-- General standard - JSON Schema rendered in Markdown (derived)
-- Specification of flattening to AnnData.
+- General standard - JSON Schema rendered in Markdown  - WARNING - MAY BE OUT OF DATE - DERIVATION NOT CURRENTLY AUTOMATED
+- Specification of flattening to AnnData. -  WARNING - MAY BE OUT OF DATE - DERIVATION NOT CURRENTLY AUTOMATED
 - Extensions for BICAN and the Cell Annotation Platform.
 
 
