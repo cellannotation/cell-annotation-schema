@@ -2,24 +2,23 @@
 
 ### General
 
-1. As a user/editor of data annotated using the cell annotation standard, I want to be able to view annotations
- of cell sets in tabular form, either as a single table, or as a set of linked tables.
+1.  As a consumer of annotated data I wish to understand the rationale for annotation in order to judge its accuracy.  Rationale might include marker genes whose expression or absence was used as evidence for annotation, gene set enrichment evidence (e.g. with GO) or the nature of automated annotation, e.g.  annotation transfer using Azimuth from some specified reference dataset.
+
+2. As an annotator of single cell data I wish to record the rationale for annotation in order to judge its accuracy.  Rationale might include marker genes whose expression or absence was used as evidence for annotation, gene set enrichment evidence (e.g. with GO) or the nature of automated annotation, e.g.  annotation transfer using Azimuth from some specified reference dataset.  
+
+3. As a user/editor of data annotated using the cell annotation standard, I want to be able to view annotations of cell sets in tabular form, either as a single table, or as a set of linked tables.
 Links between tables should be easy to understand (e.g. relying on obvious common keys)
    * Solutions: 
-       * If robust representation of annotations requires nested data structures, we need SOPs and tooling
-  for flattening & some UX testing of the resulting tables
+       * If robust representation of annotations requires nested data structures, we need SOPs and tooling for flattening & some UX testing of the resulting tables
        * We also require these nested data structures to map to bioinformatic files, i.e. AnnData files. The standard bioinformatic tooling needs to work with these files.
      
-2. As a consumer of annotated data I wish to understand the rationale for annotation in order to judge its accuracy.  Rationale might include marker genes whose expression or absence was used as evidence for annotation, gene set enrichment evidence (e.g. with GO) or the nature of automated annotation, e.g.  annotation transfer using Azimuth from some specified reference dataset.
+### Single cell matrix portal user (could be made more general)
 
-
-### CxG portal user (could be made more general)
-
-1. As a CxG portal user, I want to be able to view embeddings (UMAP, tSNE) and select terms using 
+1. As a portal user, I want to be able to view embeddings (UMAP, tSNE) and select terms using 
 the abbreviations in the accompanying paper so that I can easily cross-reference
 the paper content with the data/visualizations/analysis I see in the browser.
 
-2. As a CxG portal user, I want to render/select by any cell (type) label or synonym
+2. As a portal user, I want to render/select by any cell (type) label or synonym
 
 ### Integration efforts ("Atlas building efforts")
 
