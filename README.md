@@ -13,6 +13,10 @@ CAS provides a programmatically accessible standard designed to solve this probl
 
 https://github.com/cellannotation/cell-annotation-schema/blob/main/user_stories.md
 
+## Examples
+
+Examples used in testing can be browsed under: https://github.com/cellannotation/cell-annotation-schema/tree/main/examples
+
 
 ## Overview
 
