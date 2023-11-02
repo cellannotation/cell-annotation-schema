@@ -29,7 +29,7 @@ We define a core schema with a very limited set of compulsory fields.  The core 
 
 ## Releases
 
-We published both versioned releases as well as a nightly snaphot at https://github.com/cellannotation/cell-annotation-schema/releases
+We publish both versioned releases and a nightly snaphot at https://github.com/cellannotation/cell-annotation-schema/releases
 
 Release assets include a core schema file and extensions (currently for BICAN and the Cell Annotation Platform).
 
