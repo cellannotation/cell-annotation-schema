@@ -12,7 +12,7 @@
           "type": "string",
           "description": "Transferred cell label"
         },
-        "source taxonomy": {
+        "source_taxonomy": {
           "type": "string",
           "description": "PURL of source taxonomy"
         },
