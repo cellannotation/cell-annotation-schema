@@ -4,11 +4,32 @@
         "$ref": "./general_schema.json"
       }
     ],
-
   "required": [
     "cellannotation_schema_version",
     "cellannotation_timestamp",
     "cellannotation_version",
     "cellannotation_url"
-  ]
+  ],
+  "definitions": {
+    "Annotation": {
+      "properties": {
+        "category_fullname": {
+          "description": "Any term denoting a biological entity which the author associates as the nearest \"class\" or 'broader term' (or \"parent term\") for the value/term in the field. This field MAY be 'NA' if the author cannot associate any term to the value.",
+          "type": "string"
+        },
+        "category_cell_ontology_exists": {
+         "description": "Decision by user whether this biological entity exists in the current Cell Ontology or not (at the given time of publication). If True, then the user MUST specify this Cell Ontology entry in the fields category_cell_ontology_term_id and category_cell_ontology_term.",
+          "type": "boolean"
+        },
+        "category_cell_ontology_term_id" : {
+          "description": "This MUST be a term from either the Cell Ontology (https://www.ebi.ac.uk/ols/ontologies/cl) or from some ontology that extends it by classifying cell types under terms from the Cell Ontology e.g. the Provisional Cell Ontology (https://www.ebi.ac.uk/ols/ontologies/pcl) or the Drosophila Anatomy Ontology (DAO) (https://www.ebi.ac.uk/ols4/ontologies/fbbt).  This field MUST be filled if `category_cell_ontology_exists` is True.",
+          "type": "string"
+        },
+        "category_cell_ontology_term" : {
+          "description": "This MUST be the human-readable name assigned to the value of 'category_cell_ontology_term_id'",
+          "type": "string"
+        }
+      }
+    }
+  }
 }

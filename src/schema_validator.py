@@ -103,3 +103,6 @@ if __name__ == "__main__":
     run_validator(
         path_to_schema_dir="../", schema_file="BICAN_extension.json", path_to_test_dir="../examples/BICAN_schema_specific_examples/"
     )
+    run_validator(
+        path_to_schema_dir="../", schema_file="CAP_extension.json", path_to_test_dir="../examples/CAP_schema_specific_files/"  # Need to simplify names
+    )
