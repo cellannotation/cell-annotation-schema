@@ -1,50 +1,67 @@
 {
   "allOf": [
-      {
-        "$ref": "./general_schema.json"
-      }
-    ],
-
-  "definitions": {
-  },
-  "properties":{
-    "cap_publication_title": {
-      "type": "string",
-      "description": "The title of the publication on CAP (i.e. a published collection of datasets, the \"CAP Workspace\".). The title of the publication on CAP. (NOTE: the term \"publication\" refers to the workspace published on CAP with a version and timestamp.) This MUST be less than or equal to N characters, and this MUST be encoded as a single string."
-    },
-    "cap_publication_description": {
-      "type": "string",
-      "description": "The description of the publication on CAP. The description of the publication on CAP. (NOTE: the term \"publication\" refers to the workspace published on CAP with a version and timestamp.) This MUST be less than or equal to N characters, and this MUST be encoded as a single string."
-    },
-    "cap_publication_url": {
-      "type": "string",
-      "description": "A persistent URL of the publication on CAP. (NOTE: the term \"publication\" refers to the workspace published on CAP with a version and timestamp.)"
-    },
-    "cap_publication_timestamp": {
-      "type": "string",
-      "description": "The timestamp of the CAP publication. This MUST be a string in the format %yyyy-%MM-%dd'T'%hh:%mm:%ss. This value will be overwritten by the newest timestamp upon a new publication."
-    },
-    "cap_publication_version": {
-      "type": "string",
-      "description": "The (latest) version of the CAP publication. This value will be overwritten by the newest version upon a new publication (and automatically incremented). This versioning MUST follow the format 'v' + '[integer]', whereby newer versions must be naturally incremented."
-    },
-    "cap_author_name": {
-      "type": "string",
-      "description": "The author name from the CAP username who published this cell annotation set. This MUST be a string in the format [FIRST NAME] [LAST NAME]."
-    },
-    "cap_author_contact": {
-      "type": "string",
-      "description": "The contact email address from the CAP username who published this cell annotation set. This MUST be a valid email address of the author."
-    },
-    "cap_author_orcid": {
-      "type": "string",
-      "description": "The ORCID ID associated with the CAP username/author who published the cell annotation set. This MUST be a valid ORCID for the author."
+    {
+      "$ref": "./general_schema.json"
     }
-  },
+  ],
   "required": [
     "cellannotation_schema_version",
     "cellannotation_timestamp",
     "cellannotation_version",
     "cellannotation_url"
-  ]
+  ],
+  "definitions": {
+    "Annotation": {
+      "properties": {
+        "category_fullname": {
+          "description": "Any term denoting a biological entity which the author associates as the nearest \"class\" or 'broader term' (or \"parent term\") for the value/term in the field. This field MAY be 'NA' if the author cannot associate any term to the value.",
+          "type": "string"
+        },
+        "category_cell_ontology_exists": {
+          "description": "Decision by user whether this biological entity exists in the current Cell Ontology or not (at the given time of publication). If True, then the user MUST specify this Cell Ontology entry in the fields category_cell_ontology_term_id and category_cell_ontology_term.",
+          "type": "boolean"
+        },
+        "category_cell_ontology_term_id": {
+          "description": "This MUST be a term from either the Cell Ontology (https://www.ebi.ac.uk/ols/ontologies/cl) or from some ontology that extends it by classifying cell types under terms from the Cell Ontology e.g. the Provisional Cell Ontology (https://www.ebi.ac.uk/ols/ontologies/pcl) or the Drosophila Anatomy Ontology (DAO) (https://www.ebi.ac.uk/ols4/ontologies/fbbt).  This field MUST be filled if `category_cell_ontology_exists` is True.",
+          "type": "string"
+        },
+        "category_cell_ontology_term": {
+          "description": "This MUST be the human-readable name assigned to the value of 'category_cell_ontology_term_id'",
+          "type": "string"
+        },
+        "cap_publication_title": {
+          "type": "string",
+          "description": "The title of the publication on CAP (i.e. a published collection of datasets, the \"CAP Workspace\".). The title of the publication on CAP. (NOTE: the term \"publication\" refers to the workspace published on CAP with a version and timestamp.) This MUST be less than or equal to N characters, and this MUST be encoded as a single string."
+        },
+        "cap_publication_description": {
+          "type": "string",
+          "description": "The description of the publication on CAP. The description of the publication on CAP. (NOTE: the term \"publication\" refers to the workspace published on CAP with a version and timestamp.) This MUST be less than or equal to N characters, and this MUST be encoded as a single string."
+        },
+        "cap_publication_url": {
+          "type": "string",
+          "description": "A persistent URL of the publication on CAP. (NOTE: the term \"publication\" refers to the workspace published on CAP with a version and timestamp.)"
+        },
+        "cap_publication_timestamp": {
+          "type": "string",
+          "description": "The timestamp of the CAP publication. This MUST be a string in the format %yyyy-%MM-%dd'T'%hh:%mm:%ss. This value will be overwritten by the newest timestamp upon a new publication."
+        },
+        "cap_publication_version": {
+          "type": "string",
+          "description": "The (latest) version of the CAP publication. This value will be overwritten by the newest version upon a new publication (and automatically incremented). This versioning MUST follow the format 'v' + '[integer]', whereby newer versions must be naturally incremented."
+        },
+        "cap_author_name": {
+          "type": "string",
+          "description": "The author name from the CAP username who published this cell annotation set. This MUST be a string in the format [FIRST NAME] [LAST NAME]."
+        },
+        "cap_author_contact": {
+          "type": "string",
+          "description": "The contact email address from the CAP username who published this cell annotation set. This MUST be a valid email address of the author."
+        },
+        "cap_author_orcid": {
+          "type": "string",
+          "description": "The ORCID ID associated with the CAP username/author who published the cell annotation set. This MUST be a valid ORCID for the author."
+        }
+      }
+    }
+  }
 }

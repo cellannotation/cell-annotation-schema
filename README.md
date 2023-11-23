@@ -13,6 +13,10 @@ CAS provides a programmatically accessible standard designed to solve this probl
 
 https://github.com/cellannotation/cell-annotation-schema/blob/main/user_stories.md
 
+## Examples
+
+Examples used in testing can be browsed under: https://github.com/cellannotation/cell-annotation-schema/tree/main/examples
+
 
 ## Overview
 
@@ -29,14 +33,14 @@ We define a core schema with a very limited set of compulsory fields.  The core 
 
 ## Releases
 
-We published both versioned releases as well as a nightly snaphot at https://github.com/cellannotation/cell-annotation-schema/releases
+We publish both versioned releases and a nightly snaphot at https://github.com/cellannotation/cell-annotation-schema/releases
 
 Release assets include a core schema file and extensions (currently for BICAN and the Cell Annotation Platform).
 
 ## Contents
 - General standard for annotating cell sets (JSON Schema)
-- General standard - JSON Schema rendered in Markdown (derived)
-- Specification of flattening to AnnData.
+- General standard - JSON Schema rendered in Markdown  - WARNING - MAY BE OUT OF DATE - DERIVATION NOT CURRENTLY AUTOMATED
+- Specification of flattening to AnnData. -  WARNING - MAY BE OUT OF DATE - DERIVATION NOT CURRENTLY AUTOMATED
 - Extensions for BICAN and the Cell Annotation Platform.
 
 
