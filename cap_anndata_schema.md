@@ -993,7 +993,7 @@ This versioning MUST follow the format <code>'[MAJOR].[MINOR].[PATCH]'</code> as
 </tbody></table>
 
 
-## cap_dataset_timestamp
+## cap_publication_timestamp
 
 Key-value pair in the `uns` dictionary
 
@@ -1024,7 +1024,7 @@ Key-value pair in the `uns` dictionary
 	</tr>
 </tbody></table>
 
-## cap_dataset_version
+## cap_publication_version
 
 Key-value pair in the `uns` dictionary
 
@@ -1054,7 +1054,7 @@ Key-value pair in the `uns` dictionary
 	</tr>
 </tbody></table>
 
-## cap_dataset_title
+## dataset_title
 
 Key-value pair in the `uns` dictionary
 
@@ -1086,7 +1086,7 @@ Key-value pair in the `uns` dictionary
 </tbody></table>
 
 
-## cap_dataset_description
+## dataset_description
 
 Key-value pair in the `uns` dictionary
 
@@ -1114,6 +1114,36 @@ Key-value pair in the `uns` dictionary
 	<tr>
   		<td><b>example</b></td>
   		<td><code>'A total of 15 retinal ganglion cell clusters were identified from over 99K retinal ganglion cell nulcei in the current atlas. Utilizing previoulsy characterized markers from macaque, 5 clusters can be annotated.'</code></td>
+	</tr>
+</tbody></table>
+
+## dataset_url
+
+Key-value pair in the `uns` dictionary
+
+<table><tbody>
+	<tr>
+  		<td><b>key</b></td>
+  		<td><code>dataset_url</code></td>
+	</tr>
+	<tr>
+  		<td><b>type</b></td>
+  		<td>string</td>
+	</tr>
+	<tr>
+  		<td><b>value</b></td>
+  		<td>A persistent URL of the dataset on CAP.</td>
+	</tr>
+  		<td><b>source</b></td>
+  		<td>software</td>
+	</tr>
+	<tr>
+  		<td><b>required for publication on CAP</b></td>
+  		<td>yes</td>
+	</tr>
+	<tr>
+  		<td><b>example</b></td>
+  		<td><code>'https://celltype.info/CAP_DataCuration/A-Single-Cell-Transcriptome-Atlas-of-the-Human-Pancreas/1/dataset/20'</code></td>
 	</tr>
 </tbody></table>
 
@@ -1237,11 +1267,11 @@ Key-value pair in the `uns` dictionary
 	</tr>
 	<tr>
   		<td><b>example</b></td>
-  		<td><code>'https://celltype.info/CAP_DataCuration/A-Single-Cell-Transcriptome-Atlas-of-the-Human-Pancreas/1/dataset/20'</code></td>
+  		<td><code>'https://celltype.info/CAP_DataCuration/A-Single-Cell-Transcriptome-Atlas-of-the-Human-Pancreas/1'</code></td>
 	</tr>
 </tbody></table>
 
-## author_name
+## cap_author_name
 
 Key-value pair in the `uns` dictionary
 
@@ -1273,7 +1303,7 @@ Key-value pair in the `uns` dictionary
 </tbody></table>
 
 
-## author_contact
+## cap_author_contact
 
 Key-value pair in the `uns` dictionary
 
@@ -1304,7 +1334,7 @@ Key-value pair in the `uns` dictionary
 	</tr>
 </tbody></table>
 
-## orcid
+## cap_orcid
 
 Key-value pair in the `uns` dictionary
 
@@ -1370,7 +1400,7 @@ Python dictionary within the `uns` dictionary, with the key the string `[cellann
 	</tr>
 </tbody></table>
 
-#### description
+#### cellannotation_setdescription
 
 <table><tbody>
 	<tr>
