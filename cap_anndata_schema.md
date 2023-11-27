@@ -1334,7 +1334,7 @@ Key-value pair in the `uns` dictionary
 	</tr>
 </tbody></table>
 
-## cap_orcid
+## cap_author_orcid
 
 Key-value pair in the `uns` dictionary
 
