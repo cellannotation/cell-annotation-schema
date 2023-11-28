@@ -259,7 +259,7 @@ In any layer, if a matrix has 50% or more values that are zeros, it is STRONGLY 
 	</tr>
 	<tr>
   		<td><b>value</b></td>
-  		<td>This MUST be the human-readable term which corresponds to the value of <code>disease_ontology_term_id</code>. The ontology term and ontology term ID MUST match.</td>
+  		<td>This MUST be the human-readable term which corresponds to the value of <code>assay_ontology_term_id</code>. The ontology term and ontology term ID MUST match.</td>
 	</tr>
 	<tr>
   		<td><b>source</b></td>
@@ -1035,11 +1035,11 @@ Key-value pair in the `uns` dictionary
 	</tr>
 	<tr>
   		<td><b>type</b></td>
-  		<td>string</td>
+  		<td>string of <code>'v' + '[integer]'</code></td>
 	</tr>
 	<tr>
   		<td><b>value</b></td>
-  		<td>The version for all cell annotations published (per dataset) on CAP. This MUST be a string. The recommended versioning format is <code>'[MAJOR].[MINOR].[PATCH]'</code> as defined by <a href="https://semver.org">Semantic Versioning 2.0.0.</a></td>
+  		<td>This versioning MUST follow the format <code>'v' + '[integer]'</code>, whereby newer versions must be naturally incremented.</td>
 	</tr>
   		<td><b>source</b></td>
   		<td>software</td>
@@ -1050,7 +1050,7 @@ Key-value pair in the `uns` dictionary
 	</tr>
 	<tr>
   		<td><b>example</b></td>
-  		<td><code>'0.1.0'</code></td>
+  		<td><code>'v1'</code> or <code>'v3'</code></td>
 	</tr>
 </tbody></table>
 
@@ -1248,7 +1248,7 @@ Key-value pair in the `uns` dictionary
 <table><tbody>
 	<tr>
   		<td><b>key</b></td>
-  		<td><code>cap_workspace_url</code></td>
+  		<td><code>cap_publication_url</code></td>
 	</tr>
 	<tr>
   		<td><b>type</b></td>
@@ -1278,7 +1278,7 @@ Key-value pair in the `uns` dictionary
 <table><tbody>
 	<tr>
   		<td><b>key</b></td>
-  		<td><code>author_name</code></td>
+  		<td><code>cap_author_name</code></td>
 	</tr>
 	<tr>
   		<td><b>type</b></td>
@@ -1310,7 +1310,7 @@ Key-value pair in the `uns` dictionary
 <table><tbody>
 	<tr>
   		<td><b>key</b></td>
-  		<td><code>author_contact</code></td>
+  		<td><code>cap_author_contact</code></td>
 	</tr>
 	<tr>
   		<td><b>type</b></td>
@@ -1341,7 +1341,7 @@ Key-value pair in the `uns` dictionary
 <table><tbody>
 	<tr>
   		<td><b>key</b></td>
-  		<td><code>author_orcid</code></td>
+  		<td><code>cap_author_orcid</code></td>
 	</tr>
 	<tr>
   		<td><b>type</b></td>
