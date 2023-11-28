@@ -346,7 +346,7 @@ ScanPy has set an AnnData community standard of defining the `*.obs` value by th
 <table><tbody>
 	<tr>
   		<td><b>column</b></td>
-  		<td><code>'cluster'</code> or <code>'cluster + _ + [ALGORITHM_TYPE] + _ + [SUFFIX]'</code> whereby <code>[ALGORITHM_TYPE]</code> and <code>[SUFFIX]</code> are OPTIONAL.</td>
+  		<td><code>'cluster'</code>, <code>'leiden'</code>, <code>'louvain'</code> or <code>'cluster + _ + [ALGORITHM_TYPE] + _ + [SUFFIX]'</code> whereby <code>[ALGORITHM_TYPE]</code> and <code>[SUFFIX]</code> are OPTIONAL.</td>
 	</tr>
 	<tr>
   		<td><b>dtype</b></td>
@@ -354,7 +354,7 @@ ScanPy has set an AnnData community standard of defining the `*.obs` value by th
 	</tr>
 	<tr>
   		<td><b>value</b></td>
-  		<td><ul><li><code>'cluster'</code>: MUST be used to denote clustering in <code>AnnData.obs</code> 
+  		<td><ul><li><code>'cluster'</code>, <code>'leiden'</code> or <code>'louvain'</code>: MUST be used to denote clustering in <code>AnnData.obs</code> 
         </li>
         <li><code>[ALGORITHM]</code>: Denotes the algorithm used, e.g. be either 'leiden' or 'louvain'. OPTIONAL.
         </li>
@@ -372,7 +372,7 @@ ScanPy has set an AnnData community standard of defining the `*.obs` value by th
 	</tr>
 	<tr>
   		<td><b>example column name</b></td>
-  		<td><code>'cluster_leiden'</code> or <code>'cluster_leiden_broad'</code> or <code>'cluster_louvain_precise3'</code> or <code>'cluster_fine'</code></td>
+  		<td><code>'cluster_leiden'</code> or <code>'cluster_leiden_broad'</code> or <code>'louvain'</code> or <code>'leiden_fine'</code></td>
 	</tr>
 	<tr>
   		<td><b>example value</b></td>
