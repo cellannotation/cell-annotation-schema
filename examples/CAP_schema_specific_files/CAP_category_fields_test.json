@@ -4,6 +4,11 @@
   "cellannotation_version": "v1alpha",
   "cellannotation_url": "http://foo.bar",
   "author_name": "Mary Futey",
+  "labelsets": [
+    {
+      "name": "cluster2"
+    }
+  ],
   "annotations": [ 
       {
        "cell_label" : "fmb",
