@@ -1,0 +1,1 @@
+This directory stores files with metadata about namespaces of IDs used in CAS files.

@@ -1,0 +1,19 @@
+{
+  "CellXGene_dataset":
+  { "cellXGene_census":
+    {
+      "prefix": "cxg_dataset",
+      "providers": [
+        {
+          "code": "CELLxGENE_census",
+          "Description": "API for access to the CellXGene Discover corpus.  For detail of how to use cxg_dataset accessions to download h5ad files see [Downloading-the-original-source-H5AD-file-of-a-dataset](https://chanzuckerberg.github.io/cellxgene-census/notebooks/api_demo/census_datasets.html#Downloading-the-original-source-H5AD-file-of-a-dataset)."
+        },
+        {
+          "code": "CELLxGENE_discover",
+          "description": "Web portal hosting single cell matrix datasets in browsable form.",
+          "uri_format": "https://cellxgene.cziscience.com/e/_$1.cxg/"
+        }
+      ]
+    }
+  }
+}
