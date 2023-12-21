@@ -1,0 +1,1 @@
+include src/cas_schema/*.yaml BICAN_extension.json CAP_extension.json general_schema.json BICAN_schema.json CAP_schema.json
