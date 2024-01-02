@@ -33,7 +33,7 @@ jobs:
 
       - name: Release assets generation
         run: |
-          python src/cas_schema/schema_manager.py
+          PYTHONPATH=./src:$PYTHONPATH python src/cas_schema/schema_manager.py
 
       - name: Make Snapshot
         uses: ncipollo/release-action@v1
