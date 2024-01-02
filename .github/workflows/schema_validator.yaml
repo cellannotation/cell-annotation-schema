@@ -34,7 +34,7 @@ jobs:
       - name: Schema validation
         id: schema
         run: |
-          python src/schema_validator.py
+          python src/cas_schema/schema_validator.py
 
       - name: Prepare schema validator comment
         if: ${{ github.event_name == 'pull_request' && failure() }}

@@ -54,12 +54,12 @@ If there are not any conflicts, these two strategies produces the same output.
 
 While extension schemas commonly should reference to base schemas via web URLs (or PURLs), catalog files can be invaluable for development and testing purposes. They enable the redirection of web URLs to local schema files, facilitating a smooth development and testing workflow.
 
-An example catalog file is located at [src/catalog.yaml](src/catalog.yaml)
+An example catalog file is located at [src/cas_schema/catalog.yaml](src/cas_schema/catalog.yaml)
 
 ```yaml
 https://raw.githubusercontent.com/cellannotation/cell-annotation-schema/main/general_schema.json: ../general_schema.json
 ```
 
-Pointed local file paths are relative to the location of the `catalog.yaml` file itself. Hence, in this example, it is relative to `{root_folder}/src/catalog.yaml` which resolves to `{root_folder}/general_schema.json`.
+Pointed local file paths are relative to the location of the `catalog.yaml` file itself. Hence, in this example, it is relative to `{root_folder}/src/cas_schema/catalog.yaml` which resolves to `{root_folder}/general_schema.json`.
 
 A basic caching mechanism added for catalog files to prevent repetitive file read operations and accordingly increase performance.
