@@ -33,9 +33,13 @@ We define a core schema with a very limited set of compulsory fields.  The core 
 
 ## Releases
 
-We publish both versioned releases and a nightly snaphot at https://github.com/cellannotation/cell-annotation-schema/releases
+We publish both versioned releases and a nightly snapshot at https://github.com/cellannotation/cell-annotation-schema/releases
 
 Release assets include a core schema file and extensions (currently for BICAN and the Cell Annotation Platform).
+
+PyPI release is at https://pypi.org/project/cell-annotation-schema/
+
+You can discover instructions on utilizing the PyPI package by visiting the following link https://github.com/cellannotation/cell-annotation-schema/blob/main/docs/pypi_package.md
 
 ## Contents
 - General standard for annotating cell sets (JSON Schema)
