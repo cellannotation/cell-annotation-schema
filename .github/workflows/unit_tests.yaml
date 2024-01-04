@@ -28,4 +28,4 @@ jobs:
 
 
       - name: Run test
-        run: PYTHONPATH=./src/scripts:$PYTHONPATH python -m unittest discover -s src -p '*_test.py'
+        run: PYTHONPATH=./src:$PYTHONPATH python -m unittest discover -s src -p '*_test.py'

@@ -23,7 +23,7 @@ jobs:
         pip install -r requirements.txt
     - name: Release assets generation
       run: |
-        python src/cas_schema/schema_manager.py
+        PYTHONPATH=./src:$PYTHONPATH python src/cas_schema/schema_manager.py
     - name: Package release assets
       run: |
         mkdir -p src/cas_schema/schemas
