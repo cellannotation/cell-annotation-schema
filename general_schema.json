@@ -167,7 +167,9 @@
     },
     "labelsets": {
       "type": "array",
-      "$ref": "#/definitions/Labelset"
+      "items": {
+        "$ref": "#/definitions/Labelset"
+      }
     },
     "annotations": {
       "type": "array",
