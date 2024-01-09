@@ -1,0 +1,88 @@
+# Listens for '#rollschema' keyword in the pull request comments. If keyword is triggered, generates and uploads merged schemas.
+# This action is followed by pr_comment_schema_roller.yaml that comments about the uploaded artifact.
+name: 'Schema Roller'
+
+on:
+  issue_comment:
+    types: [created]
+
+env:
+  DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+
+jobs:
+  roll_schema:
+    if: ${{ github.event.issue.pull_request }}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [ '3.9' ]
+    steps:
+      - uses: khan/pull-request-comment-trigger@v1.1.0
+        id: check
+        with:
+          trigger: '#rollschema'
+        env:
+          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
+
+      - uses: xt0rted/pull-request-comment-branch@v1
+        id: comment-branch
+
+      - name: Checkout Repository
+        if: steps.check.outputs.triggered == 'true'
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ steps.comment-branch.outputs.head_ref }}
+          fetch-depth: 0
+
+      - name: Set up Python ${{ matrix.python-version }}
+        if: steps.check.outputs.triggered == 'true'
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install dependencies
+        if: steps.check.outputs.triggered == 'true'
+        run: pip install -r requirements.txt
+
+      - name: Release assets generation
+        if: steps.check.outputs.triggered == 'true'
+        run: |
+          PYTHONPATH=./src:$PYTHONPATH python src/cas_schema/schema_manager.py
+
+      - name: Upload artefacts
+        if: steps.check.outputs.triggered == 'true'
+        uses: actions/upload-artifact@v2
+        with:
+          name: schemas
+          path: |
+            BICAN_schema.json
+            CAP_schema.json
+
+      - name: Save the PR number in an artifact
+        shell: bash
+        run: |
+          PR_URL="${{ github.event.issue.pull_request.url }}"
+          PR_NUM=${PR_URL##*/}
+          echo "PR_NUM: $PR_NUM"
+          echo $PR_NUM > pr_num.txt
+
+      # To share PR number with the consecutive action (pr_comment_schema_roller.yaml)
+      - name: Upload the PR number
+        uses: actions/upload-artifact@v2
+        with:
+          name: pr_num
+          path: ./pr_num.txt
+
+      - name: Save the Head Ref in an artifact
+        shell: bash
+        run: |
+          HEAD_REF="${{ steps.comment-branch.outputs.head_ref }}"
+          echo "HEAD_REF: $HEAD_REF"
+          echo $HEAD_REF > head_ref.txt
+
+      # To share head ref with the consecutive action (pr_comment_schema_roller.yaml)
+      - name: Upload the Head Ref
+        uses: actions/upload-artifact@v2
+        with:
+          name: head_ref
+          path: ./head_ref.txt
