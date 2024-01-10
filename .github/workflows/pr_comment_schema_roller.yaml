@@ -10,10 +10,12 @@ on:
     workflows:
       - "Schema Roller"
 
-permissions:
-  contents: write
-  issues: write
-  id-token: write
+#permissions:
+#  contents: write
+#  issues: write
+#  id-token: write
+
+permissions: write-all
 
 jobs:
   comment-on-pr:
