@@ -10,11 +10,6 @@ on:
     workflows:
       - "Schema Roller"
 
-#permissions:
-#  contents: write
-#  issues: write
-#  id-token: write
-
 permissions: write-all
 
 jobs:
@@ -106,10 +101,21 @@ jobs:
       - name: Prepare BICAN schema doc comment
         run: "echo \"\n<details>\n <summary> BICAN schema documentation</summary> \n\" >> schema-comment.md; cat BICAN_schema.md >>schema-comment.md"
 
-#      - name: Prepare CAP schema doc comment
-#        run: "echo \"\n</details>\n\n<details>\n <summary> CAP schema documentation</summary> \n\" >> schema-comment.md; cat CAP_schema.md >>schema-comment.md"
+      - name: BICAN Schema Docs Comment
+        env:
+          JOB_PATH: "${{ github.server_url }}/${{ github.repository }}/actions/\
+              runs/${{ env.PREVIOUS_JOB_ID }}"
+          HEAD_SHA: ${{ env.HEAD_SHA }}
+        uses: peter-evans/create-or-update-comment@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          issue-number: ${{ env.PR_NUM }}
+          body-path: schema-comment.md
 
-      - name: Schema Docs Comment
+      - name: Prepare CAP schema doc comment
+        run: "echo \"</details>\n\n<details>\n <summary> CAP schema documentation</summary> \n\" > schema-comment.md; cat CAP_schema.md >>schema-comment.md"
+
+      - name: CAP Schema Docs Comment
         env:
           JOB_PATH: "${{ github.server_url }}/${{ github.repository }}/actions/\
               runs/${{ env.PREVIOUS_JOB_ID }}"
