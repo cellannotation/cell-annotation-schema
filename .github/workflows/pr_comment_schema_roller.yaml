@@ -78,22 +78,18 @@ jobs:
           fetch-depth: 0
 
       - name: Set up Python ${{ matrix.python-version }}
-        if: steps.check.outputs.triggered == 'true'
         uses: actions/setup-python@v2
         with:
           python-version: ${{ matrix.python-version }}
 
       - name: Install dependencies
-        if: steps.check.outputs.triggered == 'true'
         run: pip install -r requirements.txt
 
       - name: Release assets generation
-        if: steps.check.outputs.triggered == 'true'
         run: |
           PYTHONPATH=./src:$PYTHONPATH python src/cas_schema/schema_manager.py
 
       - name: Schema documentation generation
-        if: steps.check.outputs.triggered == 'true'
         run: |
           PYTHONPATH=./src:$PYTHONPATH python src/cas_schema/schema_docs.py
 
