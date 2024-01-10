@@ -103,8 +103,8 @@ jobs:
       - name: Prepare BICAN schema doc comment
         run: "echo \"\n<details>\n <summary> BICAN schema documentation</summary> \n\" >> schema-comment.md; cat BICAN_schema.md >>schema-comment.md"
 
-      - name: Prepare CAP schema doc comment
-        run: "echo \"\n</details>\n\n<details>\n <summary> CAP schema documentation</summary> \n\" >> schema-comment.md; cat CAP_schema.md >>schema-comment.md"
+#      - name: Prepare CAP schema doc comment
+#        run: "echo \"\n</details>\n\n<details>\n <summary> CAP schema documentation</summary> \n\" >> schema-comment.md; cat CAP_schema.md >>schema-comment.md"
 
       - name: Schema Docs Comment
         env:
