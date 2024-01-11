@@ -28,7 +28,7 @@ jobs:
 
       - name: Release assets generation
         run: |
-          python src/schema_manager.py
+          PYTHONPATH=./src:$PYTHONPATH python src/cas_schema/schema_manager.py
 
       - name: Upload General Schema
         uses: shogo82148/actions-upload-release-asset@v1

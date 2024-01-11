@@ -1,0 +1,25 @@
+{ 
+  "cellannotation_schema_version": "snapshot",
+  "cellannotation_timestamp": "2023-11-23T16:49:22.833005",
+  "cellannotation_version": "v1alpha",
+  "cellannotation_url": "http://foo.bar",
+  "author_name": "Mary Futey",
+  "labelsets": [
+    {
+      "name": "cluster2"
+    }
+  ],
+  "annotations": [ 
+      {
+       "cell_label" : "fmb",
+       "labelset": "cluster2",
+       "cell_fullname": "flat midget bipolar",
+       "cell_ontology_term_id": "CL:4033033", 
+       "cell_ontology_term": "flat midget bipolar cell", 
+       "category_fullname": "cone OFF",
+       "category_cell_ontology_term_id": "CL:0000750",
+       "category_cell_ontology_term": "OFF-bipolar cell"
+    }
+  ]
+}
+

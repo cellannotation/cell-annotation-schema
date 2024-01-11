@@ -2,8 +2,8 @@ import unittest
 import os
 import json
 
-from schema_manager import load
-from schema_merger import OverrideStrategy, ExtensionStrategy
+from cas_schema.schema_manager import load
+from cas_schema.schema_merger import OverrideStrategy, ExtensionStrategy
 
 GENERAL_SCHEMA = os.path.join(os.path.dirname(os.path.realpath(__file__)), "./test_data/general_schema.json")
 BICAN_SCHEMA = os.path.join(os.path.dirname(os.path.realpath(__file__)), "./test_data/BICAN_extension.json")

@@ -1,5 +1,10 @@
 {
   "author_name": "Kimberley Siletti",
+  "labelsets": [{
+    "name": "Subtype",
+    "rank": 0
+     }
+  ],
   "annotations": [
     {
       "labelset": "Subtype",

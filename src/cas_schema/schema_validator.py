@@ -1,11 +1,14 @@
 import glob
 import sys
 import os
+import warnings
+
 from pathlib import Path
 from typing import List
-from json_utils import get_json_from_file
-from schema_manager import load
-import warnings
+
+from cas_schema.json_utils import get_json_from_file
+from cas_schema.schema_manager import load
+
 
 from jsonschema import Draft202012Validator, RefResolver, SchemaError
 
@@ -13,7 +16,35 @@ from jsonschema import Draft202012Validator, RefResolver, SchemaError
 warnings.filterwarnings("always")
 
 
-def get_validator(filename, base_uri=""):
+def validate(schema, schema_name, test_path):
+    """
+    Validates all json files located in the test path with the given schema.
+    Parameters:
+        schema: json schema object
+        schema_name: name (or path) of the schema. Used for reporting purposes only.
+        test_path: path to the data files. If path is a folder, validates all json files inside. If path is a json file,
+        validates it.
+    Returns:
+        'True' if all test files are valid, 'False' otherwise. Logs the validation errors if any.
+    """
+    sv = get_validator(schema, schema_name)
+    if os.path.isdir(test_path):
+        test_files = glob.glob(pathname=test_path + "/*.json")
+    else:
+        if Path(test_path).suffix == ".json":
+            test_files = [test_path]
+        else:
+            raise Exception("Test file extension not supported: {}".format(test_path))
+    validation_status: List[bool] = []
+    print("Found %s test files in %s" % (str(len(test_files)), test_path))
+    for instance_file in test_files:
+        i = get_json_from_file(instance_file)
+        print("Testing: %s" % instance_file)
+        validation_status.append(validate_file(sv, i))
+    return False not in validation_status
+
+
+def get_validator(schema, filename, base_uri=""):
     """Load schema from JSON file;
     Check whether it's a valid schema;
     Return a Draft4Validator object.
@@ -21,8 +52,6 @@ def get_validator(filename, base_uri=""):
     resolution of JSON pointers (This is especially useful
     for local resolution via base_uri of form file://{some_path}/)
     """
-    catalog_file_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "./catalog.yaml")
-    schema = load(filename, catalog_file=catalog_file_path)
     try:
         # Check schema via class method call. Works, despite IDE complaining
         # However, it appears that this doesn't catch every schema issue.
@@ -37,7 +66,16 @@ def get_validator(filename, base_uri=""):
     return Draft202012Validator(schema=schema, resolver=resolver)
 
 
-def validate(validator, instance):
+def get_schema(filename):
+    """
+    Reads the json schema from the given location
+    """
+    catalog_file_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "catalog.yaml")
+    schema = load(filename, catalog_file=catalog_file_path)
+    return schema
+
+
+def validate_file(validator, instance):
     """Validate an instance of a schema and report errors."""
     if validator.is_valid(instance):
         print("Validation Passes")
@@ -73,33 +111,31 @@ def run_validator(path_to_schema_dir, schema_file, path_to_test_dir):
        * schema_file: schema file name
        * test_dir: path to test directory (absolute or local to schema dir)
     """
-    file_ext = "json"
     # Getting script directory, schema directory and test directory
     script_folder = Path(os.path.dirname(os.path.realpath(__file__)))
     schema_dir = Path(os.path.dirname(path_to_schema_dir))
-    test_dir = Path(os.path.dirname(path_to_test_dir))
+    test_path = os.path.join(script_folder, os.path.dirname(path_to_test_dir))
     if not os.path.exists(os.path.join(script_folder, schema_dir)):
         raise Exception("Please provide valid path_to_schema_dir")
-    if not os.path.exists(os.path.join(script_folder, test_dir)):
+    if not os.path.exists(test_path):
         raise Exception("Please provide valid path_to_test_dir")
     else:
-        sv = get_validator(os.path.join(script_folder, schema_dir, schema_file))
-        test_dir_files = "".join(["/*.", file_ext])
-        test_files = glob.glob(pathname=os.path.join(script_folder, test_dir) + test_dir_files)
-        validation_status: List[bool] = []
-        print("Found test files: %s in %s" % (str(test_files), path_to_test_dir))
-        for instance_file in test_files:
-            i = get_json_from_file(instance_file)
-            print("Testing: %s" % instance_file)
-            validation_status.append(validate(sv, i))
-        if False in validation_status:
-            sys.exit("Validation Fails")
+        schema_file_path = os.path.join(script_folder, schema_dir, schema_file)
+        schema = get_schema(schema_file_path)
+
+        result = validate(schema, schema_file_path, test_path)
+        if not result:
+            raise Exception("Validation Failed")
 
 
 if __name__ == "__main__":
     run_validator(
-        path_to_schema_dir="../", schema_file="general_schema.json", path_to_test_dir="../examples/"
+        path_to_schema_dir="../../", schema_file="general_schema.json", path_to_test_dir="../../examples/"
     )
     run_validator(
-        path_to_schema_dir="../", schema_file="BICAN_extension.json", path_to_test_dir="../examples/BICAN_schema_specific_examples/"
+        path_to_schema_dir="../../", schema_file="BICAN_extension.json", path_to_test_dir="../../examples/BICAN_schema_specific_examples/"
+    )
+    run_validator(
+        path_to_schema_dir="../../", schema_file="CAP_extension.json", path_to_test_dir="../../examples/CAP_schema_specific_files/"
+        # Need to simplify names
     )
