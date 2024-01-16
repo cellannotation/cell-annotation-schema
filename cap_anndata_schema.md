@@ -2,7 +2,7 @@
 
 Contact: [...]
 
-Version: 0.1.0 
+Version: 1.0.0  
 
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED" "MAY", and "OPTIONAL" in this document are to be interpreted as described in [BCP 14](https://tools.ietf.org/html/bcp14), [RFC2119](https://www.rfc-editor.org/rfc/rfc2119.txt), and [RFC8174](https://www.rfc-editor.org/rfc/rfc8174.txt) when, and only when, they appear in all capitals, as shown here.
 
@@ -1054,14 +1054,14 @@ Key-value pair in the `uns` dictionary
 	</tr>
 </tbody></table>
 
-## dataset_title
+## title
 
 Key-value pair in the `uns` dictionary
 
 <table><tbody>
 	<tr>
   		<td><b>key</b></td>
-  		<td><code>cap_dataset_title</code></td>
+  		<td><code>title</code></td>
 	</tr>
 	<tr>
   		<td><b>type</b></td>
@@ -1086,14 +1086,14 @@ Key-value pair in the `uns` dictionary
 </tbody></table>
 
 
-## dataset_description
+## description
 
 Key-value pair in the `uns` dictionary
 
 <table><tbody>
 	<tr>
   		<td><b>key</b></td>
-  		<td><code>cap_dataset_description</code></td>
+  		<td><code>description</code></td>
 	</tr>
 	<tr>
   		<td><b>type</b></td>
@@ -1400,7 +1400,7 @@ Python dictionary within the `uns` dictionary, with the key the string `[cellann
 	</tr>
 </tbody></table>
 
-#### cellannotation_setdescription
+#### description
 
 <table><tbody>
 	<tr>
@@ -1604,4 +1604,12 @@ Python dictionary within the `uns` dictionary, with the key the string `[cellann
 	</tr>
 </tbody></table>
 
+# Appendix: Changelog
+
+schema version 1.0.0 
+ <ul>
+  <li>Renamed <code>dataset_title</code> to <code>title</code></li>
+  <li>Renamed <code>dataset_description</code> to <code>description</code></li>
+  <li>Renamed <code>cellannotation_setdescription</code> to <code>description </code></li>
+</ul> 
 
