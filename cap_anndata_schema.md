@@ -1054,14 +1054,14 @@ Key-value pair in the `uns` dictionary
 	</tr>
 </tbody></table>
 
-## dataset_title
+## title
 
 Key-value pair in the `uns` dictionary
 
 <table><tbody>
 	<tr>
   		<td><b>key</b></td>
-  		<td><code>cap_dataset_title</code></td>
+  		<td><code>title</code></td>
 	</tr>
 	<tr>
   		<td><b>type</b></td>
@@ -1086,14 +1086,14 @@ Key-value pair in the `uns` dictionary
 </tbody></table>
 
 
-## dataset_description
+## description
 
 Key-value pair in the `uns` dictionary
 
 <table><tbody>
 	<tr>
   		<td><b>key</b></td>
-  		<td><code>cap_dataset_description</code></td>
+  		<td><code>description</code></td>
 	</tr>
 	<tr>
   		<td><b>type</b></td>
@@ -1400,7 +1400,7 @@ Python dictionary within the `uns` dictionary, with the key the string `[cellann
 	</tr>
 </tbody></table>
 
-#### cellannotation_setdescription
+#### description
 
 <table><tbody>
 	<tr>
