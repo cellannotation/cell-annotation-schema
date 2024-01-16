@@ -1604,4 +1604,12 @@ Python dictionary within the `uns` dictionary, with the key the string `[cellann
 	</tr>
 </tbody></table>
 
+# Appendix: Changelog
+
+schema version 1.0.0 
+ <ul>
+  <li>Renamed <code>dataset_title</code> to <code>title</code></li>
+  <li>Renamed <code>dataset_description</code> to <code>description</code></li>
+  <li>Renamed <code>cellannotation_setdescription</code> to <code>description </code></li>
+</ul> 
 
