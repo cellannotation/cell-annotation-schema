@@ -55,12 +55,12 @@ jobs:
           echo "HEAD_SHA=$HEAD_SHA" >> "$GITHUB_ENV"
 
       - name: Download workflow artifact
-        uses: dawidd6/action-download-artifact@v2.11.0
+        uses: dawidd6/action-download-artifact@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           workflow: schema_roller.yaml
           run_id: ${{ github.event.workflow_run.id }}
-          if_no_artifact_found: ignore
+          if_no_artifact_found: warn
 
       - name: "Check file existence"
         id: check_files
