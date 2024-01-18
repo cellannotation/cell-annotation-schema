@@ -29,12 +29,10 @@ jobs:
           pip install -r requirements.txt
 
       - name: Release assets generation
-        if: steps.check.outputs.triggered == 'true'
         run: |
           PYTHONPATH=./src:$PYTHONPATH python src/cas_schema/schema_manager.py
 
       - name: Schema documentation generation
-        if: steps.check_files.outputs.files_exists == 'true'
         run: |
           PYTHONPATH=./src:$PYTHONPATH python src/cas_schema/schema_docs.py
 
