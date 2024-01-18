@@ -61,47 +61,63 @@ jobs:
           workflow: schema_roller.yaml
           run_id: ${{ github.event.workflow_run.id }}
 
+      - name: "Check file existence"
+        id: check_files
+        uses: andstor/file-existence-action@v2
+        with:
+          files: "pr_num/pr_num.txt"
+
       - name: Set pr_num variable
+        if: steps.check_files.outputs.files_exists == 'true'
         run: |
           PR_NUM=$(cat pr_num/pr_num.txt)
           echo "PR_NUM: $PR_NUM"
           echo "PR_NUM=$PR_NUM" >> "$GITHUB_ENV"
 
       - name: Set head_ref variable
+        if: steps.check_files.outputs.files_exists == 'true'
         run: |
           HEAD_REF=$(cat head_ref/head_ref.txt)
           echo "HEAD_REF: $HEAD_REF"
           echo "HEAD_REF=$HEAD_REF" >> "$GITHUB_ENV"
 
       - name: Checkout
+        if: steps.check_files.outputs.files_exists == 'true'
         uses: actions/checkout@v3
         with:
           ref: ${{ env.HEAD_REF }}
           fetch-depth: 0
 
       - name: Set up Python ${{ matrix.python-version }}
+        if: steps.check_files.outputs.files_exists == 'true'
         uses: actions/setup-python@v2
         with:
           python-version: ${{ matrix.python-version }}
 
       - name: Install dependencies
+        if: steps.check_files.outputs.files_exists == 'true'
         run: pip install -r requirements.txt
 
       - name: Release assets generation
+        if: steps.check_files.outputs.files_exists == 'true'
         run: |
           PYTHONPATH=./src:$PYTHONPATH python src/cas_schema/schema_manager.py
 
       - name: Schema documentation generation
+        if: steps.check_files.outputs.files_exists == 'true'
         run: |
           PYTHONPATH=./src:$PYTHONPATH python src/cas_schema/schema_docs.py
 
       - name: Prepare download links comment
+        if: steps.check_files.outputs.files_exists == 'true'
         run: "echo \"Rolled schema files: [schemas.zip](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ env.PREVIOUS_JOB_ID }}/artifacts/${{ env.ARTIFACT_1_ID }})\" >schema-comment.md"
 
       - name: Prepare BICAN schema doc comment
+        if: steps.check_files.outputs.files_exists == 'true'
         run: "echo \"\n<details>\n <summary> BICAN schema documentation</summary> \n\" >> schema-comment.md; cat BICAN_schema.md >>schema-comment.md"
 
       - name: BICAN Schema Docs Comment
+        if: steps.check_files.outputs.files_exists == 'true'
         env:
           JOB_PATH: "${{ github.server_url }}/${{ github.repository }}/actions/\
               runs/${{ env.PREVIOUS_JOB_ID }}"
@@ -113,9 +129,11 @@ jobs:
           body-path: schema-comment.md
 
       - name: Prepare CAP schema doc comment
+        if: steps.check_files.outputs.files_exists == 'true'
         run: "echo \"</details>\n\n<details>\n <summary> CAP schema documentation</summary> \n\" > schema-comment.md; cat CAP_schema.md >>schema-comment.md"
 
       - name: CAP Schema Docs Comment
+        if: steps.check_files.outputs.files_exists == 'true'
         env:
           JOB_PATH: "${{ github.server_url }}/${{ github.repository }}/actions/\
               runs/${{ env.PREVIOUS_JOB_ID }}"

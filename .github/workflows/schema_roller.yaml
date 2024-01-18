@@ -59,6 +59,7 @@ jobs:
             CAP_schema.json
 
       - name: Save the PR number in an artifact
+        if: steps.check.outputs.triggered == 'true'
         shell: bash
         run: |
           PR_URL="${{ github.event.issue.pull_request.url }}"
@@ -68,12 +69,14 @@ jobs:
 
       # To share PR number with the consecutive action (pr_comment_schema_roller.yaml)
       - name: Upload the PR number
+        if: steps.check.outputs.triggered == 'true'
         uses: actions/upload-artifact@v2
         with:
           name: pr_num
           path: ./pr_num.txt
 
       - name: Save the Head Ref in an artifact
+        if: steps.check.outputs.triggered == 'true'
         shell: bash
         run: |
           HEAD_REF="${{ steps.comment-branch.outputs.head_ref }}"
@@ -82,6 +85,7 @@ jobs:
 
       # To share head ref with the consecutive action (pr_comment_schema_roller.yaml)
       - name: Upload the Head Ref
+        if: steps.check.outputs.triggered == 'true'
         uses: actions/upload-artifact@v2
         with:
           name: head_ref
