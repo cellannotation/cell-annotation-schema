@@ -86,6 +86,8 @@ my taxonomy with other members of the consortium, prior to publication.
 7. As a consumer of brain initiative taxonomies, I want to see the (marker) evidence for
 mappings to generally known cell types.
 
+8.test
+
 
 
 
