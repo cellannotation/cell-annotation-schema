@@ -13,7 +13,7 @@ CAS provides a programmatically accessible standard designed to solve this probl
 
 ## User stories: 
 
-https://github.com/cellannotation/cell-annotation-schema/blob/main/user_stories.md
+https://github.com/cellannotation/cell-annotation-schema/blob/main/docs/user_stories.md
 
 ## Examples
 
@@ -32,6 +32,12 @@ The top level wraps other JSON objects (sub-tables):
 ## Core schema vs extensions
 
 We define a core schema with a very limited set of compulsory fields.  The core schema avoids specifying that additional fields are forbidden, allowing extensions to be built and for any users to add their own customs fields as long as they don't stomp on existing fields in the specification. 
+
+Documentation for the core and extension schemas is available at:
+
+- [general_schema.md](https://github.com/cellannotation/cell-annotation-schema/blob/main/build/general_schema.md)
+- [BICAN_schema.md](https://github.com/cellannotation/cell-annotation-schema/blob/main/build/BICAN_schema.md)
+- [CAP_schema.md](https://github.com/cellannotation/cell-annotation-schema/blob/main/build/CAP_schema.md)
 
 ## Releases
 

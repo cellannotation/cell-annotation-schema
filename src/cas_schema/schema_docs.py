@@ -14,6 +14,7 @@ CROSS_REF_TERM_ALT = "Values from *"
 
 logging.basicConfig(level=logging.INFO)
 
+BASE_SCHEMA = os.path.join(os.path.dirname(os.path.realpath(__file__)), "../../general_schema.json")
 BICAN_SCHEMA = os.path.join(os.path.dirname(os.path.realpath(__file__)), "../../BICAN_schema.json")
 CAP_SCHEMA = os.path.join(os.path.dirname(os.path.realpath(__file__)), "../../CAP_schema.json")
 
@@ -344,4 +345,5 @@ def generate_schema_documentation(schema_path, md_output=None):
 if __name__ == "__main__":
     generate_schema_documentation(BICAN_SCHEMA)
     generate_schema_documentation(CAP_SCHEMA)
+    generate_schema_documentation(BASE_SCHEMA)
 

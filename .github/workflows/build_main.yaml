@@ -44,6 +44,7 @@ jobs:
           cp -fr BICAN_schema.md build/
           cp -fr CAP_schema.json build/
           cp -fr CAP_schema.md build/
+          cp -fr general_schema.md build/
 
       - name: Commit files
         run: |
