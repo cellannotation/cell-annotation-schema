@@ -106,8 +106,8 @@
             "type": "string"
           }
         },
-        "positive_marker_gene_evidence": {
-          "description": "List of names of genes whose expression is explicitly used as evidence for this cell annotation. Each gene MUST be included in the matrix of the AnnData/Seurat file.",
+        "marker_gene_evidence": {
+          "description": "List of names of genes whose expression in the cells being annotated is explicitly used as evidence for this cell annotation. Each gene MUST be included in the matrix of the AnnData/Seurat file.",
           "type": "array",
           "items": {
             "type": "string",
