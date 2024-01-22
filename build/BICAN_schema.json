@@ -26,9 +26,15 @@
         "automated_annotation": {
           "type": "object",
           "$ref": "#/definitions/automated_annotation"
+        },
+        "rank": {
+          "type": "integer",
+          "description": "A number indicating relative granularity with 0 being the most specific.  Use this where a single dataset has multiple keys that are used consistently to record annotations and different levels of granularity."
         }
       },
-      "required": ["name"]
+      "required": [
+        "name"
+      ]
     },
     "automated_annotation": {
       "type": "object",
@@ -107,15 +113,7 @@
           }
         },
         "marker_gene_evidence": {
-          "description": "List of names of genes whose expression in the cells being annotated is explicitly used as evidence for this cell annotation. Each gene MUST be included in the matrix of the AnnData/Seurat file.",
-          "type": "array",
-          "items": {
-            "type": "string",
-            "description": "Gene names explicitly used as evidence, which MUST be in the matrix of the AnnData/Seurat file"
-          }
-        },
-        "negative_marker_gene_evidence": {
-          "description": "List of names of genes, the absence of expression of which is explicitly used as evidence for this cell annotation. Each gene MUST be included in the matrix of the AnnData/Seurat file.",
+          "description": "List of gene names explicitly used as evidence for this cell annotation. Each gene MUST be included in the matrix of the AnnData/Seurat file.",
           "type": "array",
           "items": {
             "type": "string",
@@ -129,6 +127,45 @@
             "type": "string",
             "description": "List of synonyms"
           }
+        },
+        "cell_set_accession": {
+          "type": "string",
+          "description": "An identifier that can be used to consistently refer to the set of cells being annotated, even if the cell_label changes."
+        },
+        "parent_cell_set_accessions": {
+          "type": "array",
+          "value": "string",
+          "description": "A list of accessions of cell sets that subsume this cell set. This can be used to compose hierarchies of annotated cell sets, built from a fixed set of clusters."
+        },
+        "transferred_annotations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Annotation_transfer"
+          }
+        }
+      }
+    },
+    "Annotation_transfer": {
+      "properties": {
+        "transferred_cell_label": {
+          "type": "string",
+          "description": "Transferred cell label"
+        },
+        "source_taxonomy": {
+          "type": "string",
+          "description": "PURL of source taxonomy"
+        },
+        "source_node_accession": {
+          "type": "string",
+          "description": "accession of node that label was transferred from"
+        },
+        "algorithm_name": {
+          "type": "string",
+          "description": ""
+        },
+        "comment": {
+          "type": "string",
+          "description": "Free text comment on annotation transfer"
         }
       }
     }
@@ -187,4 +224,3 @@
     }
   }
 }
-

@@ -1,0 +1,58 @@
+name: Build schemas
+
+# when main changed rebuild the products (schemas and documentations) and updates the build folder
+on:
+  push:
+    branches: [ main ]
+
+permissions: write-all
+
+jobs:
+  build-and-publish:
+    name: Build main branch
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [ '3.9' ]
+    steps:
+
+      - uses: actions/checkout@v3
+        with:
+          persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal access token.
+          fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository.
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install Project Dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Release assets generation
+        run: |
+          PYTHONPATH=./src:$PYTHONPATH python src/cas_schema/schema_manager.py
+
+      - name: Schema documentation generation
+        run: |
+          PYTHONPATH=./src:$PYTHONPATH python src/cas_schema/schema_docs.py
+
+      - name: Copy files to build folder
+        run: |
+          cp -fr BICAN_schema.json build/
+          cp -fr BICAN_schema.md build/
+          cp -fr CAP_schema.json build/
+          cp -fr CAP_schema.md build/
+          cp -fr general_schema.md build/
+
+      - name: Commit files
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git diff --quiet && git diff --staged --quiet || git commit -a -m "Main branch build"
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          branch: ${{ github.head_ref }}
