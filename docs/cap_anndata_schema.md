@@ -993,14 +993,14 @@ This versioning MUST follow the format <code>'[MAJOR].[MINOR].[PATCH]'</code> as
 </tbody></table>
 
 
-## cap_publication_timestamp
+## publication_timestamp
 
 Key-value pair in the `uns` dictionary
 
 <table><tbody>
 	<tr>
   		<td><b>key</b></td>
-  		<td><code>cap_dataset_timestamp</code></td>
+  		<td><code>publication_timestamp</code></td>
 	</tr>
 	<tr>
   		<td><b>type</b></td>
@@ -1024,14 +1024,14 @@ Key-value pair in the `uns` dictionary
 	</tr>
 </tbody></table>
 
-## cap_publication_version
+## publication_version
 
 Key-value pair in the `uns` dictionary
 
 <table><tbody>
 	<tr>
   		<td><b>key</b></td>
-  		<td><code>cap_dataset_version</code></td>
+  		<td><code>publication_version</code></td>
 	</tr>
 	<tr>
   		<td><b>type</b></td>
@@ -1211,14 +1211,14 @@ Key-value pair in the `uns` dictionary
 </tbody></table>
 
 
-## cap_publication_authors_list
+## authors_list
 
 Key-value pair in the `uns` dictionary
 
 <table><tbody>
 	<tr>
   		<td><b>key</b></td>
-  		<td><code>cap_publication_authors_list</code></td>
+  		<td><code>authors_list</code></td>
 	</tr>
 	<tr>
   		<td><b>type</b></td>
@@ -1271,14 +1271,14 @@ Key-value pair in the `uns` dictionary
 	</tr>
 </tbody></table>
 
-## cap_author_name
+## main_author
 
 Key-value pair in the `uns` dictionary
 
 <table><tbody>
 	<tr>
   		<td><b>key</b></td>
-  		<td><code>cap_author_name</code></td>
+  		<td><code>main_author</code></td>
 	</tr>
 	<tr>
   		<td><b>type</b></td>
@@ -1303,14 +1303,14 @@ Key-value pair in the `uns` dictionary
 </tbody></table>
 
 
-## cap_author_contact
+## main_author_contact
 
 Key-value pair in the `uns` dictionary
 
 <table><tbody>
 	<tr>
   		<td><b>key</b></td>
-  		<td><code>cap_author_contact</code></td>
+  		<td><code>main_author_contact</code></td>
 	</tr>
 	<tr>
   		<td><b>type</b></td>
@@ -1334,14 +1334,14 @@ Key-value pair in the `uns` dictionary
 	</tr>
 </tbody></table>
 
-## cap_author_orcid
+## main_author_orcid
 
 Key-value pair in the `uns` dictionary
 
 <table><tbody>
 	<tr>
   		<td><b>key</b></td>
-  		<td><code>cap_author_orcid</code></td>
+  		<td><code>main_author_orcid</code></td>
 	</tr>
 	<tr>
   		<td><b>type</b></td>
