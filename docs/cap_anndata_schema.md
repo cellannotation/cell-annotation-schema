@@ -1210,6 +1210,35 @@ Key-value pair in the `uns` dictionary
 	</tr>
 </tbody></table>
 
+## cap_publication_url
+
+Key-value pair in the `uns` dictionary
+
+<table><tbody>
+	<tr>
+  		<td><b>key</b></td>
+  		<td><code>cap_publication_url</code></td>
+	</tr>
+	<tr>
+  		<td><b>type</b></td>
+  		<td>string</td>
+	</tr>
+	<tr>
+  		<td><b>value</b></td>
+  		<td>A persistent URL of the publication on CAP.<br><br>NOTE: the term "publication" refers to the workspace published on CAP with a version and timestamp.</td></td>
+	</tr>
+  		<td><b>source</b></td>
+  		<td>software</td>
+	</tr>
+	<tr>
+  		<td><b>required for publication on CAP</b></td>
+  		<td>yes</td>
+	</tr>
+	<tr>
+  		<td><b>example</b></td>
+  		<td><code>'https://celltype.info/CAP_DataCuration/A-Single-Cell-Transcriptome-Atlas-of-the-Human-Pancreas/1'</code></td>
+	</tr>
+</tbody></table>
 
 ## authors_list
 
@@ -1238,36 +1267,6 @@ Key-value pair in the `uns` dictionary
 	<tr>
   		<td><b>example</b></td>
   		<td><code>'['John Smith', 'Cody Miller', 'Sarah Jones']'</code></td>
-	</tr>
-</tbody></table>
-
-## cap_publication_url
-
-Key-value pair in the `uns` dictionary
-
-<table><tbody>
-	<tr>
-  		<td><b>key</b></td>
-  		<td><code>cap_publication_url</code></td>
-	</tr>
-	<tr>
-  		<td><b>type</b></td>
-  		<td>string</td>
-	</tr>
-	<tr>
-  		<td><b>value</b></td>
-  		<td>A persistent URL of the publication on CAP.<br><br>NOTE: the term "publication" refers to the workspace published on CAP with a version and timestamp.</td></td>
-	</tr>
-  		<td><b>source</b></td>
-  		<td>software</td>
-	</tr>
-	<tr>
-  		<td><b>required for publication on CAP</b></td>
-  		<td>yes</td>
-	</tr>
-	<tr>
-  		<td><b>example</b></td>
-  		<td><code>'https://celltype.info/CAP_DataCuration/A-Single-Cell-Transcriptome-Atlas-of-the-Human-Pancreas/1'</code></td>
 	</tr>
 </tbody></table>
 
