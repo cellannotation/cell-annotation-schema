@@ -8,15 +8,15 @@
   "definitions": {
   },
   "properties":{
-    "publication_title": {
+    "cap_publication_title": {
       "type": "string",
       "description": "The title of the publication on CAP (i.e. a published collection of datasets, the \"CAP Workspace\".). The title of the publication on CAP. (NOTE: the term \"publication\" refers to the workspace published on CAP with a version and timestamp.) This MUST be less than or equal to N characters, and this MUST be encoded as a single string."
     },
-    "publication_description": {
+    "cap_publication_description": {
       "type": "string",
       "description": "The description of the publication on CAP. The description of the publication on CAP. (NOTE: the term \"publication\" refers to the workspace published on CAP with a version and timestamp.) This MUST be less than or equal to N characters, and this MUST be encoded as a single string."
     },
-    "publication_url": {
+    "cap_publication_url": {
       "type": "string",
       "description": "A persistent URL of the publication on CAP. (NOTE: the term \"publication\" refers to the workspace published on CAP with a version and timestamp.)"
     },
@@ -28,15 +28,15 @@
       "type": "string",
       "description": "The (latest) version of the CAP publication. This value will be overwritten by the newest version upon a new publication (and automatically incremented). This versioning MUST follow the format 'v' + '[integer]', whereby newer versions must be naturally incremented."
     },
-    "author_name": {
+    "main_author": {
       "type": "string",
       "description": "The author name from the CAP username who published this cell annotation set. This MUST be a string in the format [FIRST NAME] [LAST NAME]."
     },
-    "author_contact": {
+    "main_author_contact": {
       "type": "string",
       "description": "The contact email address from the CAP username who published this cell annotation set. This MUST be a valid email address of the author."
     },
-    "author_orcid": {
+    "main_author_orcid": {
       "type": "string",
       "description": "The ORCID ID associated with the CAP username/author who published the cell annotation set. This MUST be a valid ORCID for the author."
     }
