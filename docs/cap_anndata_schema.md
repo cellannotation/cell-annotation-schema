@@ -993,14 +993,14 @@ This versioning MUST follow the format <code>'[MAJOR].[MINOR].[PATCH]'</code> as
 </tbody></table>
 
 
-## cap_publication_timestamp
+## publication_timestamp
 
 Key-value pair in the `uns` dictionary
 
 <table><tbody>
 	<tr>
   		<td><b>key</b></td>
-  		<td><code>cap_dataset_timestamp</code></td>
+  		<td><code>publication_timestamp</code></td>
 	</tr>
 	<tr>
   		<td><b>type</b></td>
@@ -1024,14 +1024,14 @@ Key-value pair in the `uns` dictionary
 	</tr>
 </tbody></table>
 
-## cap_publication_version
+## publication_version
 
 Key-value pair in the `uns` dictionary
 
 <table><tbody>
 	<tr>
   		<td><b>key</b></td>
-  		<td><code>cap_dataset_version</code></td>
+  		<td><code>publication_version</code></td>
 	</tr>
 	<tr>
   		<td><b>type</b></td>
@@ -1210,37 +1210,6 @@ Key-value pair in the `uns` dictionary
 	</tr>
 </tbody></table>
 
-
-## cap_publication_authors_list
-
-Key-value pair in the `uns` dictionary
-
-<table><tbody>
-	<tr>
-  		<td><b>key</b></td>
-  		<td><code>cap_publication_authors_list</code></td>
-	</tr>
-	<tr>
-  		<td><b>type</b></td>
-  		<td>string</td>
-	</tr>
-	<tr>
-  		<td><b>value</b></td>
-  		<td>This field stores a list of CAP users who are included in the CAP project as collaborators, regardless of their specific role (Viewer, Editor, or Owner).</td>
-	</tr>
-  		<td><b>source</b></td>
-  		<td>software</td>
-	</tr>
-	<tr>
-  		<td><b>required for publication on CAP</b></td>
-  		<td>yes</td>
-	</tr>
-	<tr>
-  		<td><b>example</b></td>
-  		<td><code>'['John Smith', 'Cody Miller', 'Sarah Jones']'</code></td>
-	</tr>
-</tbody></table>
-
 ## cap_publication_url
 
 Key-value pair in the `uns` dictionary
@@ -1271,14 +1240,44 @@ Key-value pair in the `uns` dictionary
 	</tr>
 </tbody></table>
 
-## cap_author_name
+## authors_list
 
 Key-value pair in the `uns` dictionary
 
 <table><tbody>
 	<tr>
   		<td><b>key</b></td>
-  		<td><code>cap_author_name</code></td>
+  		<td><code>authors_list</code></td>
+	</tr>
+	<tr>
+  		<td><b>type</b></td>
+  		<td>string</td>
+	</tr>
+	<tr>
+  		<td><b>value</b></td>
+  		<td>This field stores a list of CAP users who are included in the CAP project as collaborators, regardless of their specific role (Viewer, Editor, or Owner).</td>
+	</tr>
+  		<td><b>source</b></td>
+  		<td>software</td>
+	</tr>
+	<tr>
+  		<td><b>required for publication on CAP</b></td>
+  		<td>yes</td>
+	</tr>
+	<tr>
+  		<td><b>example</b></td>
+  		<td><code>'['John Smith', 'Cody Miller', 'Sarah Jones']'</code></td>
+	</tr>
+</tbody></table>
+
+## author_name
+
+Key-value pair in the `uns` dictionary
+
+<table><tbody>
+	<tr>
+  		<td><b>key</b></td>
+  		<td><code>author_name</code></td>
 	</tr>
 	<tr>
   		<td><b>type</b></td>
@@ -1303,14 +1302,14 @@ Key-value pair in the `uns` dictionary
 </tbody></table>
 
 
-## cap_author_contact
+## author_contact
 
 Key-value pair in the `uns` dictionary
 
 <table><tbody>
 	<tr>
   		<td><b>key</b></td>
-  		<td><code>cap_author_contact</code></td>
+  		<td><code>author_contact</code></td>
 	</tr>
 	<tr>
   		<td><b>type</b></td>
@@ -1334,14 +1333,14 @@ Key-value pair in the `uns` dictionary
 	</tr>
 </tbody></table>
 
-## cap_author_orcid
+## author_orcid
 
 Key-value pair in the `uns` dictionary
 
 <table><tbody>
 	<tr>
   		<td><b>key</b></td>
-  		<td><code>cap_author_orcid</code></td>
+  		<td><code>author_orcid</code></td>
 	</tr>
 	<tr>
   		<td><b>type</b></td>
