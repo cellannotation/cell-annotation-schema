@@ -1270,14 +1270,14 @@ Key-value pair in the `uns` dictionary
 	</tr>
 </tbody></table>
 
-## main_author
+## author_name
 
 Key-value pair in the `uns` dictionary
 
 <table><tbody>
 	<tr>
   		<td><b>key</b></td>
-  		<td><code>main_author</code></td>
+  		<td><code>author_name</code></td>
 	</tr>
 	<tr>
   		<td><b>type</b></td>
@@ -1302,14 +1302,14 @@ Key-value pair in the `uns` dictionary
 </tbody></table>
 
 
-## main_author_contact
+## author_contact
 
 Key-value pair in the `uns` dictionary
 
 <table><tbody>
 	<tr>
   		<td><b>key</b></td>
-  		<td><code>main_author_contact</code></td>
+  		<td><code>author_contact</code></td>
 	</tr>
 	<tr>
   		<td><b>type</b></td>
@@ -1333,14 +1333,14 @@ Key-value pair in the `uns` dictionary
 	</tr>
 </tbody></table>
 
-## main_author_orcid
+## author_orcid
 
 Key-value pair in the `uns` dictionary
 
 <table><tbody>
 	<tr>
   		<td><b>key</b></td>
-  		<td><code>main_author_orcid</code></td>
+  		<td><code>author_orcid</code></td>
 	</tr>
 	<tr>
   		<td><b>type</b></td>
