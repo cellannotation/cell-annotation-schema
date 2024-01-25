@@ -27,18 +27,6 @@
     "publication_version": {
       "type": "string",
       "description": "The (latest) version of the CAP publication. This value will be overwritten by the newest version upon a new publication (and automatically incremented). This versioning MUST follow the format 'v' + '[integer]', whereby newer versions must be naturally incremented."
-    },
-    "main_author": {
-      "type": "string",
-      "description": "The author name from the CAP username who published this cell annotation set. This MUST be a string in the format [FIRST NAME] [LAST NAME]."
-    },
-    "main_author_contact": {
-      "type": "string",
-      "description": "The contact email address from the CAP username who published this cell annotation set. This MUST be a valid email address of the author."
-    },
-    "main_author_orcid": {
-      "type": "string",
-      "description": "The ORCID ID associated with the CAP username/author who published the cell annotation set. This MUST be a valid ORCID for the author."
     }
   },
   "required": [
