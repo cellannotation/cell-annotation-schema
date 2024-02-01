@@ -39,7 +39,7 @@ Documentation for the core and extension schemas is available at:
 - [BICAN_schema.md](https://github.com/cellannotation/cell-annotation-schema/blob/main/build/BICAN_schema.md); Derived from [BICAN_schema.json](https://github.com/cellannotation/cell-annotation-schema/blob/main/build/BICAN_schema.json)
 - [CAP_schema.md](https://github.com/cellannotation/cell-annotation-schema/blob/main/build/CAP_schema.md); Derived from [CAP_schema.json](https://github.com/cellannotation/cell-annotation-schema/blob/main/build/CAP_schema.json)
 
-This repo also contains the [CAP AnnData Specification](https://github.com/cellannotation/cell-annotation-schema/blob/main/docs/cap_anndata_schema.md). Warning - PROVISIONAL - We are working to fully align thi with the CAP extension.
+This repo also contains the [CAP AnnData Specification](https://github.com/cellannotation/cell-annotation-schema/blob/main/docs/cap_anndata_schema.md). Warning - PROVISIONAL - We are working to fully align this with the CAP extension.
 
 
 ## Releases
@@ -52,11 +52,7 @@ PyPI release is at https://pypi.org/project/cell-annotation-schema/
 
 You can discover instructions on utilizing the PyPI package by visiting the following link https://github.com/cellannotation/cell-annotation-schema/blob/main/docs/pypi_package.md
 
-## Contents
-- General standard for annotating cell set: [JSON Schema](https://github.com/cellannotation/cell-annotation-schema/blob/main/general_schema.json), [Markdown](https://github.com/cellannotation/cell-annotation-schema/blob/main/build/general_schema.md)
-   - CAP extension: [Markdown](https://github.com/cellannotation/cell-annotation-schema/blob/main/build/CAP_schema.md); [JSON](https://github.com/cellannotation/cell-annotation-schema/blob/main/build/CAP_schema.json); JSON Extension file (for editors only);
-   - BICAN extension: [Markdown](https://github.com/cellannotation/cell-annotation-schema/blob/main/build/BICAN_schema.md); [JSON](https://github.com/cellannotation/cell-annotation-schema/blob/main/build/BICAN_schema.json;  [JSON Extension file] (for editors only); 
--
+
 
 
 
