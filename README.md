@@ -35,9 +35,12 @@ We define a core schema with a very limited set of compulsory fields.  The core 
 
 Documentation for the core and extension schemas is available at:
 
-- [general_schema.md](https://github.com/cellannotation/cell-annotation-schema/blob/main/build/general_schema.md)
-- [BICAN_schema.md](https://github.com/cellannotation/cell-annotation-schema/blob/main/build/BICAN_schema.md)
-- [CAP_schema.md](https://github.com/cellannotation/cell-annotation-schema/blob/main/build/CAP_schema.md)
+- [general_schema.md](https://github.com/cellannotation/cell-annotation-schema/blob/main/build/general_schema.md); Derived from [general_schema.json](https://github.com/cellannotation/cell-annotation-schema/blob/main/general_schema.json)
+- [BICAN_schema.md](https://github.com/cellannotation/cell-annotation-schema/blob/main/build/BICAN_schema.md); Derived from [BICAN_schema.json](https://github.com/cellannotation/cell-annotation-schema/blob/main/build/BICAN_schema.json)
+- [CAP_schema.md](https://github.com/cellannotation/cell-annotation-schema/blob/main/build/CAP_schema.md); Derived from [CAP_schema.json](https://github.com/cellannotation/cell-annotation-schema/blob/main/build/CAP_schema.json)
+
+This repo also contains the [CAP AnnData Specification](https://github.com/cellannotation/cell-annotation-schema/blob/main/docs/cap_anndata_schema.md). Warning - PROVISIONAL - We are working to fully align thi with the CAP extension.
+
 
 ## Releases
 
@@ -50,10 +53,10 @@ PyPI release is at https://pypi.org/project/cell-annotation-schema/
 You can discover instructions on utilizing the PyPI package by visiting the following link https://github.com/cellannotation/cell-annotation-schema/blob/main/docs/pypi_package.md
 
 ## Contents
-- General standard for annotating cell sets (JSON Schema)
-- General standard - JSON Schema rendered in Markdown  - WARNING - MAY BE OUT OF DATE - DERIVATION NOT CURRENTLY AUTOMATED
-- Specification of flattening to AnnData. -  WARNING - MAY BE OUT OF DATE - DERIVATION NOT CURRENTLY AUTOMATED
-- Extensions for BICAN and the Cell Annotation Platform.
+- General standard for annotating cell set: [JSON Schema](https://github.com/cellannotation/cell-annotation-schema/blob/main/general_schema.json), [Markdown](https://github.com/cellannotation/cell-annotation-schema/blob/main/build/general_schema.md)
+   - CAP extension: [Markdown](https://github.com/cellannotation/cell-annotation-schema/blob/main/build/CAP_schema.md); [JSON](https://github.com/cellannotation/cell-annotation-schema/blob/main/build/CAP_schema.json); JSON Extension file (for editors only);
+   - BICAN extension: [Markdown](https://github.com/cellannotation/cell-annotation-schema/blob/main/build/BICAN_schema.md); [JSON](https://github.com/cellannotation/cell-annotation-schema/blob/main/build/BICAN_schema.json;  [JSON Extension file] (for editors only); 
+-
 
 
 
