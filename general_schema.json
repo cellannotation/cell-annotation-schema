@@ -160,17 +160,21 @@
       "description": "A persistent URL of all cell annotations published (per dataset). ",
       "type": "string"
     },
+    "author_list": {
+      "description": "This field stores a list of users who are included in the project as collaborators, regardless of their specific role. An example list; '['John Smith', 'Cody Miller', 'Sarah Jones']'",
+      "type": "string"
+    },
     "author_name": {
-      "description": "This MUST be a string in the format `[FIRST NAME] [LAST NAME]`",
+      "description": "Primary author's name. This MUST be a string in the format `[FIRST NAME] [LAST NAME]`",
       "type": "string"
     },
     "author_contact": {
-      "description": "This MUST be a valid email address of the author",
+      "description": "Primary author's contact. This MUST be a valid email address of the author",
       "type": "string",
       "format": "email"
     },
     "orcid": {
-      "description": "This MUST be a valid ORCID for the author",
+      "description": "Primary author's orcid. This MUST be a valid ORCID for the author",
       "type": "string"
     },
     "labelsets": {
