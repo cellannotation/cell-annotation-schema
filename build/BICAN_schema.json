@@ -113,7 +113,15 @@
           }
         },
         "marker_gene_evidence": {
-          "description": "List of gene names explicitly used as evidence for this cell annotation. Each gene MUST be included in the matrix of the AnnData/Seurat file.",
+          "description": "List of names of genes whose expression in the cells being annotated is explicitly used as evidence for this cell annotation. Each gene MUST be included in the matrix of the AnnData/Seurat file.",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "description": "Gene names explicitly used as evidence, which MUST be in the matrix of the AnnData/Seurat file"
+          }
+        },
+        "negative_marker_gene_evidence": {
+          "description": "List of names of genes, the absence of expression of which is explicitly used as evidence for this cell annotation. Each gene MUST be included in the matrix of the AnnData/Seurat file.",
           "type": "array",
           "items": {
             "type": "string",
@@ -197,17 +205,21 @@
       "description": "A persistent URL of all cell annotations published (per dataset). ",
       "type": "string"
     },
+    "author_list": {
+      "description": "This field stores a list of users who are included in the project as collaborators, regardless of their specific role. An example list; '['John Smith', 'Cody Miller', 'Sarah Jones']'",
+      "type": "string"
+    },
     "author_name": {
-      "description": "This MUST be a string in the format `[FIRST NAME] [LAST NAME]`",
+      "description": "Primary author's name. This MUST be a string in the format `[FIRST NAME] [LAST NAME]`",
       "type": "string"
     },
     "author_contact": {
-      "description": "This MUST be a valid email address of the author",
+      "description": "Primary author's contact. This MUST be a valid email address of the author",
       "type": "string",
       "format": "email"
     },
     "orcid": {
-      "description": "This MUST be a valid ORCID for the author",
+      "description": "Primary author's orcid. This MUST be a valid ORCID for the author",
       "type": "string"
     },
     "labelsets": {

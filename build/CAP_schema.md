@@ -22,13 +22,16 @@ This is designed not to tie-in to a single project (i.e. no tool-specific fields
 - **`cellannotation_url`** *(string)*: A persistent URL of all cell annotations published (per dataset). .
 
 
-- **`author_name`** *(string)*: This MUST be a string in the format `[FIRST NAME] [LAST NAME]`.
+- **`author_list`** *(string)*: This field stores a list of users who are included in the project as collaborators, regardless of their specific role. An example list; '['John Smith', 'Cody Miller', 'Sarah Jones']'.
 
 
-- **`author_contact`** *(string, format: email)*: This MUST be a valid email address of the author.
+- **`author_name`** *(string)*: Primary author's name. This MUST be a string in the format `[FIRST NAME] [LAST NAME]`.
 
 
-- **`orcid`** *(string)*: This MUST be a valid ORCID for the author.
+- **`author_contact`** *(string, format: email)*: Primary author's contact. This MUST be a valid email address of the author.
+
+
+- **`orcid`** *(string)*: Primary author's orcid. This MUST be a valid ORCID for the author.
 
 
 - **`labelsets`** *(list)*
@@ -51,11 +54,23 @@ This is designed not to tie-in to a single project (i.e. no tool-specific fields
     - **`cell_ids`** *(list)*: List of cell barcode sequences/UUIDs used to uniquely identify the cells within the AnnData/Seurat matrix. Any and all cell barcode sequences/UUIDs MUST be included in the AnnData/Seurat matrix.
     - **`rationale`** *(string)*: The free-text rationale which users provide as justification/evidence for their cell annotations. Researchers are encouraged to use this field to cite relevant publications in-line using standard academic citations of the form `(Zheng et al., 2020)` This human-readable free-text MUST be encoded as a single string.All references cited SHOULD be listed using DOIs under rationale_dois. There MUST be a 2000-character limit.
     - **`rationale_dois`** *(list)*: A list of valid publication DOIs cited by the author to support or provide justification/evidence/context for 'cell_label'.
-    - **`marker_gene_evidence`** *(list)*: List of gene names explicitly used as evidence for this cell annotation. Each gene MUST be included in the matrix of the AnnData/Seurat file.
+    - **`marker_gene_evidence`** *(list)*: List of names of genes whose expression in the cells being annotated is explicitly used as evidence for this cell annotation. Each gene MUST be included in the matrix of the AnnData/Seurat file.
+    - **`negative_marker_gene_evidence`** *(list)*: List of names of genes, the absence of expression of which is explicitly used as evidence for this cell annotation. Each gene MUST be included in the matrix of the AnnData/Seurat file.
     - **`synonyms`** *(list)*: This field denotes any free-text term of a biological entity which the author associates as synonymous with the biological entity listed in the field 'cell_label'.In the case whereby no synonyms exist, the authors MAY leave this as blank, which is encoded as 'NA'. However, this field is NOT OPTIONAL.
-    - **`category_fullname`** *(string)*: Any term denoting a biological entity which the author associates as the nearest "class" or 'broader term' (or "parent term") for the value/term in the field. This field MAY be 'NA' if the author cannot associate any term to the value.
-    - **`category_cell_ontology_exists`** *(boolean)*: Decision by user whether this biological entity exists in the current Cell Ontology or not (at the given time of publication). If True, then the user MUST specify this Cell Ontology entry in the fields category_cell_ontology_term_id and category_cell_ontology_term.
-    - **`category_cell_ontology_term_id`** *(string)*: This MUST be a term from either the Cell Ontology (https://www.ebi.ac.uk/ols/ontologies/cl) or from some ontology that extends it by classifying cell types under terms from the Cell Ontology e.g. the Provisional Cell Ontology (https://www.ebi.ac.uk/ols/ontologies/pcl) or the Drosophila Anatomy Ontology (DAO) (https://www.ebi.ac.uk/ols4/ontologies/fbbt).  This field MUST be filled if `category_cell_ontology_exists` is True.
-    - **`category_cell_ontology_term`** *(string)*: This MUST be the human-readable name assigned to the value of 'category_cell_ontology_term_id'.
+
+
+- **`cap_publication_title`** *(string)*: The title of the publication on CAP (i.e. a published collection of datasets, the "CAP Workspace".). The title of the publication on CAP. (NOTE: the term "publication" refers to the workspace published on CAP with a version and timestamp.) This MUST be less than or equal to N characters, and this MUST be encoded as a single string.
+
+
+- **`cap_publication_description`** *(string)*: The description of the publication on CAP. The description of the publication on CAP. (NOTE: the term "publication" refers to the workspace published on CAP with a version and timestamp.) This MUST be less than or equal to N characters, and this MUST be encoded as a single string.
+
+
+- **`cap_publication_url`** *(string)*: A persistent URL of the publication on CAP. (NOTE: the term "publication" refers to the workspace published on CAP with a version and timestamp.).
+
+
+- **`publication_timestamp`** *(string)*: The timestamp of the CAP publication. This MUST be a string in the format %yyyy-%MM-%dd'T'%hh:%mm:%ss. This value will be overwritten by the newest timestamp upon a new publication.
+
+
+- **`publication_version`** *(string)*: The (latest) version of the CAP publication. This value will be overwritten by the newest version upon a new publication (and automatically incremented). This versioning MUST follow the format 'v' + '[integer]', whereby newer versions must be naturally incremented.
 
 

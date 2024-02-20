@@ -22,13 +22,16 @@ This is designed not to tie-in to a single project (i.e. no tool-specific fields
 - **`cellannotation_url`** *(string)*: A persistent URL of all cell annotations published (per dataset). .
 
 
-- **`author_name`** *(string)*: This MUST be a string in the format `[FIRST NAME] [LAST NAME]`.
+- **`author_list`** *(string)*: This field stores a list of users who are included in the project as collaborators, regardless of their specific role. An example list; '['John Smith', 'Cody Miller', 'Sarah Jones']'.
 
 
-- **`author_contact`** *(string, format: email)*: This MUST be a valid email address of the author.
+- **`author_name`** *(string)*: Primary author's name. This MUST be a string in the format `[FIRST NAME] [LAST NAME]`.
 
 
-- **`orcid`** *(string)*: This MUST be a valid ORCID for the author.
+- **`author_contact`** *(string, format: email)*: Primary author's contact. This MUST be a valid email address of the author.
+
+
+- **`orcid`** *(string)*: Primary author's orcid. This MUST be a valid ORCID for the author.
 
 
 - **`labelsets`** *(list)*
@@ -51,7 +54,8 @@ This is designed not to tie-in to a single project (i.e. no tool-specific fields
     - **`cell_ids`** *(list)*: List of cell barcode sequences/UUIDs used to uniquely identify the cells within the AnnData/Seurat matrix. Any and all cell barcode sequences/UUIDs MUST be included in the AnnData/Seurat matrix.
     - **`rationale`** *(string)*: The free-text rationale which users provide as justification/evidence for their cell annotations. Researchers are encouraged to use this field to cite relevant publications in-line using standard academic citations of the form `(Zheng et al., 2020)` This human-readable free-text MUST be encoded as a single string.All references cited SHOULD be listed using DOIs under rationale_dois. There MUST be a 2000-character limit.
     - **`rationale_dois`** *(list)*: A list of valid publication DOIs cited by the author to support or provide justification/evidence/context for 'cell_label'.
-    - **`marker_gene_evidence`** *(list)*: List of gene names explicitly used as evidence for this cell annotation. Each gene MUST be included in the matrix of the AnnData/Seurat file.
+    - **`marker_gene_evidence`** *(list)*: List of names of genes whose expression in the cells being annotated is explicitly used as evidence for this cell annotation. Each gene MUST be included in the matrix of the AnnData/Seurat file.
+    - **`negative_marker_gene_evidence`** *(list)*: List of names of genes, the absence of expression of which is explicitly used as evidence for this cell annotation. Each gene MUST be included in the matrix of the AnnData/Seurat file.
     - **`synonyms`** *(list)*: This field denotes any free-text term of a biological entity which the author associates as synonymous with the biological entity listed in the field 'cell_label'.In the case whereby no synonyms exist, the authors MAY leave this as blank, which is encoded as 'NA'. However, this field is NOT OPTIONAL.
 
 
