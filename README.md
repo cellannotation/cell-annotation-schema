@@ -50,7 +50,7 @@ Release assets include a core schema file and extensions (currently for BICAN an
 
 PyPI release is at https://pypi.org/project/cell-annotation-schema/
 
-You can discover instructions on utilizing the PyPI package by visiting the following link https://github.com/cellannotation/cell-annotation-schema/blob/main/docs/pypi_package.md
+You can discover instructions on utilizing the PyPI package by visiting the following link https://github.com/cellannotation/cell-annotation-schema/blob/main/docs/pypi_package.md.
 
 
 
