@@ -4,6 +4,25 @@
   "description": "A general, open-standard schema for cell annotations which records connections, types, provenance and evidence.\nThis is designed not to tie-in to a single project (i.e. no tool-specific fields in core schema),and allows for extensions to support ad hoc user fields, new formal schema extensions, and project/tool specific metadata.",
   "type": "object",
   "definitions": {
+    "Author": {
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "name": {
+          "description": "Author name. This MUST be a string in the format `[FIRST NAME] [LAST NAME]`",
+          "type": "string"
+        },
+        "ORCID": {
+          "description": "Author's ORCID. This MUST be a valid ORCID for the author in the form ORCID:0000-0002-7073-9172",
+          "type": "string"
+        },
+        "GitHub": {
+          "description": "Author GitHub handle.",
+          "type": "string"
+        }
+      }
+    },
     "Labelset": {
       "properties": {
         "name": {
@@ -162,7 +181,8 @@
     },
     "author_list": {
       "description": "This field stores a list of users who are included in the project as collaborators, regardless of their specific role. An example list; '['John Smith', 'Cody Miller', 'Sarah Jones']'",
-      "type": "string"
+      "type": "array",
+      "$ref": "#/definitions/Author"
     },
     "author_name": {
       "description": "Primary author's name. This MUST be a string in the format `[FIRST NAME] [LAST NAME]`",
