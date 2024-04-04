@@ -5,6 +5,8 @@
   "type": "object",
   "definitions": {
     "Review": {
+      "required": ["datestamp", "verdict"],
+      "additionalProperties": false,
       "properties": {
         "datestamp": {
           "description": "Time and date review was last edited.",
