@@ -6,7 +6,7 @@
   "definitions": {
     "Review": {
       "properties": {
-        "datestamp" : {
+        "datestamp": {
           "description": "Time and date review was last edited.",
           "type": "string",
           "format": "date-time"
@@ -17,7 +17,10 @@
           "type": "string"
         },
         "verdict": {
-          "enum": ["Agree", "Disagree"]
+          "enum": [
+            "Agree",
+            "Disagree"
+          ]
         },
         "review": {
           "description": "Free-text review of annotation. This is required if the verdict is disagree and should include reasons for disagreement."
@@ -48,7 +51,9 @@
           "$ref": "#/definitions/automated_annotation"
         }
       },
-      "required": ["name"]
+      "required": [
+        "name"
+      ]
     },
     "automated_annotation": {
       "type": "object",
@@ -150,10 +155,11 @@
             "description": "List of synonyms"
           }
         },
-        "Reviews": {
+        "reviews": {
           "type": "array",
           "items": {
-          "$ref": "#/definitions/Review"
+            "$ref": "#/definitions/Review"
+          }
         }
       }
     }
