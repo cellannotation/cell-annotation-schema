@@ -6,6 +6,15 @@
     ],
 
   "definitions": {
+    "Annotation": {
+      "properties": {
+        "canonical_marker_genes": {
+          "type": "array",
+          "items": "string",
+          "description": "A list of gene names considered to be canonical markers for the biological entity used in the cell annotation."
+        }
+      }
+    }
   },
   "properties":{
     "cap_publication_title": {
