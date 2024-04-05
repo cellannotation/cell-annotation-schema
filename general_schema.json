@@ -128,11 +128,11 @@
           "items": {
             "type": "string",
             "description": "List of synonyms"
-          },
-          "author_annotation_fields": {
-            "type": "object",
-            "description": "A set of author defined key value pairs annotating the cell set. The names and aims of these fields MUST not clash with annotationThis schema accepts author defined fields."
           }
+        },
+        "author_annotation_fields": {
+          "type": "object",
+          "description": "A dictionary of author defined key value pairs annotating the cell set. The names and aims of these fields MUST not clash with official annotation fields."
         }
       }
     }
