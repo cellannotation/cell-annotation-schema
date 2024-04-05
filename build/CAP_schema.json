@@ -131,6 +131,13 @@
             "type": "string",
             "description": "List of synonyms"
           }
+        },
+        "canonical_marker_genes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "description": "A list of gene names considered to be canonical markers for the biological entity used in the cell annotation."
+          }
         }
       }
     }

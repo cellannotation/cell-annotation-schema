@@ -57,6 +57,7 @@ This is designed not to tie-in to a single project (i.e. no tool-specific fields
     - **`marker_gene_evidence`** *(list)*: List of names of genes whose expression in the cells being annotated is explicitly used as evidence for this cell annotation. Each gene MUST be included in the matrix of the AnnData/Seurat file.
     - **`negative_marker_gene_evidence`** *(list)*: List of names of genes, the absence of expression of which is explicitly used as evidence for this cell annotation. Each gene MUST be included in the matrix of the AnnData/Seurat file.
     - **`synonyms`** *(list)*: This field denotes any free-text term of a biological entity which the author associates as synonymous with the biological entity listed in the field 'cell_label'.In the case whereby no synonyms exist, the authors MAY leave this as blank, which is encoded as 'NA'. However, this field is NOT OPTIONAL.
+    - **`canonical_marker_genes`** *(list)*
 
 
 - **`cap_publication_title`** *(string)*: The title of the publication on CAP (i.e. a published collection of datasets, the "CAP Workspace".). The title of the publication on CAP. (NOTE: the term "publication" refers to the workspace published on CAP with a version and timestamp.) This MUST be less than or equal to N characters, and this MUST be encoded as a single string.
