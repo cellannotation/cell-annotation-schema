@@ -133,10 +133,11 @@
           }
         },
         "canonical_marker_genes": {
+          "description": "A list of gene names considered to be canonical markers for the biological entity used in the cell annotation.",
           "type": "array",
           "items": {
             "type": "string",
-            "description": "A list of gene names considered to be canonical markers for the biological entity used in the cell annotation."
+            "description": "A gene name recognized as a key marker for the entity's classification."
           }
         }
       }
