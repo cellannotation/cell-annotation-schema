@@ -41,7 +41,7 @@
           "description": "Identifier for a single cell."
         },
         "confidence": {
-          "type": "float",
+          "type": "number",
           "description": "Normalised confidence score"
         },
         "author_categories": {
