@@ -29,6 +29,26 @@
         }
       }
     },
+    "Cell" : {
+      "required": ["cell_id"],
+      "additionalProperties": false,
+      "type" : "object",
+      "properties": {
+        "cell_id": {
+          "type": "string",
+          "description": "Identifier for a single cell."
+        },
+        "confidence": {
+           "type": "float",
+           "description":"Normalised confidence score"
+        },
+        "author_categories": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        }  
+      }
     "Labelset": {
       "properties": {
         "rank": {
@@ -52,7 +72,12 @@
           "items": {
             "$ref": "#/definitions/Annotation_transfer"
           }
-        }
+        },
+        "cells": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Cell"
+          }
       }
     }
   }
