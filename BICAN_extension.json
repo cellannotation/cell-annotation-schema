@@ -29,25 +29,27 @@
         }
       }
     },
-    "Cell" : {
-      "required": ["cell_id"],
+    "Cell": {
+      "required": [
+        "cell_id"
+      ],
       "additionalProperties": false,
-      "type" : "object",
+      "type": "object",
       "properties": {
         "cell_id": {
           "type": "string",
           "description": "Identifier for a single cell."
         },
         "confidence": {
-           "type": "float",
-           "description":"Normalised confidence score"
+          "type": "float",
+          "description": "Normalised confidence score"
         },
         "author_categories": {
           "type": "array",
           "items": {
             "type": "object"
           }
-        }  
+        }
       }
     },
     "Labelset": {
@@ -79,6 +81,7 @@
           "items": {
             "$ref": "#/definitions/Cell"
           }
+        }
       }
     }
   }
