@@ -49,6 +49,7 @@
           }
         }  
       }
+    },
     "Labelset": {
       "properties": {
         "rank": {
