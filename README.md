@@ -19,10 +19,13 @@ https://github.com/cellannotation/cell-annotation-schema/blob/main/docs/user_sto
 
 Examples used in testing can be browsed under: https://github.com/cellannotation/cell-annotation-schema/tree/main/examples
 
+brain-bican contains a growing set of working taxonomies including: 
+
+- https://github.com/brain-bican/human-brain-cell-atlas_v1_neurons
 
 ## Overview
 
-The top level of the JSON is used to store metadata about the annotations it contains: Author details; links to the annotated matrix file, version information etc.  This can be thought of as a table the links to a set of subtables.
+The top level of the JSON is used to store metadata about the annotations: Author details; links to the annotated matrix file, version information etc.  This can be thought of as a table that links to a set of subtables.
 
 The top level wraps other JSON objects (sub-tables):
 
