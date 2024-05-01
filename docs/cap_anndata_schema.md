@@ -1375,7 +1375,7 @@ Python dictionary within the `uns` dictionary, with the key the string `[cellann
 <table><tbody>
 	<tr>
   		<td><b>key</b></td>
-  		<td><code>cellannotation_metadata</code></td>
+  		<td><code>[cellannotation_setname]</code></td>
 	</tr>
 	<tr>
   		<td><b>type</b></td>
