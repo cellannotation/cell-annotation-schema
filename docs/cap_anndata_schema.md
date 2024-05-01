@@ -1370,7 +1370,7 @@ Key-value pair in the `uns` dictionary
 Python dictionary within the `uns` dictionary, with the key the string `[cellannotation_setname]`
 
 
-#### [cellannotation_metadata]
+#### cellannotation_metadata
 
 <table><tbody>
 	<tr>
