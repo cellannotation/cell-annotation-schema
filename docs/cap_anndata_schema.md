@@ -1395,7 +1395,7 @@ Python dictionary within the `uns` dictionary, with the key the string `[cellann
 	</tr>
 	<tr>
   		<td><b>example</b></td>
-  		<td><code>'{[cellannotation_set]_metadata:{'cell_type': {'annotation_method':'algorithmic', ...}}}'</code></td>
+  		<td><code>'{'cell_type': {'annotation_method':'algorithmic', ...}}'</code></td>
 	</tr>
 </tbody></table>
 
