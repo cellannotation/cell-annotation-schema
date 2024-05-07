@@ -42,9 +42,14 @@ jobs:
         setup.py
         sdist
         bdist_wheel
-    - name: Deploy Package
-      env:
-        TWINE_USERNAME: ${{ secrets.PYPI_TEST_USERNAME }}
-        TWINE_PASSWORD: ${{ secrets.PYPI_TEST_PASSWORD }}
-      run: |
-        twine upload --repository-url https://test.pypi.org/legacy/ dist/*
+#    - name: Deploy Package
+#      env:
+#        TWINE_USERNAME: ${{ secrets.PYPI_TEST_USERNAME }}
+#        TWINE_PASSWORD: ${{ secrets.PYPI_TEST_PASSWORD }}
+#      run: |
+#        twine upload --repository-url https://test.pypi.org/legacy/ dist/*
+    - name: Publish Package to TestPyPI
+      uses: pypa/gh-action-pypi-publish@release/v1
+      with:
+        repository-url: https://test.pypi.org/legacy/
+        password: ${{ secrets.TEST_PYPI_API_TOKEN }}
