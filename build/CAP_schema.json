@@ -139,6 +139,30 @@
             "type": "string",
             "description": "A gene name recognized as a key marker for the entity's classification."
           }
+        },
+        "cell_ontology_exists": {
+          "description": "Decision by user whether this biological entity exists in the current Cell Ontology or not (at the given time of publication).",
+          "type": "boolean"
+        },
+        "category_fullname": {
+          "description": "Any term denoting a biological entity which the author associates as the nearest \"class\" or \"broader term\" (or \"parent term\") for the value/term in the field.",
+          "type": "string"
+        },
+        "category_cell_ontology_exists": {
+          "description": "Decision by user whether this biological entity exists in the current Cell Ontology or not (at the given time of publication).",
+          "type": "boolean"
+        },
+        "category_cell_ontology_term_id": {
+          "description": "The ID from either the Cell Ontology or from some ontology that extends it by classifying cell types under terms from the Cell Ontology.",
+          "type": "string"
+        },
+        "category_cell_ontology_term": {
+          "description": "The human-readable name assigned to the value of 'category_cell_ontology_term_id'",
+          "type": "string"
+        },
+        "cell_ontology_assessment": {
+          "description": "Free-text field for researchers to express disagreements with any aspect of the Cell Ontology for this cell annotation.",
+          "type": "string"
         }
       }
     }
