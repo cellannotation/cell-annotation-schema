@@ -38,6 +38,7 @@
       }
     },
     "Annotation": {
+      "additionalProperties": false,
       "properties": {
         "cell_set_accession": {
           "type": "string",
