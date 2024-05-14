@@ -58,6 +58,7 @@ This is designed not to tie-in to a single project (i.e. no tool-specific fields
     - **`marker_gene_evidence`** *(list)*: List of names of genes whose expression in the cells being annotated is explicitly used as evidence for this cell annotation. Each gene MUST be included in the matrix of the AnnData/Seurat file.
     - **`negative_marker_gene_evidence`** *(list)*: List of names of genes, the absence of expression of which is explicitly used as evidence for this cell annotation. Each gene MUST be included in the matrix of the AnnData/Seurat file.
     - **`synonyms`** *(list)*: This field denotes any free-text term of a biological entity which the author associates as synonymous with the biological entity listed in the field 'cell_label'.In the case whereby no synonyms exist, the authors MAY leave this as blank, which is encoded as 'NA'. However, this field is NOT OPTIONAL.
+    - **`author_annotation_fields`** *(object)*: A dictionary of author defined key value pairs annotating the cell set. The names and aims of these fields MUST not clash with official annotation fields.
     - **`cell_set_accession`** *(string)*: An identifier that can be used to consistently refer to the set of cells being annotated, even if the cell_label changes.
     - **`parent_cell_set_accession`** *(string)*: A list of accessions of cell sets that subsume this cell set. This can be used to compose hierarchies of annotated cell sets, built from a fixed set of clusters.
     - **`transferred_annotations`** *(list)*
