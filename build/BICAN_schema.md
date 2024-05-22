@@ -72,5 +72,9 @@ This is designed not to tie-in to a single project (i.e. no tool-specific fields
         - **`source_node_accession`** *(string)*: accession of node that label was transferred from.
         - **`algorithm_name`** *(string)*: .
         - **`comment`** *(string)*: Free text comment on annotation transfer.
+    - **`cells`** *(list)*: By convention this is only used for annotation transfer labelsets.  It MUST not be combined with the 'cell_ids' field.
+      - **`cell_id`** *(string, required)*: Identifier for a single cell.
+      - **`confidence`** *(number)*: Normalised confidence score.
+      - **`author_categories`** *(list)*
 
 
