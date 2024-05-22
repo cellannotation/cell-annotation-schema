@@ -38,7 +38,8 @@ jobs:
       - name: Make Snapshot
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "general_schema.json,BICAN_schema.json,CAP_schema.json"
+          artifacts: "general_schema.json,BICAN_schema.json,CAP_schema.json,build/general_schema.md,
+          build/BICAN_schema.md,build/CAP_schema.md"
           body: "Nightly snapshot release. Draft only, please use a stable release instead."
           allowUpdates: true
           draft: true
