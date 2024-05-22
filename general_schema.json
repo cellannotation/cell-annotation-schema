@@ -24,6 +24,7 @@
         "email": {
           "description": "Author email address.",
           "type": "string"
+        }
       }
     },
     "Labelset": {
