@@ -57,6 +57,11 @@ This is designed not to tie-in to a single project (i.e. no tool-specific fields
     - **`marker_gene_evidence`** *(list)*: List of names of genes whose expression in the cells being annotated is explicitly used as evidence for this cell annotation. Each gene MUST be included in the matrix of the AnnData/Seurat file.
     - **`negative_marker_gene_evidence`** *(list)*: List of names of genes, the absence of expression of which is explicitly used as evidence for this cell annotation. Each gene MUST be included in the matrix of the AnnData/Seurat file.
     - **`synonyms`** *(list)*: This field denotes any free-text term of a biological entity which the author associates as synonymous with the biological entity listed in the field 'cell_label'.In the case whereby no synonyms exist, the authors MAY leave this as blank, which is encoded as 'NA'. However, this field is NOT OPTIONAL.
+    - **`reviews`** *(list)*
+      - **`datestamp`** *(string, format: date-time, required)*: Time and date review was last edited.
+      - **`reviewer`** *(string)*: Review Author.
+      - **`review`**: Reviewer's verdict on the annotation.  Must be 'Agree' or 'Disagree'. Must be one of: `["Agree", "Disagree"]`.
+      - **`explanation`**: Free-text review of annotation. This is required if the verdict is disagree and should include reasons for disagreement.
     - **`author_annotation_fields`** *(object)*: A dictionary of author defined key value pairs annotating the cell set. The names and aims of these fields MUST not clash with official annotation fields.
 
 

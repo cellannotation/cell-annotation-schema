@@ -4,6 +4,34 @@
   "description": "A general, open-standard schema for cell annotations which records connections, types, provenance and evidence.\nThis is designed not to tie-in to a single project (i.e. no tool-specific fields in core schema),and allows for extensions to support ad hoc user fields, new formal schema extensions, and project/tool specific metadata.",
   "type": "object",
   "definitions": {
+    "Review": {
+      "required": [
+        "datestamp",
+        "verdict"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "datestamp": {
+          "description": "Time and date review was last edited.",
+          "type": "string",
+          "format": "date-time"
+        },
+        "reviewer": {
+          "description": "Review Author",
+          "type": "string"
+        },
+        "review": {
+          "description": "Reviewer's verdict on the annotation.  Must be 'Agree' or 'Disagree'",
+          "enum": [
+            "Agree",
+            "Disagree"
+          ]
+        },
+        "explanation": {
+          "description": "Free-text review of annotation. This is required if the verdict is disagree and should include reasons for disagreement."
+        }
+      }
+    },
     "Labelset": {
       "properties": {
         "name": {
@@ -130,6 +158,12 @@
           "items": {
             "type": "string",
             "description": "List of synonyms"
+          }
+        },
+        "reviews": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Review"
           }
         },
         "author_annotation_fields": {
