@@ -20,7 +20,10 @@
         "GitHub": {
           "description": "Author GitHub handle.",
           "type": "string"
-        }
+        },
+        "email": {
+          "description": "Author email address.",
+          "type": "string"
       }
     },
     "Labelset": {
