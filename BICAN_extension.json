@@ -77,6 +77,8 @@
           }
         },
         "cells": {
+          "@comment": "In future we might use JSON schema OneOf to specify that this is mutually exclusive with the cell_ids property.",
+          "description": "By convention this is only used for annotation transfer labelsets.  It MUST not be combined with the 'cell_ids' field.",
           "type": "array",
           "items": {
             "$ref": "#/definitions/Cell"
