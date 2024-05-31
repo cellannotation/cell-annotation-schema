@@ -4,6 +4,8 @@
   "cellannotation_version": "v1alpha",
   "cellannotation_url": "http://foo.bar",
   "author_name": "Mary Futey",
+  "title": "Human retina cell atlas - retinal ganglion cells",
+  "description": "A total of 15 retinal ganglion cell clusters were identified from over 99K retinal ganglion cell nuclei in the current atlas. Utilizing previous characterized markers from macaque, 5 clusters can be annotated.",
   "dataset_url": "https://celltype.info/CAP_DataCuration/A-Single-Cell-Transcriptome-Atlas-of-the-Human-Pancreas/1/dataset/20",
   "labelsets": [
     {
