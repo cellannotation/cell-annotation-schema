@@ -173,8 +173,6 @@
   "required": [
     "author_name",
     "title",
-    "description",
-    "dataset_url",
     "annotations",
     "labelsets"
   ],
