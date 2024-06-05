@@ -2,8 +2,6 @@
   "author_name": "Zizhen Yao",
   "orcid": "0000-0002-9361-5607",
   "title": "title",
-  "description":"description",
-  "dataset_url": "dataset_url",
   "labelsets": [
     {
       "name": "Cluster",
