@@ -1,8 +1,6 @@
 {
   "author_name": "Kimberley Siletti",
   "title": "title",
-  "description":"description",
-  "dataset_url": "dataset_url",
   "labelsets": [
     {
       "name": "neurotransmitter",
