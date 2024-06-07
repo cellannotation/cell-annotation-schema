@@ -1,10 +1,9 @@
 {
   "allOf": [
-      {
-        "$ref": "./general_schema.json"
-      }
-    ],
-
+    {
+      "$ref": "./general_schema.json"
+    }
+  ],
   "definitions": {
     "Annotation": {
       "properties": {
@@ -43,7 +42,7 @@
       }
     }
   },
-  "properties":{
+  "properties": {
     "cap_publication_title": {
       "type": "string",
       "description": "The title of the publication on CAP (i.e. a published collection of datasets, the \"CAP Workspace\".). The title of the publication on CAP. (NOTE: the term \"publication\" refers to the workspace published on CAP with a version and timestamp.) This MUST be less than or equal to N characters, and this MUST be encoded as a single string."
@@ -55,6 +54,10 @@
     "cap_publication_url": {
       "type": "string",
       "description": "A persistent URL of the publication on CAP. (NOTE: the term \"publication\" refers to the workspace published on CAP with a version and timestamp.)"
+    },
+    "cap_dataset_url": {
+      "type": "string",
+      "description": "A persistent URL of the dataset on CAP."
     },
     "publication_timestamp": {
       "type": "string",
