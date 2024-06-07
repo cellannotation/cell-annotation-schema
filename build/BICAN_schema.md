@@ -10,6 +10,12 @@ This is designed not to tie-in to a single project (i.e. no tool-specific fields
 - **`matrix_file_id`** *(string)*: A resolvable ID for a cell by gene matrix file in the form namespace:accession, e.g. CellXGene_dataset:8e10f1c4-8e98-41e5-b65f-8cd89a887122.  Please see https://github.com/cellannotation/cell-annotation-schema/registry/registry.json for supported namespaces.
 
 
+- **`title`** *(string)*: The title of the dataset. This MUST be less than or equal to 200 characters. e.g. 'Human retina cell atlas - retinal ganglion cells'.
+
+
+- **`description`** *(string)*: The description of the dataset. e.g. 'A total of 15 retinal ganglion cell clusters were identified from over 99K retinal ganglion cell nuclei in the current atlas. Utilizing previous characterized markers from macaque, 5 clusters can be annotated.'.
+
+
 - **`cellannotation_schema_version`** *(string)*: The schema version, the cell annotation open standard. Current version MUST follow 0.1.0This versioning MUST follow the format `'[MAJOR].[MINOR].[PATCH]'` as defined by Semantic Versioning 2.0.0, https://semver.org/.
 
 
