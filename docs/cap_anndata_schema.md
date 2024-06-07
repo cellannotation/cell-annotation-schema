@@ -1117,14 +1117,14 @@ Key-value pair in the `uns` dictionary
 	</tr>
 </tbody></table>
 
-## dataset_url
+## cap_dataset_url
 
 Key-value pair in the `uns` dictionary
 
 <table><tbody>
 	<tr>
   		<td><b>key</b></td>
-  		<td><code>dataset_url</code></td>
+  		<td><code>cap_dataset_url</code></td>
 	</tr>
 	<tr>
   		<td><b>type</b></td>
