@@ -4,6 +4,7 @@
   "cellannotation_version": "v1alpha",
   "cellannotation_url": "http://foo.bar",
   "author_name": "Mary Futey",
+  "title": "Human retina cell atlas - retinal ganglion cells",
   "labelsets": [
     {
       "name": "cluster2"
