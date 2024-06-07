@@ -6,7 +6,7 @@
   "definitions": {
     "Author": {
       "required": [
-        "name"
+        "author_name"
       ],
       "properties": {
         "author_name": {
@@ -17,7 +17,7 @@
           "description": "Author's ORCID. This MUST be a valid ORCID for the author in the form ORCID:0000-0002-7073-9172",
           "type": "string"
         },
-        "GitHub": {
+        "github_username": {
           "description": "Authors GitHub handle.",
           "type": "string"
         },
