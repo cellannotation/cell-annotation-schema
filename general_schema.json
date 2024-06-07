@@ -9,20 +9,20 @@
         "name"
       ],
       "properties": {
-        "name": {
+        "author_name": {
           "description": "Author name. This MUST be a string in the format `[FIRST NAME] [LAST NAME]`",
           "type": "string"
         },
-        "ORCID": {
+        "orcid": {
           "description": "Author's ORCID. This MUST be a valid ORCID for the author in the form ORCID:0000-0002-7073-9172",
           "type": "string"
         },
         "GitHub": {
-          "description": "Author GitHub handle.",
+          "description": "Authors GitHub handle.",
           "type": "string"
         },
         "email": {
-          "description": "Author email address.",
+          "description": "Author's contact email address.",
           "type": "string"
         }
       }
@@ -221,22 +221,9 @@
       "type": "string"
     },
     "author_list": {
-      "description": "This field stores a list of users who are included in the project as collaborators, regardless of their specific role. An example list; '['John Smith', 'Cody Miller', 'Sarah Jones']'",
+      "description": "This field stores a list of authors,  The first author must be the primary author of the dataset on publication.",
       "type": "array",
       "$ref": "#/definitions/Author"
-    },
-    "author_name": {
-      "description": "Primary author's name. This MUST be a string in the format `[FIRST NAME] [LAST NAME]`",
-      "type": "string"
-    },
-    "author_contact": {
-      "description": "Primary author's contact. This MUST be a valid email address of the author",
-      "type": "string",
-      "format": "email"
-    },
-    "orcid": {
-      "description": "Primary author's orcid. This MUST be a valid ORCID for the author",
-      "type": "string"
     },
     "labelsets": {
       "type": "array",
