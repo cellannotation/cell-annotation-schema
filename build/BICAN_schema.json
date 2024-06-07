@@ -4,6 +4,34 @@
   "description": "A general, open-standard schema for cell annotations which records connections, types, provenance and evidence.\nThis is designed not to tie-in to a single project (i.e. no tool-specific fields in core schema),and allows for extensions to support ad hoc user fields, new formal schema extensions, and project/tool specific metadata.",
   "type": "object",
   "definitions": {
+    "Review": {
+      "required": [
+        "datestamp",
+        "verdict"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "datestamp": {
+          "description": "Time and date review was last edited.",
+          "type": "string",
+          "format": "date-time"
+        },
+        "reviewer": {
+          "description": "Review Author",
+          "type": "string"
+        },
+        "review": {
+          "description": "Reviewer's verdict on the annotation.  Must be 'Agree' or 'Disagree'",
+          "enum": [
+            "Agree",
+            "Disagree"
+          ]
+        },
+        "explanation": {
+          "description": "Free-text review of annotation. This is required if the verdict is disagree and should include reasons for disagreement."
+        }
+      }
+    },
     "Labelset": {
       "properties": {
         "name": {
@@ -66,7 +94,7 @@
     },
     "Annotation": {
       "type": "object",
-      "description": "A collection of fields recording a cell type/class/state annotation on some set os cells, supporting evidence and provenance. As this is intended as a general schema, compulsory fields are kept to a minimum. However, tools using this schema are encouarged to specify a larger set of compulsory fields for publication. \n\nNote: This schema deliberately allows for additional fields in order to support ad hoc user fields, new formal schema extensions and project/tool specific metadata.",
+      "description": "A collection of fields recording a cell type/class/state annotation on some set of cells, supporting evidence and provenance. As this is intended as a general schema, compulsory fields are kept to a minimum. However, tools using this schema are encouarged to specify a larger set of compulsory fields for publication. \n\nNote: This schema deliberately allows for additional fields in order to support ad hoc user fields, new formal schema extensions and project/tool specific metadata.",
       "required": [
         "labelset",
         "cell_label"
@@ -136,6 +164,16 @@
             "description": "List of synonyms"
           }
         },
+        "reviews": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Review"
+          }
+        },
+        "author_annotation_fields": {
+          "type": "object",
+          "description": "A dictionary of author defined key value pairs annotating the cell set. The names and aims of these fields MUST not clash with official annotation fields."
+        },
         "cell_set_accession": {
           "type": "string",
           "description": "An identifier that can be used to consistently refer to the set of cells being annotated, even if the cell_label changes."
@@ -149,8 +187,17 @@
           "items": {
             "$ref": "#/definitions/Annotation_transfer"
           }
+        },
+        "cells": {
+          "@comment": "In future we might use JSON schema OneOf to specify that this is mutually exclusive with the cell_ids property.",
+          "description": "By convention this is only used for annotation transfer labelsets.  It MUST not be combined with the 'cell_ids' field.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Cell"
+          }
         }
-      }
+      },
+      "additionalProperties": false
     },
     "Annotation_transfer": {
       "properties": {
@@ -173,6 +220,29 @@
         "comment": {
           "type": "string",
           "description": "Free text comment on annotation transfer"
+        }
+      }
+    },
+    "Cell": {
+      "required": [
+        "cell_id"
+      ],
+      "additionalProperties": false,
+      "type": "object",
+      "properties": {
+        "cell_id": {
+          "type": "string",
+          "description": "Identifier for a single cell."
+        },
+        "confidence": {
+          "type": "number",
+          "description": "Normalised confidence score"
+        },
+        "author_categories": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
         }
       }
     }

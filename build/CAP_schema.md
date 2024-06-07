@@ -57,6 +57,19 @@ This is designed not to tie-in to a single project (i.e. no tool-specific fields
     - **`marker_gene_evidence`** *(list)*: List of names of genes whose expression in the cells being annotated is explicitly used as evidence for this cell annotation. Each gene MUST be included in the matrix of the AnnData/Seurat file.
     - **`negative_marker_gene_evidence`** *(list)*: List of names of genes, the absence of expression of which is explicitly used as evidence for this cell annotation. Each gene MUST be included in the matrix of the AnnData/Seurat file.
     - **`synonyms`** *(list)*: This field denotes any free-text term of a biological entity which the author associates as synonymous with the biological entity listed in the field 'cell_label'.In the case whereby no synonyms exist, the authors MAY leave this as blank, which is encoded as 'NA'. However, this field is NOT OPTIONAL.
+    - **`reviews`** *(list)*
+      - **`datestamp`** *(string, format: date-time, required)*: Time and date review was last edited.
+      - **`reviewer`** *(string)*: Review Author.
+      - **`review`**: Reviewer's verdict on the annotation.  Must be 'Agree' or 'Disagree'. Must be one of: `["Agree", "Disagree"]`.
+      - **`explanation`**: Free-text review of annotation. This is required if the verdict is disagree and should include reasons for disagreement.
+    - **`author_annotation_fields`** *(object)*: A dictionary of author defined key value pairs annotating the cell set. The names and aims of these fields MUST not clash with official annotation fields.
+    - **`canonical_marker_genes`** *(list)*: A list of gene names considered to be canonical markers for the biological entity used in the cell annotation.
+    - **`cell_ontology_exists`** *(boolean)*: Decision by user whether this biological entity exists in the current Cell Ontology or not (at the given time of publication).
+    - **`category_fullname`** *(string)*: Any term denoting a biological entity which the author associates as the nearest "class" or "broader term" (or "parent term") for the value/term in the field.
+    - **`category_cell_ontology_exists`** *(boolean)*: Decision by user whether this biological entity exists in the current Cell Ontology or not (at the given time of publication).
+    - **`category_cell_ontology_term_id`** *(string)*: The ID from either the Cell Ontology or from some ontology that extends it by classifying cell types under terms from the Cell Ontology.
+    - **`category_cell_ontology_term`** *(string)*: The human-readable name assigned to the value of 'category_cell_ontology_term_id'.
+    - **`cell_ontology_assessment`** *(string)*: Free-text field for researchers to express disagreements with any aspect of the Cell Ontology for this cell annotation.
 
 
 - **`cap_publication_title`** *(string)*: The title of the publication on CAP (i.e. a published collection of datasets, the "CAP Workspace".). The title of the publication on CAP. (NOTE: the term "publication" refers to the workspace published on CAP with a version and timestamp.) This MUST be less than or equal to N characters, and this MUST be encoded as a single string.

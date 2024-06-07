@@ -29,6 +29,29 @@
         }
       }
     },
+    "Cell": {
+      "required": [
+        "cell_id"
+      ],
+      "additionalProperties": false,
+      "type": "object",
+      "properties": {
+        "cell_id": {
+          "type": "string",
+          "description": "Identifier for a single cell."
+        },
+        "confidence": {
+          "type": "number",
+          "description": "Normalised confidence score"
+        },
+        "author_categories": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        }
+      }
+    },
     "Labelset": {
       "properties": {
         "rank": {
@@ -38,6 +61,7 @@
       }
     },
     "Annotation": {
+      "additionalProperties": false,
       "properties": {
         "cell_set_accession": {
           "type": "string",
@@ -51,6 +75,14 @@
           "type": "array",
           "items": {
             "$ref": "#/definitions/Annotation_transfer"
+          }
+        },
+        "cells": {
+          "@comment": "In future we might use JSON schema OneOf to specify that this is mutually exclusive with the cell_ids property.",
+          "description": "By convention this is only used for annotation transfer labelsets.  It MUST not be combined with the 'cell_ids' field.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Cell"
           }
         }
       }

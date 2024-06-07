@@ -4,6 +4,34 @@
   "description": "A general, open-standard schema for cell annotations which records connections, types, provenance and evidence.\nThis is designed not to tie-in to a single project (i.e. no tool-specific fields in core schema),and allows for extensions to support ad hoc user fields, new formal schema extensions, and project/tool specific metadata.",
   "type": "object",
   "definitions": {
+    "Review": {
+      "required": [
+        "datestamp",
+        "verdict"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "datestamp": {
+          "description": "Time and date review was last edited.",
+          "type": "string",
+          "format": "date-time"
+        },
+        "reviewer": {
+          "description": "Review Author",
+          "type": "string"
+        },
+        "review": {
+          "description": "Reviewer's verdict on the annotation.  Must be 'Agree' or 'Disagree'",
+          "enum": [
+            "Agree",
+            "Disagree"
+          ]
+        },
+        "explanation": {
+          "description": "Free-text review of annotation. This is required if the verdict is disagree and should include reasons for disagreement."
+        }
+      }
+    },
     "Labelset": {
       "properties": {
         "name": {
@@ -62,7 +90,7 @@
     },
     "Annotation": {
       "type": "object",
-      "description": "A collection of fields recording a cell type/class/state annotation on some set os cells, supporting evidence and provenance. As this is intended as a general schema, compulsory fields are kept to a minimum. However, tools using this schema are encouarged to specify a larger set of compulsory fields for publication. \n\nNote: This schema deliberately allows for additional fields in order to support ad hoc user fields, new formal schema extensions and project/tool specific metadata.",
+      "description": "A collection of fields recording a cell type/class/state annotation on some set of cells, supporting evidence and provenance. As this is intended as a general schema, compulsory fields are kept to a minimum. However, tools using this schema are encouarged to specify a larger set of compulsory fields for publication. \n\nNote: This schema deliberately allows for additional fields in order to support ad hoc user fields, new formal schema extensions and project/tool specific metadata.",
       "required": [
         "labelset",
         "cell_label"
@@ -131,6 +159,48 @@
             "type": "string",
             "description": "List of synonyms"
           }
+        },
+        "reviews": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Review"
+          }
+        },
+        "author_annotation_fields": {
+          "type": "object",
+          "description": "A dictionary of author defined key value pairs annotating the cell set. The names and aims of these fields MUST not clash with official annotation fields."
+        },
+        "canonical_marker_genes": {
+          "description": "A list of gene names considered to be canonical markers for the biological entity used in the cell annotation.",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "description": "A gene name recognized as a key marker for the entity's classification."
+          }
+        },
+        "cell_ontology_exists": {
+          "description": "Decision by user whether this biological entity exists in the current Cell Ontology or not (at the given time of publication).",
+          "type": "boolean"
+        },
+        "category_fullname": {
+          "description": "Any term denoting a biological entity which the author associates as the nearest \"class\" or \"broader term\" (or \"parent term\") for the value/term in the field.",
+          "type": "string"
+        },
+        "category_cell_ontology_exists": {
+          "description": "Decision by user whether this biological entity exists in the current Cell Ontology or not (at the given time of publication).",
+          "type": "boolean"
+        },
+        "category_cell_ontology_term_id": {
+          "description": "The ID from either the Cell Ontology or from some ontology that extends it by classifying cell types under terms from the Cell Ontology.",
+          "type": "string"
+        },
+        "category_cell_ontology_term": {
+          "description": "The human-readable name assigned to the value of 'category_cell_ontology_term_id'",
+          "type": "string"
+        },
+        "cell_ontology_assessment": {
+          "description": "Free-text field for researchers to express disagreements with any aspect of the Cell Ontology for this cell annotation.",
+          "type": "string"
         }
       }
     }

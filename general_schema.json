@@ -27,6 +27,31 @@
         }
       }
     },
+    "Review": {
+      "required": ["datestamp", "verdict"],
+      "additionalProperties": false,
+      "properties": {
+        "datestamp": {
+          "description": "Time and date review was last edited.",
+          "type": "string",
+          "format": "date-time"
+        },
+        "reviewer": {
+          "description": "Review Author",
+          "type": "string"
+        },
+        "review": {
+          "description": "Reviewer's verdict on the annotation.  Must be 'Agree' or 'Disagree'",
+          "enum": [
+            "Agree",
+            "Disagree"
+          ]
+        },
+        "explanation": {
+          "description": "Free-text review of annotation. This is required if the verdict is disagree and should include reasons for disagreement."
+        }
+      }
+    },
     "Labelset": {
       "properties": {
         "name": {
@@ -51,7 +76,9 @@
           "$ref": "#/definitions/automated_annotation"
         }
       },
-      "required": ["name"]
+      "required": [
+        "name"
+      ]
     },
     "automated_annotation": {
       "type": "object",
@@ -83,7 +110,7 @@
     },
     "Annotation": {
       "type": "object",
-      "description": "A collection of fields recording a cell type/class/state annotation on some set os cells, supporting evidence and provenance. As this is intended as a general schema, compulsory fields are kept to a minimum. However, tools using this schema are encouarged to specify a larger set of compulsory fields for publication. \n\nNote: This schema deliberately allows for additional fields in order to support ad hoc user fields, new formal schema extensions and project/tool specific metadata.",
+      "description": "A collection of fields recording a cell type/class/state annotation on some set of cells, supporting evidence and provenance. As this is intended as a general schema, compulsory fields are kept to a minimum. However, tools using this schema are encouarged to specify a larger set of compulsory fields for publication. \n\nNote: This schema deliberately allows for additional fields in order to support ad hoc user fields, new formal schema extensions and project/tool specific metadata.",
       "required": [
         "labelset",
         "cell_label"
@@ -152,6 +179,16 @@
             "type": "string",
             "description": "List of synonyms"
           }
+        },
+        "reviews": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Review"
+          }
+        },
+        "author_annotation_fields": {
+          "type": "object",
+          "description": "A dictionary of author defined key value pairs annotating the cell set. The names and aims of these fields MUST not clash with official annotation fields."
         }
       }
     }
