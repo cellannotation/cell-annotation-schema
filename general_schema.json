@@ -189,10 +189,6 @@
       "description": "The description of the dataset. e.g. 'A total of 15 retinal ganglion cell clusters were identified from over 99K retinal ganglion cell nuclei in the current atlas. Utilizing previous characterized markers from macaque, 5 clusters can be annotated.'",
       "type": "string"
     },
-    "dataset_url": {
-      "type": "string",
-      "description": "A persistent URL of the dataset."
-    },
     "cellannotation_schema_version": {
       "description": "The schema version, the cell annotation open standard. Current version MUST follow 0.1.0\nThis versioning MUST follow the format `'[MAJOR].[MINOR].[PATCH]'` as defined by Semantic Versioning 2.0.0, https://semver.org/",
       "type": "string"
