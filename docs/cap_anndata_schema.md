@@ -1272,7 +1272,7 @@ Key-value pair in the `uns` dictionary
 
 ### author_name
 
-Key-value pair in the `author_list` dictionary
+Key-value pair in the `author_list` item dictionary
 
 <table><tbody>
 	<tr>
@@ -1289,7 +1289,7 @@ Key-value pair in the `author_list` dictionary
 	</tr>
 	<tr>
   		<td><b>source</b></td>
-  		<td>file or UI</td>
+  		<td>software</td>
 	</tr>
 	<tr>
   		<td><b>required for publication on CAP</b></td>
@@ -1302,14 +1302,14 @@ Key-value pair in the `author_list` dictionary
 </tbody></table>
 
 
-### author_contact
+### email
 
-Key-value pair in the `author_list` dictionary
+Key-value pair in the `author_list` item dictionary
 
 <table><tbody>
 	<tr>
   		<td><b>key</b></td>
-  		<td><code>author_contact</code></td>
+  		<td><code>email</code></td>
 	</tr>
 	<tr>
   		<td><b>type</b></td>
@@ -1321,7 +1321,7 @@ Key-value pair in the `author_list` dictionary
 	</tr>
 	<tr>
   		<td><b>source</b></td>
-  		<td>file or UI</td>
+  		<td>software</td>
 	</tr>
 	<tr>
   		<td><b>required for publication on CAP</b></td>
@@ -1335,7 +1335,7 @@ Key-value pair in the `author_list` dictionary
 
 ### orcid
 
-Key-value pair in the `author_list` dictionary
+Key-value pair in the `author_list` item dictionary
 
 <table><tbody>
 	<tr>
@@ -1352,7 +1352,7 @@ Key-value pair in the `author_list` dictionary
 	</tr>
 	<tr>
   		<td><b>source</b></td>
-  		<td>file or UI</td>
+  		<td>software</td>
 	</tr>
 	<tr>
   		<td><b>required for publication on CAP</b></td>
