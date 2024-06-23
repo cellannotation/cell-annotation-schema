@@ -87,6 +87,9 @@ This is designed not to tie-in to a single project (i.e. no tool-specific fields
 - **`cap_publication_url`** *(string)*: A persistent URL of the publication on CAP. (NOTE: the term "publication" refers to the workspace published on CAP with a version and timestamp.).
 
 
+- **`cap_dataset_url`** *(string)*: A persistent URL of the dataset on CAP.
+
+
 - **`publication_timestamp`** *(string)*: The timestamp of the CAP publication. This MUST be a string in the format %yyyy-%MM-%dd'T'%hh:%mm:%ss. This value will be overwritten by the newest timestamp upon a new publication.
 
 

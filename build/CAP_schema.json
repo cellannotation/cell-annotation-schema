@@ -286,6 +286,10 @@
       "type": "string",
       "description": "A persistent URL of the publication on CAP. (NOTE: the term \"publication\" refers to the workspace published on CAP with a version and timestamp.)"
     },
+    "cap_dataset_url": {
+      "type": "string",
+      "description": "A persistent URL of the dataset on CAP."
+    },
     "publication_timestamp": {
       "type": "string",
       "description": "The timestamp of the CAP publication. This MUST be a string in the format %yyyy-%MM-%dd'T'%hh:%mm:%ss. This value will be overwritten by the newest timestamp upon a new publication."
