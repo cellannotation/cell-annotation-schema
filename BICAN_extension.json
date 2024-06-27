@@ -84,6 +84,14 @@
           "items": {
             "$ref": "#/definitions/Cell"
           }
+        },
+        "negative_marker_gene_evidence": {
+          "description": "List of names of genes, the absence of expression of which is explicitly used as evidence for this cell annotation. Each gene MUST be included in the matrix of the AnnData/Seurat file.",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "description": "Gene names explicitly used as evidence, which MUST be in the matrix of the AnnData/Seurat file"
+          }
         }
       }
     }
