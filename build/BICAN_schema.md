@@ -62,7 +62,6 @@ This is designed not to tie-in to a single project (i.e. no tool-specific fields
     - **`rationale`** *(string)*: The free-text rationale which users provide as justification/evidence for their cell annotations. Researchers are encouraged to use this field to cite relevant publications in-line using standard academic citations of the form `(Zheng et al., 2020)` This human-readable free-text MUST be encoded as a single string.All references cited SHOULD be listed using DOIs under rationale_dois. There MUST be a 2000-character limit.
     - **`rationale_dois`** *(list)*: A list of valid publication DOIs cited by the author to support or provide justification/evidence/context for 'cell_label'.
     - **`marker_gene_evidence`** *(list)*: List of names of genes whose expression in the cells being annotated is explicitly used as evidence for this cell annotation. Each gene MUST be included in the matrix of the AnnData/Seurat file.
-    - **`negative_marker_gene_evidence`** *(list)*: List of names of genes, the absence of expression of which is explicitly used as evidence for this cell annotation. Each gene MUST be included in the matrix of the AnnData/Seurat file.
     - **`synonyms`** *(list)*: This field denotes any free-text term of a biological entity which the author associates as synonymous with the biological entity listed in the field 'cell_label'.In the case whereby no synonyms exist, the authors MAY leave this as blank, which is encoded as 'NA'. However, this field is NOT OPTIONAL.
     - **`reviews`** *(list)*
       - **`datestamp`** *(string, format: date-time, required)*: Time and date review was last edited.
@@ -82,5 +81,6 @@ This is designed not to tie-in to a single project (i.e. no tool-specific fields
       - **`cell_id`** *(string, required)*: Identifier for a single cell.
       - **`confidence`** *(number)*: Normalised confidence score.
       - **`author_categories`** *(list)*
+    - **`negative_marker_gene_evidence`** *(list)*: List of names of genes, the absence of expression of which is explicitly used as evidence for this cell annotation. Each gene MUST be included in the matrix of the AnnData/Seurat file.
 
 
