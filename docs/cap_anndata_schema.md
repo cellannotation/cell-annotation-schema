@@ -1246,22 +1246,22 @@ Key-value pair in the `uns` dictionary
 	</tr>
 </tbody></table>
 
-## authors_list
+## author_list
 
 Key-value pair in the `uns` dictionary
 
 <table><tbody>
 	<tr>
   		<td><b>key</b></td>
-  		<td><code>authors_list</code></td>
+  		<td><code>author_list</code></td>
 	</tr>
 	<tr>
   		<td><b>type</b></td>
-  		<td>string</td>
+  		<td>List of dictionaries</td>
 	</tr>
 	<tr>
   		<td><b>value</b></td>
-  		<td>This field stores a list of CAP users who are included in the CAP project as collaborators, regardless of their specific role (Viewer, Editor, or Owner).</td>
+  		<td>This field stores a list of CAP users who are included in the CAP project as collaborators. The first author in this list is the primary author on CAP.`</td>
 	</tr>
   		<td><b>source</b></td>
   		<td>software</td>
@@ -1272,13 +1272,13 @@ Key-value pair in the `uns` dictionary
 	</tr>
 	<tr>
   		<td><b>example</b></td>
-  		<td><code>'['John Smith', 'Cody Miller', 'Sarah Jones']'</code></td>
+  		<td><code>'[{'author_name':'John Smith', 'email':'jsmith@university.edu', 'orcid' :'ORCID:0000-0002-3843-3472'}]'</code></td>
 	</tr>
 </tbody></table>
 
-## author_name
+### author_name
 
-Key-value pair in the `uns` dictionary
+Key-value pair in the `author_list` item dictionary
 
 <table><tbody>
 	<tr>
@@ -1295,7 +1295,7 @@ Key-value pair in the `uns` dictionary
 	</tr>
 	<tr>
   		<td><b>source</b></td>
-  		<td>file or UI</td>
+  		<td>software</td>
 	</tr>
 	<tr>
   		<td><b>required for publication on CAP</b></td>
@@ -1308,14 +1308,14 @@ Key-value pair in the `uns` dictionary
 </tbody></table>
 
 
-## author_contact
+### email
 
-Key-value pair in the `uns` dictionary
+Key-value pair in the `author_list` item dictionary
 
 <table><tbody>
 	<tr>
   		<td><b>key</b></td>
-  		<td><code>author_contact</code></td>
+  		<td><code>email</code></td>
 	</tr>
 	<tr>
   		<td><b>type</b></td>
@@ -1327,7 +1327,7 @@ Key-value pair in the `uns` dictionary
 	</tr>
 	<tr>
   		<td><b>source</b></td>
-  		<td>file or UI</td>
+  		<td>software</td>
 	</tr>
 	<tr>
   		<td><b>required for publication on CAP</b></td>
@@ -1339,14 +1339,14 @@ Key-value pair in the `uns` dictionary
 	</tr>
 </tbody></table>
 
-## author_orcid
+### orcid
 
-Key-value pair in the `uns` dictionary
+Key-value pair in the `author_list` item dictionary
 
 <table><tbody>
 	<tr>
   		<td><b>key</b></td>
-  		<td><code>author_orcid</code></td>
+  		<td><code>orcid</code></td>
 	</tr>
 	<tr>
   		<td><b>type</b></td>
@@ -1358,7 +1358,7 @@ Key-value pair in the `uns` dictionary
 	</tr>
 	<tr>
   		<td><b>source</b></td>
-  		<td>file or UI</td>
+  		<td>software</td>
 	</tr>
 	<tr>
   		<td><b>required for publication on CAP</b></td>
