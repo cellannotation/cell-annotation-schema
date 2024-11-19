@@ -372,7 +372,7 @@ ScanPy has set an AnnData community standard of defining the `*.obs` value by th
 	</tr>
 	<tr>
   		<td><b>example column name</b></td>
-  		<td><code>'cluster_leiden'</code> or <code>'cluster_leiden_broad'</code> or <code>'louvain'</code> or <code>'leiden_fine'</code></td>
+  		<td><code>'cluster_leiden'</code> or <code>'cluster_leiden_broad'</code> or <code>'louvain'</code> or <code>'leiden'</code></td>
 	</tr>
 	<tr>
   		<td><b>example value</b></td>
