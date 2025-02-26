@@ -10,7 +10,7 @@ This is designed not to tie-in to a single project (i.e. no tool-specific fields
 - **`matrix_file_id`** *(string)*: A resolvable ID for a cell by gene matrix file in the form namespace:accession, e.g. CellXGene_dataset:8e10f1c4-8e98-41e5-b65f-8cd89a887122.  Please see https://github.com/cellannotation/cell-annotation-schema/registry/registry.json for supported namespaces.
 
 
-- **`title`** *(string)*: The title of the dataset. This MUST be less than or equal to 200 characters. e.g. 'Human retina cell atlas - retinal ganglion cells'.
+- **`title`** *(string, required)*: The title of the dataset. This MUST be less than or equal to 200 characters. e.g. 'Human retina cell atlas - retinal ganglion cells'.
 
 
 - **`description`** *(string)*: The description of the dataset. e.g. 'A total of 15 retinal ganglion cell clusters were identified from over 99K retinal ganglion cell nuclei in the current atlas. Utilizing previous characterized markers from macaque, 5 clusters can be annotated.'.
@@ -31,7 +31,7 @@ This is designed not to tie-in to a single project (i.e. no tool-specific fields
 - **`author_list`** *(string)*: This field stores a list of users who are included in the project as collaborators, regardless of their specific role. An example list; '['John Smith', 'Cody Miller', 'Sarah Jones']'.
 
 
-- **`author_name`** *(string)*: Primary author's name. This MUST be a string in the format `[FIRST NAME] [LAST NAME]`.
+- **`author_name`** *(string, required)*: Primary author's name. This MUST be a string in the format `[FIRST NAME] [LAST NAME]`.
 
 
 - **`author_contact`** *(string, format: email)*: Primary author's contact. This MUST be a valid email address of the author.
@@ -40,7 +40,7 @@ This is designed not to tie-in to a single project (i.e. no tool-specific fields
 - **`orcid`** *(string)*: Primary author's orcid. This MUST be a valid ORCID for the author.
 
 
-- **`labelsets`** *(list)*
+- **`labelsets`** *(array, required)*
     - **`name`** *(string, required)*: name of annotation key.
     - **`description`** *(string)*: Some text describing what types of cell annotation this annotation key is used to record.
     - **`annotation_method`** *(string)*: The method used for creating the cell annotations. This MUST be one of the following strings: `'algorithmic'`, `'manual'`, or `'both'` . Must be one of: `["algorithmic", "manual", "both"]`.
@@ -52,7 +52,7 @@ This is designed not to tie-in to a single project (i.e. no tool-specific fields
     - **`rank`** *(integer)*: A number indicating relative granularity with 0 being the most specific.  Use this where a single dataset has multiple keys that are used consistently to record annotations and different levels of granularity.
 
 
-- **`annotations`** *(list)*
+- **`annotations`** *(array, required)*
     - **`labelset`** *(string, required)*: The unique name of the set of cell annotations. Each cell within the AnnData/Seurat file MUST be associated with a 'cell_label' value in order for this to be a valid 'cellannotation_setname'.
     - **`cell_label`** *(string, required)*: This denotes any free-text term which the author uses to annotate cells, i.e. the preferred cell label name used by the author. Abbreviations are exceptable in this field; refer to 'cell_fullname' for related details. Certain key words have been reserved:- `'doublets'` is reserved for encoding cells defined as doublets based on some computational analysis- `'junk'` is reserved for encoding cells that failed sequencing for some reason, e.g. few genes detected, high fraction of mitochondrial reads- `'unknown'` is explicitly reserved for unknown or 'author does not know'- `'NA'` is incomplete, i.e. no cell annotation was provided.
     - **`cell_fullname`** *(string)*: This MUST be the full-length name for the biological entity listed in `cell_label` by the author. (If the value in `cell_label` is the full-length term, this field will contain the same value.) NOTE: any reserved word used in the field 'cell_label' MUST match the value of this field. <br>    EXAMPLE 1: Given the matching terms 'LC' and 'luminal cell' used to annotate the same cell(s), then users could use either terms as values in the field 'cell_label'. However, the abbreviation 'LC' CANNOT be provided in the field 'cell_fullname'. <br>    EXAMPLE 2: Either the abbreviation 'AC' or the full-length term intended by the author 'GABAergic amacrine cell' MAY be placed in the field 'cell_label', but as full-length term naming this biological entity, 'GABAergic amacrine cell' MUST be placed in the field 'cell_fullname'.
