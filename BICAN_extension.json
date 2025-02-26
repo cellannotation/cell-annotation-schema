@@ -92,6 +92,23 @@
             "type": "string",
             "description": "Gene names explicitly used as evidence, which MUST be in the matrix of the AnnData/Seurat file"
           }
+        },
+        "neurotransmitter_accession": {
+          "type": "string",
+          "description": "Accessions of cell neurotransmitter associated with this cell set."
+        },
+        "neurotransmitter_rationale": {
+          "type": "string",
+          "description": "The free-text rationale which users provide as justification/evidence for supporting the neurotransmitter association.",
+          "maxLength": 2000
+        },
+        "neurotransmitter_marker_gene_evidence": {
+          "description": "List of gene names used as evidence for neurotransmitter association. Each gene MUST be included in the matrix of the AnnData/Seurat file.",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "description": "Gene names explicitly used as evidence for neurotransmitter association, which MUST be in the matrix of the AnnData/Seurat file."
+          }
         }
       }
     }
