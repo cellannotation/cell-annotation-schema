@@ -2,7 +2,7 @@
 
 Contact: [...]
 
-Version: 1.0.0  
+Version: 1.0.1  
 
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED" "MAY", and "OPTIONAL" in this document are to be interpreted as described in [BCP 14](https://tools.ietf.org/html/bcp14), [RFC2119](https://www.rfc-editor.org/rfc/rfc2119.txt), and [RFC8174](https://www.rfc-editor.org/rfc/rfc8174.txt) when, and only when, they appear in all capitals, as shown here.
 
@@ -1370,6 +1370,36 @@ Key-value pair in the `uns` dictionary
 	</tr>
 </tbody></table>
 
+## hierarchy
+
+A dictionary in the `uns` dictionary
+
+<table><tbody>
+	<tr>
+  		<td><b>key</b></td>
+  		<td><code>hierarchy</code></td>
+	</tr>
+	<tr>
+  		<td><b>type</b></td>
+  		<td>python dictionary</td>
+	</tr>
+	<tr>
+  		<td><b>value</b></td>
+		<td>An ordering of cell level groupings from <code>[cellannotation_setname]</code> where smaller numbers are broader types. E.g. {"Class":0, "Subclass": 1, "cell_type": 2}</td>
+	</tr>
+	<tr>
+  		<td><b>source</b></td>
+  		<td>file or UI</td>
+	</tr>
+	<tr>
+  		<td><b>required for publication on CAP</b></td>
+  		<td>no</td>
+	</tr>
+	<tr>
+  		<td><b>example</b></td>
+  		<td><code>'hierarchy': {'Class':0, 'Subclass':1, 'Group':2, 'cluster_id':3}</code></td>
+	</tr>
+</tbody></table>
 
 ## cellannotation_metadata
 
@@ -1616,5 +1646,10 @@ schema version 1.0.0
   <li>Renamed <code>dataset_title</code> to <code>title</code></li>
   <li>Renamed <code>dataset_description</code> to <code>description</code></li>
   <li>Renamed <code>cellannotation_setdescription</code> to <code>description </code></li>
+</ul> 
+
+schema version 1.0.1 
+ <ul>
+  <li>Added <code>hierarchy</code> to <code>uns</code> section</li>
 </ul> 
 
