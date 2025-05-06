@@ -7,7 +7,7 @@ This is designed not to tie-in to a single project (i.e. no tool-specific fields
 
 ## Properties
 
-- **`matrix_file_id`** *(string)*: A resolvable ID for a cell by gene matrix file in the form namespace:accession, e.g. CellXGene_dataset:8e10f1c4-8e98-41e5-b65f-8cd89a887122.  Please see https://github.com/cellannotation/cell-annotation-schema/registry/registry.json for supported namespaces.
+- **`matrix_file_id`** *(string)*: A resolvable ID for a cell by gene matrix file in the form namespace:accession, e.g. CellXGene_dataset:8e10f1c4-8e98-41e5-b65f-8cd89a887122.  Please see https://github.com/cellannotation/cell-annotation-schema/registry.json for supported namespaces.
 
 
 - **`title`** *(string, required)*: The title of the dataset. This MUST be less than or equal to 200 characters. e.g. 'Human retina cell atlas - retinal ganglion cells'.
