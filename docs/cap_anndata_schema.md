@@ -2,7 +2,7 @@
 
 Contact: [...]
 
-Version: 1.0.1  
+Version: 1.0.2  
 
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED" "MAY", and "OPTIONAL" in this document are to be interpreted as described in [BCP 14](https://tools.ietf.org/html/bcp14), [RFC2119](https://www.rfc-editor.org/rfc/rfc2119.txt), and [RFC8174](https://www.rfc-editor.org/rfc/rfc8174.txt) when, and only when, they appear in all capitals, as shown here.
 
@@ -930,6 +930,40 @@ For example, if the user specified the cell annotation as `broad_cells1`, then t
 	</tr>
 </tbody></table>
 
+### [cellannotation_setname]--confidence_score
+
+**Format:** The column name is the string prefix `[cellannotation_setname]--` concatenated with the string value `confidence_score`, i.e. `[cellannotation_setname] + '--' + 'confidence_score'`
+
+<table><tbody>
+	<tr>
+  		<td><b>column</b></td>
+  		<td><code>[cellannotation_set]--confidence_score</code></td>
+	</tr>
+	<tr>
+  		<td><b>index</b></td>
+  		<td>Cell barcode names</td>
+	</tr>
+	<tr>
+  		<td><b>dtype</b></td>
+  		<td>float</td>
+	</tr>
+	<tr>
+  		<td><b>value</b></td>
+  		<td>A float number in [0,1] range corresponding to the model's internal probability that the predicted label is correct.</td>
+	</tr>
+	<tr>
+  		<td><b>source</b></td>
+  		<td>file or UI</td>
+	</tr>
+	<tr>
+  		<td><b>required for publication on CAP</b></td>
+  		<td>no</td>
+	</tr>
+	<tr>
+  		<td><b>example</b></td>
+  		<td><code>0.45</code></td>
+	</tr>
+</tbody></table>
 
 # `var` and `raw.var` (Gene Metadata)
 
@@ -1653,3 +1687,7 @@ schema version 1.0.1
   <li>Added <code>hierarchy</code> to <code>uns</code> section</li>
 </ul> 
 
+schema version 1.0.2 
+ <ul>
+  <li>Added <code>[cellannotation_setname]--confidence_score</code> to <code>obs</code> section</li>
+</ul> 
